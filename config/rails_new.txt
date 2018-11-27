@@ -1,0 +1,1 @@
+rails new retunnel -d postgresql -M --skip-active-storage --skip-sprockets --skip-coffee --skip-turbolinks -T --webpack=react

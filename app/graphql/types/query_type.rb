@@ -15,6 +15,20 @@ module Types
     end
     #endregion
 
+    #region TaskCode Fields
+    field :task_code, Types::TaskCode, null: true do
+      argument :task_code_id, ID, required: true, as: :id
+    end
+    def task_code(id:)
+      Lookup::TaskCode.find_by_id(id)
+    end
+
+    field :task_codes, [Types::TaskCode], null: false
+    def task_codes
+      Lookup::TaskCode.all
+    end
+    #endregion
+
     # last of fields
   end
 end

@@ -236,3 +236,4 @@ typings/
 # Serverless directories
 .serverless
 
+/public/packs/manifest.json

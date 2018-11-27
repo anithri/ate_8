@@ -83,3 +83,10 @@ production:
   database: retunnel_production
   username: retunnel
   password: <%= ENV['RETUNNEL_DATABASE_PASSWORD'] %>
+
+pc3_rom:
+  adapter: postgresql
+  database: pc3_production
+  username: rom
+  password: Ultim8rom
+  host: clocktower.cppwind.local

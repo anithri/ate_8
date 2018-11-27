@@ -29,6 +29,20 @@ module Types
     end
     #endregion
 
+    #region Employee Fields
+    field :employee, Types::Employee, null: true do
+      argument :Employee_id, ID, required: true, as: :id
+    end
+    def employee(id:)
+      ::Employee.find_by_id(id)
+    end
+
+    field :employees, [Types::Employee], null: false
+    def employees
+      ::Employee.all
+    end
+    #endregion
+
     # last of fields
   end
 end

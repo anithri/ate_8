@@ -1,5 +1,5 @@
 ---
-to: app/graphql/types/<%= h.inflection.transform(name,['undasherize','underscore'])%>_type.rb
+to: app/graphql/types/<%= h.inflection.transform(name,['undasherize','underscore'])%>.rb
 ---
 # frozen_string_literal: true
 

@@ -70,3 +70,5 @@ group :development, :test do
   gem 'faker'
   gem 'graphiql-rails'
 end
+
+gem 'graphiql-rails', group: :development

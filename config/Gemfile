@@ -46,6 +46,8 @@ gem 'graphql'
 gem 'interactor-rails'
 gem 'pundit'
 gem 'rails_warden'
+gem 'lookup_data', path: '../lookup_data'
+
 group :development do
   gem 'guard-rails'
   gem 'guard-bundler'
@@ -54,7 +56,6 @@ group :development do
   gem 'guard-spring'
   gem 'annotate'
   gem 'libnotify'
-
 end
 
 group :test do
@@ -70,5 +71,3 @@ group :development, :test do
   gem 'faker'
   gem 'graphiql-rails'
 end
-
-gem 'graphiql-rails', group: :development

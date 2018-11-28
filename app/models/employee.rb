@@ -26,6 +26,9 @@ class Employee < ActiveRecord::Base
                            :full_name, :manager, :ad_username, :dn,
                            :manager_username, :manager_email]
   establish_connection :pc3_rom
+  def readonly?
+    true
+  end
 
   store_accessor :ldap_attrs, LOCAL_LDAP_ATTRIBUTES
 

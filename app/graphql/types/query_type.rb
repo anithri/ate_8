@@ -43,6 +43,34 @@ module Types
     end
     #endregion
 
+    #region InternalProject Fields
+    field :internal_project, Types::InternalProject, null: true do
+      argument :internal_project_id, ID, required: true, as: :id
+    end
+    def internal_project(id:)
+      ::InternalProject.find_by_id(id)
+    end
+
+    field :internal_projects, [Types::InternalProject], null: false
+    def internal_projects
+      ::InternalProject.all
+    end
+    #endregion
+
+    #region ClientProject Fields
+    field :client_project, Types::ClientProject, null: true do
+      argument :client_project_id, ID, required: true, as: :id
+    end
+    def client_project(id:)
+      ::ClientProject.find_by_id(id)
+    end
+
+    field :client_projects, [Types::ClientProject], null: false
+    def client_projects
+      ::ClientProject.all
+    end
+    #endregion
+
     # last of fields
   end
 end

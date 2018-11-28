@@ -35,7 +35,7 @@ class Employee < ActiveRecord::Base
   scope :by_name, -> { order("employees.ldap_attrs -> 'last_name'", "employees.ldap_attrs -> 'first_name'") }
   scope :current, -> { gone_flag_is('true') }
   scope :gone_flag_is, ->(val) { where("users.pc2_attrs -> 'gone_flag' = ?", val.to_s) }
-  scope :members_of, ->(*group) { where(Employee.arel_table[:groups].overlap(group)) }
+  scope :members_of, ->(group) { where("? = ANY(groups)", group) }
   scope :first_name_is, ->(name) { where("ldap_attrs -> 'first_name' = ?", name) }
   scope :last_name_is, ->(name) { where("ldap_attrs -> 'last_name' = ?", name) }
 

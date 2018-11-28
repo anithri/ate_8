@@ -9,7 +9,7 @@ module Types
       Lookup::WindTunnel.find_by_id(id)
     end
 
-    field :wind_tunnels, [Types::WindTunnel], null: false
+    field :wind_tunnels, Types::WindTunnel.connection_type, null: false
     def wind_tunnels
       Lookup::WindTunnel.all
     end
@@ -23,13 +23,17 @@ module Types
       Lookup::TaskCode.find_by_id(id)
     end
 
-    field :task_codes, [Types::TaskCode], null: false
+    field :task_codes, Types::TaskCode.connection_type , null: false
     def task_codes
       Lookup::TaskCode.all
     end
     #endregion
 
     #region Employee Fields
+    field :current_user, Types::Employee, null: false
+    def current_user
+      context[:current_user]
+    end
     field :employee, Types::Employee, null: true do
       argument :Employee_id, ID, required: true, as: :id
     end
@@ -37,7 +41,7 @@ module Types
       ::Employee.find_by_id(id)
     end
 
-    field :employees, [Types::Employee], null: false
+    field :employees, Types::Employee.connection_type, null: false
     def employees
       ::Employee.all
     end
@@ -51,7 +55,7 @@ module Types
       ::InternalProject.find_by_id(id)
     end
 
-    field :internal_projects, [Types::InternalProject], null: false
+    field :internal_projects, Types::InternalProject.connection_type, null: false
     def internal_projects
       ::InternalProject.all
     end
@@ -65,7 +69,7 @@ module Types
       ::ClientProject.find_by_id(id)
     end
 
-    field :client_projects, [Types::ClientProject], null: false
+    field :client_projects, Types::ClientProject.connection_type, null: false
     def client_projects
       ::ClientProject.all
     end

@@ -9,10 +9,11 @@ module Types
       Lookup::WindTunnel.find_by_id(id)
     end
 
-    field :wind_tunnels, Types::WindTunnel.connection_type, null: false do
+    field :wind_tunnels, [Types::WindTunnel], null: false do
+      argument :closure_status, Types::TunnelClosureType, required: false, default_value: :current
     end
-    def wind_tunnels
-      Lookup::WindTunnel.all
+    def wind_tunnels(closure_status:)
+      Lookup::WindTunnel.with_closure_status(closure_status)
     end
     #endregion
 
@@ -24,7 +25,7 @@ module Types
       Lookup::TaskCode.find_by_id(id)
     end
 
-    field :task_codes, Types::TaskCode.connection_type , null: false
+    field :task_codes, [Types::TaskCode] , null: false
     def task_codes
       Lookup::TaskCode.all
     end

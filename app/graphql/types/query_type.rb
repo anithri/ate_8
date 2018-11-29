@@ -77,6 +77,29 @@ module Types
     end
     #endregion
 
+    #region AllProjectsAutocomplete Fields
+    field :AllProjectsAutocompletes, [Types::AllProjects], null: false
+    def AllProjectsAutocompletes
+      ::AllProjectsAutocomplete.all
+    end
+    #endregion
+
+    #region ProjectsAutocomplete Fields
+    field :autocomplete_projects, Types::AutocompleteResults, null: true do
+      argument :options, Types::AutocompleteOptions, required: true
+    end
+    def ProjectsAutocomplete(options:)
+      result = Autocomplete::Projects.call(options)
+
+    end
+    #endregion
+
     # last of fields
   end
 end
+
+
+
+
+
+

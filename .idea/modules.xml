@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../lookup_data/.idea/lookup_data.iml" filepath="$PROJECT_DIR$/../lookup_data/.idea/lookup_data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/retunnel.iml" filepath="$PROJECT_DIR$/.idea/retunnel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tunnel_logs/.idea/tunnel_logs.iml" filepath="$PROJECT_DIR$/../tunnel_logs/.idea/tunnel_logs.iml" />
     </modules>
   </component>
 </project>

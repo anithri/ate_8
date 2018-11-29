@@ -9,7 +9,8 @@ module Types
       Lookup::WindTunnel.find_by_id(id)
     end
 
-    field :wind_tunnels, Types::WindTunnel.connection_type, null: false
+    field :wind_tunnels, Types::WindTunnel.connection_type, null: false do
+    end
     def wind_tunnels
       Lookup::WindTunnel.all
     end

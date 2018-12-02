@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'lookup/graphql'
 module Types
   class QueryType < Types::BaseObject
-    #region WindTunnel Fields
+    # region WindTunnel Fields
     field :wind_tunnel, Types::WindTunnel, null: true do
       argument :wind_tunnel_id, ID, required: true, as: :id
     end
@@ -15,9 +17,9 @@ module Types
     def wind_tunnels(closure_status:)
       Lookup::WindTunnel.with_closure_status(closure_status)
     end
-    #endregion
+    # endregion
 
-    #region TaskCode Fields
+    # region TaskCode Fields
     field :task_code, Types::TaskCode, null: true do
       argument :task_code_id, ID, required: true, as: :id
     end
@@ -25,13 +27,13 @@ module Types
       Lookup::TaskCode.find_by_id(id)
     end
 
-    field :task_codes, [Types::TaskCode] , null: false
+    field :task_codes, [Types::TaskCode], null: false
     def task_codes
       Lookup::TaskCode.all
     end
-    #endregion
+    # endregion
 
-    #region Employee Fields
+    # region Employee Fields
     field :current_user, Types::Employee, null: false
     def current_user
       context[:current_user]
@@ -47,9 +49,9 @@ module Types
     def employees
       ::Employee.all
     end
-    #endregion
+    # endregion
 
-    #region InternalProject Fields
+    # region InternalProject Fields
     field :internal_project, Types::InternalProject, null: true do
       argument :internal_project_id, ID, required: true, as: :id
     end
@@ -61,9 +63,9 @@ module Types
     def internal_projects
       ::InternalProject.all
     end
-    #endregion
+    # endregion
 
-    #region ClientProject Fields
+    # region ClientProject Fields
     field :client_project, Types::ClientProject, null: true do
       argument :client_project_id, ID, required: true, as: :id
     end
@@ -75,31 +77,24 @@ module Types
     def client_projects
       ::ClientProject.all
     end
-    #endregion
+    # endregion
 
-    #region AllProjectsAutocomplete Fields
+    # region AllProjectsAutocomplete Fields
     field :AllProjectsAutocompletes, [Types::AllProjects], null: false
     def AllProjectsAutocompletes
       ::AllProjectsAutocomplete.all
     end
-    #endregion
+    # endregion
 
-    #region ProjectsAutocomplete Fields
+    # region ProjectsAutocomplete Fields
     field :autocomplete_projects, Types::AutocompleteResults, null: true do
       argument :options, Types::AutocompleteOptions, required: true
     end
     def ProjectsAutocomplete(options:)
       result = Autocomplete::Projects.call(options)
-
     end
-    #endregion
+    # endregion
 
     # last of fields
   end
 end
-
-
-
-
-
-

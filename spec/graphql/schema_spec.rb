@@ -1,34 +1,36 @@
+# frozen_string_literal: true
+
 describe RetunnelSchema do
   # You can override `context` or `variables` in
   # more specific scopes
-  let(:context) {{
-    current_user: build(:employee)
-  }}
-  let(:variables) {{}}
-  let(:query_string) {"query { currentUser { username } }"}
-  let(:result) {
+  let(:context) do
+    {
+      current_user: build(:employee)
+    }
+  end
+  let(:variables) { {} }
+  let(:query_string) { 'query { currentUser { username } }' }
+  let(:result) do
     res = RetunnelSchema.execute(
       query_string,
-      context:   context,
+      context: context,
       variables: variables
     )
     # Print any errors
-    if res["errors"]
-      pp res
-    end
+    pp res if res['errors']
     res
-  }
+  end
 
   it 'should be a valid schema' do
     expect(result).to be_a GraphQL::Query::Result
   end
 
-  describe "a specific query" do
-    let(:query_string) {%|{ currentUser { username } }|}
+  describe 'a specific query' do
+    let(:query_string) { %({ currentUser { username } }) }
 
     it "shows the current_user's name" do
-      username = result["data"].dig("currentUser","username")
-      expect(username).to eq("batman")
+      username = result['data'].dig('currentUser', 'username')
+      expect(username).to eq('batman')
     end
   end
 end

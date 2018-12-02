@@ -1,6 +1,7 @@
-class ProjectFinder
+# frozen_string_literal: true
 
-  def project(klass, id)
+class ProjectFinder
+  def project(_klass, id)
     projectable_klass.find(id)
   end
 
@@ -9,7 +10,10 @@ class ProjectFinder
   end
 
   def all_from_entries
-    # return [] #TODO REMOVE had to remove to solve race condition between creating the database and reading the database
+    #TODO REMOVE had to remove to solve race condition
+    #between creating the database and reading the database
+    # return []
+
     Entry.pluck(:projectable_type, :projectable_id).uniq
   end
 
@@ -20,13 +24,12 @@ class ProjectFinder
   end
 
   def all_names
-    self.all.map do |p|
+    all.map do |p|
       [p.display_name, p.id]
     end
   end
 
   def self.all
-    self.new.all
+    new.all
   end
-
 end

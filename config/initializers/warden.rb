@@ -1,15 +1,15 @@
+# frozen_string_literal: true
+
 # config/initializers/warden.rb
 Rails.configuration.middleware.use RailsWarden::Manager do |manager|
-  manager.failure_app = Proc.new { |_env|
-    ['401', {'Content-Type' => 'application/json'}, { error: 'Unauthorized', code: 401 }]
+  manager.failure_app = proc { |_env|
+    ['401', { 'Content-Type' => 'application/json' }, { error: 'Unauthorized', code: 401 }]
   }
   manager.default_strategies :password
   # manager.intercept_401 = false # Warden will intercept 401 responses, which can cause conflicts
 end
 
-Warden::Manager.serialize_into_session do |user|
-  user.id
-end
+Warden::Manager.serialize_into_session(&:id)
 
 Warden::Manager.serialize_from_session do |id|
   User.find_by_id(id)

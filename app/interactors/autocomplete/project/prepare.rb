@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Autocomplete
   module Project
     class Prepare
@@ -5,18 +7,14 @@ module Autocomplete
 
       before do
         if Autocomplete::Projects::VALID_LENGTHS.include?(term.length)
-          if term === term.to_i.to_s
-            context.project_id = term.to_i
-          end
+          context.project_id = term.to_i if term === term.to_i.to_s
         else
           set_invalid_message(term.length, Autocomplete::Projects::VALID_LENGTHS)
           context.fail!
         end
-
       end
 
-      def call
-      end
+      def call; end
 
       def term
         context.term ||= ''

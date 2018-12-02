@@ -6,5 +6,4 @@ class Types::InternalProject < Types::BaseObject
   field :id, ID, null: false
   field :name, String, null: false, method: :display_name
   field :category, String, null: false
-
 end

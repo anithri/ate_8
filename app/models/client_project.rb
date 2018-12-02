@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: projects
@@ -26,7 +28,7 @@ class ClientProject < ActiveRecord::Base
     true
   end
 
-  enum flags: [:pc2, :archived, :purged]
+  enum flags: %i[pc2 archived purged]
 
   def display_name
     "#{id} - #{name}"

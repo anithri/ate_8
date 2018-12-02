@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: employees
@@ -21,10 +23,10 @@
 #
 
 class Employee < ActiveRecord::Base
-  LOCAL_LDAP_ATTRIBUTES = [:last_name, :first_name, :initials, :title,
-                           :office_phone, :mobile_phone, :office, :email,
-                           :full_name, :manager, :ad_username, :dn,
-                           :manager_username, :manager_email]
+  LOCAL_LDAP_ATTRIBUTES = %i[last_name first_name initials title
+                             office_phone mobile_phone office email
+                             full_name manager ad_username dn
+                             manager_username manager_email].freeze
   establish_connection :pc3_rom
   def readonly?
     true
@@ -35,7 +37,7 @@ class Employee < ActiveRecord::Base
   scope :by_name, -> { order("employees.ldap_attrs -> 'last_name'", "employees.ldap_attrs -> 'first_name'") }
   scope :current, -> { gone_flag_is('true') }
   scope :gone_flag_is, ->(val) { where("users.pc2_attrs -> 'gone_flag' = ?", val.to_s) }
-  scope :members_of, ->(group) { where("? = ANY(groups)", group) }
+  scope :members_of, ->(group) { where('? = ANY(groups)', group) }
   scope :first_name_is, ->(name) { where("ldap_attrs -> 'first_name' = ?", name) }
   scope :last_name_is, ->(name) { where("ldap_attrs -> 'last_name' = ?", name) }
 
@@ -48,7 +50,7 @@ class Employee < ActiveRecord::Base
   end
 
   def human_roles
-    groups.sort.join(", ")
+    groups.sort.join(', ')
   end
 
   def is_itar_restricted?
@@ -58,8 +60,9 @@ class Employee < ActiveRecord::Base
   def method_missing(method_name, *args, &block)
     method_str = method_name.to_s
     if method_str.start_with?('is_') && method_str.ends_with?('?')
-      name = method_str.gsub(/\?$/, '').gsub(/^is_/, '').gsub('_', ' ').titleize
+      name = method_str.gsub(/\?$/, '').gsub(/^is_/, '').tr('_', ' ').titleize
       return true if groups.include?('Fourwinds Admin') || groups.include?(name)
+
       return false
     else
       super
@@ -67,8 +70,6 @@ class Employee < ActiveRecord::Base
   end
 
   def self.lab_techs
-	  Employee.members_of('LabTech') + [Employee.find(1)]
+    Employee.members_of('LabTech') + [Employee.find(1)]
   end
-
-
 end

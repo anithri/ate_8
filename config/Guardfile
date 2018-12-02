@@ -6,9 +6,8 @@ notification :libnotify,
              append:    false,
              urgency:   :critical
 
-directories (%w[app lib config spec]).select  do |d|
-  Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist")}
-end
+directories %w[app lib config spec] \
+  .select { |d| Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist") }
 
 guard :bundler do
   require 'guard/bundler'
@@ -54,7 +53,7 @@ end
 
 guard :process, name: 'webpack-dev-server', command: 'bin/webpack-dev-server'
 
-guard :rspec, cmd: 'bundle exec rspec', all_on_start: true, all_after_pass: true do
+guard :rspec, cmd: 'spring rspec', all_on_start: true, all_after_pass: true do
   require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
 

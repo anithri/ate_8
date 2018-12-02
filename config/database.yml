@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   timeout: 5000
-  host: <%= Rails.application.credentials.db.dig(:tunnel_logs, :host) %>
-  port: <%= Rails.application.credentials.db.dig(:tunnel_logs, :port) %>
+#  host: <%= Rails.application.credentials.db.dig(:tunnel_logs, :host) %>
+#  port: <%= Rails.application.credentials.db.dig(:tunnel_logs, :port) %>
   username: <%= Rails.application.credentials.db.dig(:tunnel_logs, :user) %>
   password: <%= Rails.application.credentials.db.dig(:tunnel_logs, :pass) %>
 
@@ -22,7 +22,7 @@ production:
 pc3_rom:
   adapter: postgresql
   database: pc3_production
-  host: <%= Rails.application.credentials.db.dig(:pc3, :host) %>
-  port: <%= Rails.application.credentials.db.dig(:pc3, :port) %>
+#  host: <%= Rails.application.credentials.db.dig(:pc3, :host) %>
+#  port: <%= Rails.application.credentials.db.dig(:pc3, :port) %>
   username: <%= Rails.application.credentials.db.dig(:pc3, :user) %>
   password: <%= Rails.application.credentials.db.dig(:pc3, :pass) %>

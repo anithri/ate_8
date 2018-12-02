@@ -1,7 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Autocomplete::Project::Internal, type: :interactor do
+describe Autocomplete::Project::Internal, type: :interactor do
   describe '.call' do
-    pending "add some examples to (or delete) #{__FILE__}"
+    subject(:context) {
+      Autocomplete::Project::Internal.call(internal_options)
+    }
+
+    let(:internal_options) { {} }
+    it 'should return a result' do
+      expect(subject).to be_an Interactor::Context
+    end
   end
 end

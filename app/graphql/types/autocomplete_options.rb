@@ -1,5 +1,5 @@
 module Types
-  class AutocompleteOptions < Types::BaseObject
-    field :term, String, null: true
+  class AutocompleteOptions < Types::BaseInputObject
+    argument :term, String, required: true
   end
 end

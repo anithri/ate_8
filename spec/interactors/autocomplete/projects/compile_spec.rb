@@ -1,7 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Autocomplete::Project::Compile, type: :interactor do
+describe Autocomplete::Project::Compile, type: :interactor do
   describe '.call' do
-    pending "add some examples to (or delete) #{__FILE__}"
+    subject(:context) {
+      Autocomplete::Project::Compile.call(compile_options)
+    }
+
+    let(:compile_options) { {} }
+    it 'should return a result' do
+      expect(subject).to be_an Interactor::Context
+    end
   end
 end

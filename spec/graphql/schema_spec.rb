@@ -5,7 +5,7 @@ describe RetunnelSchema do
     current_user: build(:employee)
   }}
   let(:variables) {{}}
-  let(:query_string) {"query { current_user { username } }"}
+  let(:query_string) {"query { currentUser { username } }"}
   let(:result) {
     res = RetunnelSchema.execute(
       query_string,
@@ -23,26 +23,12 @@ describe RetunnelSchema do
     expect(result).to be_a GraphQL::Query::Result
   end
 
-  # describe "a specific query" do
-  #   # provide a query string for `result`
-  #   let(:query_string) { %|{ viewer { name } }| }
-  #
-  #   context "when there's no current user" do
-  #     it "is nil" do
-  #       # calling `result` executes the query
-  #       expect(result["data"]["viewer"]).to eq(nil)
-  #     end
-  #   end
-  #
-  #   context "when there's a current user" do
-  #     # override `context`
-  #     let(:context) {
-  #       { current_user: User.new(name: "ABC") }
-  #     }
-  #     it "shows the user's name" do
-  #       user_name = result["data"]["viewer"]["name"]
-  #       expect(user_name).to eq("ABC")
-  #     end
-  #   end
-  # end
+  describe "a specific query" do
+    let(:query_string) {%|{ currentUser { username } }|}
+
+    it "shows the current_user's name" do
+      username = result["data"].dig("currentUser","username")
+      expect(username).to eq("batman")
+    end
+  end
 end

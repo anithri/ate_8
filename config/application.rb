@@ -31,5 +31,6 @@ module Retunnel
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.generators.factory_bot dir: 'spec/factories'
   end
 end

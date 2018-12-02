@@ -2,3 +2,11 @@ Metrics/LineLength:
   Max: 100
 Style/Documentation:
   Enabled: false
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  Enabled: false

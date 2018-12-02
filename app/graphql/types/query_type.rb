@@ -80,8 +80,8 @@ module Types
     # endregion
 
     # region AllProjectsAutocomplete Fields
-    field :AllProjectsAutocompletes, [Types::AllProjects], null: false
-    def AllProjectsAutocompletes
+    field :all_projects_autocompletes, [Types::AllProjects], null: false
+    def all_projects_autocompletes
       ::AllProjectsAutocomplete.all
     end
     # endregion
@@ -90,8 +90,8 @@ module Types
     field :autocomplete_projects, Types::AutocompleteResults, null: true do
       argument :options, Types::AutocompleteOptions, required: true
     end
-    def ProjectsAutocomplete(options:)
-      result = Autocomplete::Projects.call(options)
+    def projects_autocomplete(options:)
+      Autocomplete::Projects.call(options)
     end
     # endregion
 

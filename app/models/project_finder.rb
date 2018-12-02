@@ -10,8 +10,8 @@ class ProjectFinder
   end
 
   def all_from_entries
-    #TODO REMOVE had to remove to solve race condition
-    #between creating the database and reading the database
+    # TODO: REMOVE had to remove to solve race condition
+    # between creating the database and reading the database
     # return []
 
     Entry.pluck(:projectable_type, :projectable_id).uniq

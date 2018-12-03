@@ -43,7 +43,7 @@ class LogEntry < ActiveRecord::Base
   belongs_to :tunnel_log
   belongs_to :employee
   belongs_to :projectable, polymorphic: true
-  belongs_to :lab_tech, class_name: "Employee"
+
   scope :sorted, ->{order(sticky: :desc, end_at: :desc)}
   scope :for_tunnel, ->(page = 1,per = 20){sorted.page(page).per(per)}
   scope :fresh, ->{ where(rework: false) }

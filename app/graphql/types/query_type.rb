@@ -97,7 +97,7 @@ module Types
 
     field :log_entries, [Types::LogEntry], null: false
     def log_entries
-      ::LogEntry.all
+      ::LogEntry.sorted
     end
     #endregion
 

@@ -53,6 +53,7 @@ gem 'pundit'
 gem 'rails_warden'
 gem 'surus'
 gem 'pg_search'
+gem 'globalid'
 
 group :development do
   gem 'annotate'

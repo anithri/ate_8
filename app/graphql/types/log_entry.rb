@@ -14,7 +14,7 @@ module Types
     field :project, Types::Project, null: false
     field :body, String, null: false
     field :rework, Boolean, null: true
-    field :employee, Employee, null: false
+    field :employee, Types::Employee, null: false
     field :created_at, String, null: false
     field :updated_at, String, null: false
   end

@@ -20,8 +20,6 @@ describe Autocomplete::Project::Prepare, type: :interactor do
       end
 
       it 'should set hint' do
-        puts subject.inspect
-        puts subject.hint.inspect
         expect(subject.hint[:type]).to eq 'invalidTerm'
       end
     end

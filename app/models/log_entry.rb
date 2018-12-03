@@ -120,7 +120,7 @@ class LogEntry < ActiveRecord::Base
   end
 
   def projectable_collection
-    if projectable_type && projectable_type.present?
+    if projectable_type&.present?
       [[projectable.to_global_id, project.display_name]]
     else
       []

@@ -52,46 +52,38 @@ module Types
     # endregion
 
     # region InternalProject Fields
-    field :internal_project, Types::InternalProject, null: true do
+    field :internal_project, Types::Project, null: true do
       argument :internal_project_id, ID, required: true, as: :id
     end
     def internal_project(id:)
       ::InternalProject.find_by_id(id)
     end
 
-    field :internal_projects, Types::InternalProject.connection_type, null: false
+    field :internal_projects, Types::Project.connection_type, null: false
     def internal_projects
       ::InternalProject.all
     end
     # endregion
 
     # region ClientProject Fields
-    field :client_project, Types::ClientProject, null: true do
+    field :client_project, Types::Project, null: true do
       argument :client_project_id, ID, required: true, as: :id
     end
     def client_project(id:)
       ::ClientProject.find_by_id(id)
     end
 
-    field :client_projects, Types::ClientProject.connection_type, null: false
+    field :client_projects, Types::Project.connection_type, null: false
     def client_projects
       ::ClientProject.all
     end
     # endregion
 
-    # region AllProjectsAutocomplete Fields
-    field :all_projects_autocompletes, [Types::AllProjects], null: false
-    def all_projects_autocompletes
-      ::AllProjectsAutocomplete.all
-    end
-    # endregion
-
-    # region ProjectsAutocomplete Fields
     field :autocomplete_projects, Types::AutocompleteResults, null: true do
-      argument :options, Types::AutocompleteOptions, required: true
+      argument :term, String, required: true
     end
-    def projects_autocomplete(options:)
-      Autocomplete::Projects.call(options)
+    def autocomplete_projects(term:)
+      Autocomplete::Projects.call(term: term)
     end
     # endregion
 

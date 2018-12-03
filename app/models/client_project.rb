@@ -24,6 +24,11 @@
 class ClientProject < ActiveRecord::Base
   self.table_name = 'projects'
   establish_connection :pc3_rom
+  include PgSearch
+  pg_search_scope :autocomplete, against: %i[id name]
+  default_scope { order(id: :desc) }
+  scope :id_match, ->(id) { where("id::text LIKE '?%'", id.to_i)}
+
   def readonly?
     true
   end
@@ -38,11 +43,11 @@ class ClientProject < ActiveRecord::Base
     id.to_s
   end
 
-  def current_status
-    event_logs(true).select { |e| e.event_type_id < 100 }.first
-  end
-
   def status_type
     Lookup::StatusType.find_by_status status
+  end
+
+  def category
+    'client'
   end
 end

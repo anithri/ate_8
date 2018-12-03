@@ -52,6 +52,7 @@ gem 'lookup_data', path: '../lookup_data'
 gem 'pundit'
 gem 'rails_warden'
 gem 'surus'
+gem 'pg_search'
 
 group :development do
   gem 'annotate'

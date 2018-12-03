@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RetunnelSchema < GraphQL::Schema
-  default_max_page_size 5
+  default_max_page_size 20
   mutation(Types::MutationType)
   query(Types::QueryType)
 end

@@ -19,19 +19,21 @@ describe Autocomplete::Project::Prepare, type: :interactor do
         expect(subject.term).to eq ''
       end
 
-      it 'should set hint_content' do
-        expect(subject.hint_content).to include 'empty term'
+      it 'should set hint' do
+        puts subject.inspect
+        puts subject.hint.inspect
+        expect(subject.hint[:type]).to eq 'invalidTerm'
       end
     end
 
     describe 'term too short' do
-      let(:prep_options) { { term: 'ab' } }
+      let(:prep_options) { {term: 'ab'} }
 
-      it 'should set hint_type' do
-        expect(subject.hint_type).to eq 'invalidTerm'
+      it 'should set hint[:type]' do
+        expect(subject.hint[:type]).to eq 'invalidTerm'
       end
       it 'should set a hint' do
-        expect(subject.hint_content).to include('too short')
+        expect(subject.hint[:content]).to include('too short')
       end
       it 'should set all_projects' do
         expect(subject.all_projects).to eq []
@@ -42,12 +44,12 @@ describe Autocomplete::Project::Prepare, type: :interactor do
     end
 
     describe 'term too long' do
-      let(:prep_options) { { term: 'ab' * 10 } }
-      it 'should set hint_type' do
-        expect(subject.hint_type).to eq 'invalidTerm'
+      let(:prep_options) { {term: 'ab' * 10} }
+      it 'should set hint[:type]' do
+        expect(subject.hint[:type]).to eq 'invalidTerm'
       end
       it 'should set a hint' do
-        expect(subject.hint_content).to include('too long')
+        expect(subject.hint[:content]).to include('too long')
       end
       it 'should set all_projects' do
         expect(subject.all_projects).to eq []
@@ -59,16 +61,24 @@ describe Autocomplete::Project::Prepare, type: :interactor do
 
     describe '.project_id' do
       describe 'project_id is a number' do
-        let(:prep_options) { { term: '1234' } }
+        let(:prep_options) { {term: '1234'} }
         it 'should set term to integer' do
           expect(subject.project_id).to be_an Integer
         end
       end
 
       describe 'project_id is not a number' do
-        let(:prep_options) { { term: 'doh' } }
+        let(:prep_options) { {term: 'doh'} }
         it 'should set term to integer' do
           expect(subject.project_id).to be_nil
+        end
+      end
+
+      describe 'project_id has a category' do
+        let(:prep_options) { {term: 'g153'} }
+        it 'should set term to integer' do
+          expect(subject.project_type).to eq 'g'
+          expect(subject.project_id).to eq 153
         end
       end
     end

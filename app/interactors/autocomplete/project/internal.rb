@@ -11,13 +11,15 @@ module Autocomplete
 
       def call
         context.internal_projects = find_projects
+        context.internal_total_count = find_projects.count
       end
 
       def find_projects
-        if context.project_id
-          [internal_project_class.find_by(id: context.project_id)]
+        @projects = if context.project_id
+          # TODO update when internal projects settles down
+          internal_project_class.where(id: context.project_id)
         else
-          []
+          internal_project_class.autocomplete(context.term).order(id: :desc)
         end
       end
 

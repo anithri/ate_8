@@ -14,6 +14,9 @@
 
 class InternalProject < ActiveRecord::Base
   establish_connection :pc3_rom
+  include PgSearch
+  pg_search_scope :autocomplete, against: %i[id name]
+
   def readonly?
     true
   end
@@ -24,5 +27,9 @@ class InternalProject < ActiveRecord::Base
 
   def display_name
     "#{display_id} - #{name}"
+  end
+
+  def status
+    'active'
   end
 end

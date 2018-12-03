@@ -8,7 +8,15 @@ describe Autocomplete::Project::Compile, type: :interactor do
       Autocomplete::Project::Compile.call(compile_options)
     end
 
-    let(:compile_options) { {} }
+    let(:compile_options) do
+      {
+        client_projects:      [],
+        internal_projects:    [],
+        client_total_count:   0,
+        internal_total_count: 0
+      }
+    end
+
     it 'should return a result' do
       expect(subject).to be_an Interactor::Context
     end

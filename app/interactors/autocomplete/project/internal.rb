@@ -5,8 +5,24 @@ module Autocomplete
     class Internal
       include Interactor
 
+      before do
+        context.internal_project_class ||= InternalProject
+      end
+
       def call
-        # TODO
+        context.internal_projects = find_projects
+      end
+
+      def find_projects
+        if context.project_id
+          [internal_project_class.find_by(id: context.project_id)]
+        else
+          []
+        end
+      end
+
+      def internal_project_class
+        context.internal_project_class
       end
     end
   end

@@ -87,6 +87,20 @@ module Types
     end
     # endregion
 
+    #region LogEntry Fields
+    field :log_entry, Types::LogEntry, null: true do
+      argument :log_entry_id, ID, required: true, as: :id
+    end
+    def log_entry(id:)
+      ::LogEntry.find_by_id(id)
+    end
+
+    field :log_entries, [Types::LogEntry], null: false
+    def log_entries
+      ::LogEntry.all
+    end
+    #endregion
+
     # last of fields
   end
 end

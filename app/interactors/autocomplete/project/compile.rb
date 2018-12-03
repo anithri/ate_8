@@ -13,11 +13,6 @@ module Autocomplete
       end
 
       def combined_results
-        puts "=" * 30
-        puts context.internal_projects.inspect
-        puts context.client_projects.inspect
-        puts "=" * 30
-
         @combined ||= if context.project_id
                         context.internal_projects + context.client_projects
                       else

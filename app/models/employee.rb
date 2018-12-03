@@ -1,21 +1,21 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: employees
 #
-#  username           :string
-#  roles_mask         :integer          default(0)
-#  ldap_attrs         :hstore
-#  updated_from_ad_on :datetime #  pc2_attrs          :hstore
-#  groups             :text             default([]), is an Array
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
 #  id                 :integer          not null, primary key
 #  display_name       :string           default("")
-#  gust_id            :integer
+#  ephemeral          :hstore
+#  groups             :text             default([]), is an Array
 #  is_gone            :boolean          default(TRUE)
-#  ephemeral          :hstore           default({})
+#  ldap_attrs         :hstore
+#  pc2_attrs          :hstore
+#  roles_mask         :integer          default(0)
+#  updated_from_ad_on :datetime
+#  username           :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  gust_id            :integer
 #
 # Indexes
 #

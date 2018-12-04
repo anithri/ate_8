@@ -10,11 +10,9 @@
 #  retired     :boolean          default(FALSE)
 #
 
-class TunnelLog < ActiveRecord::Base
-  extend GlobalID::Locator
-
+class TunnelLog < ApplicationRecord
   has_many :log_entries
-
+  include UseGlobalRecord
   scope :sorted, -> { order(:fixed_order) }
   scope :retired?, -> { where(retired: true) }
   scope :active?, -> { where(retired: false) }

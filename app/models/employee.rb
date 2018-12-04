@@ -23,6 +23,8 @@
 #
 
 class Employee < ActiveRecord::Base
+  include UseGlobalRecord
+
   LOCAL_LDAP_ATTRIBUTES = %i[last_name first_name initials title
                              office_phone mobile_phone office email
                              full_name manager ad_username dn

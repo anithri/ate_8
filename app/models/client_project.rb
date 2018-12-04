@@ -22,6 +22,8 @@
 #
 
 class ClientProject < ActiveRecord::Base
+  include UseGlobalRecord
+
   self.table_name = 'projects'
   establish_connection :pc3_rom
   include PgSearch

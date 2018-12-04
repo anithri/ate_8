@@ -1,7 +1,7 @@
 PATH
   remote: ../lookup_data
   specs:
-    lookup_data (0.20.3)
+    lookup_data (0.20.4)
       active_hash (~> 2.0.0)
       globalid
       graphql (~> 1.8.1)

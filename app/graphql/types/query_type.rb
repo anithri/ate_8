@@ -7,16 +7,13 @@ module Types
       argument :wind_tunnel_id, ID, required: true, as: :id
     end
     def wind_tunnel(id:)
-      TunnelLog.find_by_id(id)
+      GlobalID::Locator.locate id
     end
 
     field :wind_tunnels, [Types::WindTunnel], null: false do
       argument :closure_status, Types::TunnelClosureType, required: false, default_value: :current
     end
     def wind_tunnels(closure_status:)
-      puts "=" * 30
-      puts Types::WindTunnel.fields.inspect
-      puts "=" * 30
       TunnelLog.with_closure_status(closure_status)
     end
     # endregion

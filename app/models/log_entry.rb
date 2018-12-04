@@ -36,6 +36,8 @@
 #
 
 class LogEntry < ActiveRecord::Base
+  include UseGlobalRecord
+
   self.table_name = 'entries'
 
   UNKNOWN = Employee.new(full_name: 'Unknown')

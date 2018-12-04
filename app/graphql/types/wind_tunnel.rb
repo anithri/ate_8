@@ -4,7 +4,8 @@ module Types
   class WindTunnel < Types::BaseObject
     description 'Wind Tunnel'
 
-    field :id, ID, null: false
+    global_id_field :id
+    # field :id, ID, null: false
     field :name, String, null: false
     field :short_name, String, null: false
     field :fixed_order, Int, null: false

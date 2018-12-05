@@ -2,6 +2,7 @@ const sourcePaths = {
   components: 'client/components/',
   containers: 'client/containers/',
   models: 'client/models/',
+  pages: 'client/pages/',
 }
 
 const extRegex = /^\./
@@ -17,6 +18,6 @@ const pathTo = (source, ...parts) => {
 module.exports = {
   helpers: {
     src: pathTo,
-
+    component: ()
   }
 }

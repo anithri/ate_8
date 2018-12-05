@@ -30,7 +30,13 @@ module Retunnel
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
-    config.generators.factory_bot dir: 'spec/factories'
+    config.generators do |g|
+      g.system_tests nil
+      g.factory_bot dir: 'spec/factories'
+      g.helper false
+      g.stylesheets false
+      g.javascripts false
+
+    end
   end
 end

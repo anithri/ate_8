@@ -1,7 +1,7 @@
 const sourcePaths = {
-  components: 'site/components/',
-  containers: 'site/containers/',
-  models: 'site/models/',
+  components: 'client/components/',
+  containers: 'client/containers/',
+  models: 'client/models/',
 }
 
 const extRegex = /^\./

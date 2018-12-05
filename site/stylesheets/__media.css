@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2018. CPP, Inc. All rights reserved.
+ * Also protected by Patent Pending: 15/916,593
+ */
+
+@custom-media --breakpoint-small (max-width: 40em);
+@custom-media --breakpoint-not-small (min-width: 40em);
+@custom-media --breakpoint-medium (min-width: 40em) and (max-width: 50em);
+@custom-media --breakpoint-large (min-width: 50em) and (max-width: 960px);
+@custom-media --breakpoint-extra-large (min-width: 960px);
+@custom-media --breakpoint-not-large (max-width: 50em);

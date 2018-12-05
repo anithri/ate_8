@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2018. CPP, Inc. All rights reserved.
+ * Also protected by Patent Pending: 15/916,593
+ */
+
+:root {
+  --cpp-blue-light: #c5d4e6;
+  --cpp-blue-med: #5b87ba;
+  --cpp-blue-dark: #16549d;
+
+  --cpp-orange-light: #f69c00;
+  --cpp-orange-dark: #d48c00;
+
+  --gray-darker: #222222;
+  --gray-dark: #424242;
+  --gray: #505050;
+  --gray-light: #8d8d8d;
+  --gray-lighter: #f0f0f0;
+
+  --brand-primary: var(--cpp-blue-med);
+  --brand-success: var(--green);
+  --brand-info: var(--cpp-orange-dark);
+  --brand-warning: var(--yellow);
+  --brand-danger: var(--red);
+
+  --comfort-pedestrian-sitting: #16549d;
+  --comfort-pedestrian-standing: #228b22;
+  --comfort-pedestrian-walking: #ffff00;
+  --comfort-business-walking: #f69c00;
+  --comfort-uncomfortable: #e7040f;
+
+  --distress-pass: #111111;
+  --distress-fail: #880000;
+
+  --light-blue: var(--cpp-blue-light);
+  --blue: var(--cpp-blue-med);
+  --dark-blue: var(--cpp-blue-dark);
+}
+

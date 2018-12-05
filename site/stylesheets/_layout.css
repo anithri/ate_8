@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2018. CPP, Inc. All rights reserved.
+ * Also protected by Patent Pending: 15/916,593
+ */
+
+
+body {
+  width: 100%; /* .w-100 */
+  height: 100%; /* .h-100 */
+  padding: var(--spacing-medium); /* .pa3 */
+}
+
+#pageWrapper {
+  width: 100%; /* .w-100 */
+  height: 100%; /* .h-100 */
+}

@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2018. CPP, Inc. All rights reserved.
+ * Also protected by Patent Pending: 15/916,593
+ */
+
+.centeringFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+
+  & > * {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
+}
+
+.spreadFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: center;
+
+  & > * {
+    display: inline-block;
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
+}

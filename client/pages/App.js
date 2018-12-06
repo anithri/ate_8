@@ -4,6 +4,9 @@ import {ApolloProvider} from 'react-apollo'
 import Pages from 'pages'
 import React from 'react'
 import {Helmet as ReactHelmet} from 'react-helmet'
+import setupIcons from 'stylesheets/fontawesome';
+
+setupIcons()
 
 const client = new ApolloClient({
   fetchOptions: {

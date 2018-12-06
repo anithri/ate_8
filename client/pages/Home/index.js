@@ -2,9 +2,10 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import {Query} from 'react-apollo'
 import React from 'react'
-import {GET_TUNNEL_NAVIGATION} from 'models/TunnelNavigation'
-import styles from './home.module.css'
-
+import {GET_TUNNEL_NAVIGATION} from '../../models/TunnelNavigation'
+import styles from './Home.module.css'
+import PageHeader from '../../components/PageHeader'
+import {stack as Menu} from 'react-burger-menu'
 class HomePage extends React.Component {
   render() {
     const {children, className} = this.props
@@ -16,7 +17,14 @@ class HomePage extends React.Component {
             const user = data.currentUser
             const pageClasses = cx('pageWrapper', className, styles.homePage)
             return (
-                <div id="homePage" className={pageClasses}>
+                <div id="homePage" className={pageClasses} >
+                  <Menu noOverlay pageWrapId={'tunnelLogs'} customBurgerIcon={ false }>
+                    <a id="home" className="menu-item" href="/app/assets/config">Home</a>
+                    <a id="about" className="menu-item" href="/about">About</a>
+                    <a id="contact" className="menu-item" href="/contact">Contact</a>
+                  </Menu>
+
+                  <PageHeader/>
                   {children}
                   <main>
                     <h1>Hiya</h1>

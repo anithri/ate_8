@@ -4,9 +4,9 @@
  */
 
 :root {
-  --cpp-blue-light: #c5d4e6;
-  --cpp-blue-med: #5b87ba;
-  --cpp-blue-dark: #16549d;
+  --cpp-light-blue: #c5d4e6;
+  --cpp-blue: #5b87ba;
+  --cpp-dark-blue: #16549d;
 
   --cpp-orange-light: #f69c00;
   --cpp-orange-dark: #d48c00;

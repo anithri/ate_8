@@ -5,18 +5,16 @@
 
 
 :root {
+  --header-height: 3rem;
   --logo-height: 60px;
-  --thin-title-height: calc(var(--logo-height) / 2 - var(--spacing-small));
-  --sidebar-width: 288px;
-  --graph-height: 270px;
-  --graph-width: 270px;
 
+  --burger-button-width: var(--font-size-3);
   --spacing-extra-extra-small: 0.125rem;
 
-  --base-background-color: var(--cpp-blue-light);
+  --base-background-color: var(--cpp-light-blue);
   --background-texture: url('../images/pattern3.png');
   --background-image: url('../images/clouds.jpg') no-repeat center/cover fixed;
-  --background-gradient: linear-gradient(to right, var(--light-blue), var(--blue));
+  --background-gradient: linear-gradient(to right, var(--cpp-light-blue), var(--cpp-blue));
 
   --body-background: var(--background-texture), var(--background-image),
   var(--background-gradient), var(--base-background-color);

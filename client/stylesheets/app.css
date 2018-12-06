@@ -10,11 +10,10 @@
 @import './_flex.css';
 @import './_grid.css';
 @import './_layout.css';
+@import './_burger_menu.css';
 @import './_select.css';
-@import './_skins.css';
-@import './_viewer.css';
 
-html {
+html, #tunnelLogs, .pageWrapper {
   height: 100%; /* .h-100 */
   width: 100%; /* .w-100 */
 }

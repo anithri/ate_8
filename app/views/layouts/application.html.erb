@@ -4,7 +4,6 @@
     <title>Retunnel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= yield :page_head %>
   </head>
@@ -13,6 +12,5 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= yield :page_body %>
-
   </body>
 </html>

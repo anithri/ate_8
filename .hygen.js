@@ -18,6 +18,5 @@ const pathTo = (source, ...parts) => {
 module.exports = {
   helpers: {
     src: pathTo,
-    component: ()
   }
 }

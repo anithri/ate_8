@@ -18,11 +18,13 @@ class Game < ApplicationRecord
   include UseGlobalRecord
   store :position, accessors: [:turn, :phase], coder: Surus::Hstore::Serializer.new
 
+  has_many :players
+
   validates :name, presence: true, uniqueness: true
   validates :turn, :phase, numericality: {only_integer: true}
 
   scope :active, ->{where(finished_at: nil)}
-  
+
   def turn
     super&.to_i || 0
   end

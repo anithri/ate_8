@@ -7,5 +7,6 @@ module Types
     field :name, String, null: false
     field :turn, Integer, null: false
     field :phase, Integer, null: false
+    field :players, Types::Player.connection_type, null: false
   end
 end

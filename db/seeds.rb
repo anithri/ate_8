@@ -18,3 +18,11 @@ USER_SEEDS = {
 USER_SEEDS.each_pair do |(name, email)|
   User.find_or_create_by(name: name.to_s.titleize, email: email)
 end
+
+['Testing Game', 'Finished Game'].each do |name|
+  game = Game.find_or_create_by(name: name)
+  game.players << User.active.shuffle.take(4).map{|u| Player.new(user: u)}
+end
+
+Game.find_by_name('Finished Game').update(finished_at: Time.now)
+

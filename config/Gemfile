@@ -48,7 +48,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # CPP Additions
 gem 'graphql'
 gem 'interactor-rails'
-gem 'lookup_data', path: '../lookup_data'
 gem 'pundit'
 gem 'rails_warden'
 gem 'surus'

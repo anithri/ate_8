@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../lookup_data/.idea/lookup_data.iml" filepath="$PROJECT_DIR$/../lookup_data/.idea/lookup_data.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/retunnel.iml" filepath="$PROJECT_DIR$/.idea/retunnel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../tunnel_logs/.idea/tunnel_logs.iml" filepath="$PROJECT_DIR$/../tunnel_logs/.idea/tunnel_logs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ate_8.iml" filepath="$PROJECT_DIR$/.idea/ate_8.iml" />
     </modules>
   </component>
 </project>

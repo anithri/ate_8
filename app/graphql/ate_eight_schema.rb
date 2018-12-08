@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RetunnelSchema < GraphQL::Schema
+class AteEightSchema < GraphQL::Schema
   def self.id_from_object(object, type_definition, query_ctx)
     object.to_global_id.to_s
   end

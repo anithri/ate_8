@@ -237,3 +237,6 @@ typings/
 .serverless
 
 /public/packs/manifest.json
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

@@ -29,7 +29,7 @@ class App extends React.Component {
         <Pages className="max">
           <ReactHelmet>
             <meta charSet="utf-8" />
-            <title>Badger - Internal Projects</title>
+            <title>Ate Eight</title>
           </ReactHelmet>
         </Pages>
       </ApolloProvider>

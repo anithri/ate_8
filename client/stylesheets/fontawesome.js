@@ -5,4 +5,5 @@ import { faBars, faHome} from '@fortawesome/pro-solid-svg-icons'
 const setupIcons = () => {
   library.add(faBars, faHome, faChevronDoubleRight, faChevronDoubleLeft)
 }
+
 export default setupIcons

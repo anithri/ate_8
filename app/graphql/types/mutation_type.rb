@@ -2,6 +2,6 @@
 
 module Types
   class MutationType < BaseObject
-    field :seatGame, mutation: Mutations::SeatGame
+    field :seatPlayers, mutation: Mutations::SeatPlayers
   end
 end

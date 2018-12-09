@@ -8,7 +8,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  game_id     :bigint(8)
-#  location_id :integer
+#  location_id :string
 #
 # Indexes
 #

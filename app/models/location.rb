@@ -4,20 +4,19 @@ class Location < ActiveHash::Base
   PROJECT_COUNT = 16
   PLAYER_COUNT  = 4
 
-  field :slug
   field :name
 
   PLAYER_COUNT.times do |i|
-    create id: i + 1, slug: "player#{i + i}", name: "Player #{i + 1}"
+    create id: "player#{i + 1}", name: "Player #{i + 1}"
   end
 
-  create id: 10, slug: 'bar', name: 'Bar'
-  create id: 11, slug: 'draw', name: 'Draw'
-  create id: 12, slug: 'dead', name: 'Dead'
-  create id: 13, slug: 'discard', name: 'Discard'
-  create id: 14, slug: 'reserve', name: 'Reserve'
+  create id: 'bar', name: 'Bar'
+  create id: 'draw', name: 'Draw'
+  create id: 'dead', name: 'Dead'
+  create id: 'discard', name: 'Discard'
+  create id: 'reserve', name: 'Reserve'
 
   PROJECT_COUNT.times do |i|
-    create id: i + 101, slug: "project#{i + 1}", name: "Project #{i + 1}"
+    create id: "project#{i + 1}", name: "Project #{i + 1}"
   end
 end

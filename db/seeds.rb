@@ -23,9 +23,9 @@ npi = users.map { |u| u.to_global_id.to_s }
 game = nil
 ['Testing Game', 'Finished Game'].each do |name|
   next if Game.find_by_name name
-  g = SeatGame.call name: name, new_player_ids: npi
+  g = Games::SeatPlayers.call name: name, new_player_ids: npi
   game = g.game
-  r = SetupGame.call game_id: game.to_global_id.to_s
+  r = Games::SetupBoard.call game_id: game.to_global_id.to_s
 end
 
 game.update(finished_at: Time.now)

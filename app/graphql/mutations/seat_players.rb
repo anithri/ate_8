@@ -1,11 +1,11 @@
 module Mutations
-  class SeatGame < BaseMutation
+  class SeatPlayers < BaseMutation
     field :game, Types::Game, null: true
     field :errors, [String], null: false
     argument :new_player_ids, [String], required: true
 
     def resolve(new_player_ids:)
-      r = ::SeatGame.call new_player_ids: new_player_ids
+      r = Games::SeatPlayers.call new_player_ids: new_player_ids
       if r.failure?
         {game: nil, errors: r.error ? [r.error] : []}
       else

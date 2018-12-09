@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_033840) do
 
   create_table "board_locations", force: :cascade do |t|
     t.bigint "game_id"
-    t.integer "location_id"
+    t.string "location_id"
     t.string "card_ids", default: [], array: true
     t.string "worker_ids", default: [], array: true
     t.datetime "created_at", null: false

@@ -3,13 +3,25 @@ class SeatGame
   include ::InteractorValidations
 
   validates :new_player_ids, presence: true, length: {is: 4}
+
   def call
-    puts 'in SeatGame.call'
-    # TODO
+    context.game = Game.create(
+      players:  players,
+      name:     name,
+      position: {phase: 0, turn: 0}
+    )
+  end
+
+  def users
+    context.users ||= User.locate_many context.new_player_ids
   end
 
   def players
-    context.players ||= GlobalID::Locator.locate()
+    users.shuffle.each_with_index.map{|u, i | Player.new(user: u, order: i + 1)}
+  end
+
+  def name
+    Faker::VentureBros.organization
   end
 
 end

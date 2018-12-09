@@ -25,4 +25,8 @@ class Game < ApplicationRecord
   validates :turn, :phase, numericality: {only_integer: true}
 
   scope :active, ->{where(finished_at: nil)}
+
+  def board
+    @board ||= Board.new( self.board_locations)
+  end
 end

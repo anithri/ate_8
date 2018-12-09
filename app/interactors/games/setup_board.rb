@@ -2,14 +2,8 @@ module Games
   class SetupBoard
     include Interactor
     include ::InteractorValidations
-    attr_accessor :id
 
-    validates :game_id, presence: true
-
-    before do
-      context.game = Game.locate context.game_id
-
-    end
+    validates :game, presence: true
 
     def call
       context.locs = Location.all.each do |loc|

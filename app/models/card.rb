@@ -247,4 +247,8 @@ class Card < ActiveHash::Base
   def workers
     worker_ids.map{|w_id| Worker.find(w_id)}
   end
+
+  def self.shuffled
+    self.all.shuffle
+  end
 end

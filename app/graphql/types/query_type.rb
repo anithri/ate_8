@@ -2,17 +2,18 @@
 
 module Types
   class QueryType < Types::BaseObject
-
-
+    
     #region Game Fields
     field :game, Types::Game, null: true do
       argument :game_id, ID, required: true, as: :id
     end
-    alias_method :game, :locate
+    def game(id:)
+      ::Game.locate(id)
+    end
 
     field :games, Types::Game.connection_type, null: false
     def games
-      ::Game.all
+      ::Game.active
     end
     #endregion
 

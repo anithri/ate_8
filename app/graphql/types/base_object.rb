@@ -2,8 +2,8 @@
 
 module Types
   class BaseObject < GraphQL::Schema::Object
-    def locate(id:)
-      GlobalID::Locator.locate id
+    def locate(id:, only:, ignore_missing: false)
+      GlobalID::Locator.locate id, only: only, ignore_missing: ignore_missing
     end
   end
 end

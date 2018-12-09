@@ -36,7 +36,8 @@ module AteEight
       g.helper false
       g.stylesheets false
       g.javascripts false
-
     end
+
+    config.autoload_paths << Rails.root.join('app/interactors/validators')
   end
 end

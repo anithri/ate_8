@@ -53,7 +53,7 @@ gem 'rails_warden'
 gem 'surus'
 gem 'pg_search'
 gem 'globalid'
-
+gem 'active_hash'
 group :development do
   gem 'annotate'
   gem 'guard-bundler'

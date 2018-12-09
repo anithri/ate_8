@@ -10,15 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_08_220724) do
+ActiveRecord::Schema.define(version: 2018_12_09_033840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
 
+  create_table "board_locations", force: :cascade do |t|
+    t.bigint "game_id"
+    t.integer "location_id"
+    t.string "card_ids", default: [], array: true
+    t.string "worker_ids", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id", "location_id"], name: "index_board_locations_on_game_id_and_location_id", unique: true
+    t.index ["game_id"], name: "index_board_locations_on_game_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name"
-    t.hstore "position"
+    t.integer "turn", default: 0, null: false
+    t.integer "phase", default: 0, null: false
     t.datetime "finished_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,6 +55,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_220724) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "board_locations", "games"
   add_foreign_key "players", "games"
   add_foreign_key "players", "users"
 end

@@ -8,7 +8,6 @@ class SeatGame
     game = Game.new(
       players:  players,
       name:     name,
-      position: {phase: 0, turn: 0}
     )
     if game.save
       context.errors = []
@@ -32,6 +31,6 @@ class SeatGame
   end
 
   def name
-    Faker::VentureBros.organization
+    context.name ||= Faker::VentureBros.organization
   end
 end

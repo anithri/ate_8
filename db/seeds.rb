@@ -14,15 +14,19 @@ USER_SEEDS = {
   batgirl: 'bgordon@gordon.org',
   alfred:  'apennyworth@wayne-manor.com'
 }
-
+users      = []
 USER_SEEDS.each_pair do |(name, email)|
-  User.find_or_create_by(name: name.to_s.titleize, email: email)
+  users.push User.find_or_create_by(name: name.to_s.titleize, email: email)
 end
 
+npi = users.map { |u| u.to_global_id.to_s }
+game = nil
 ['Testing Game', 'Finished Game'].each do |name|
-  game = Game.find_or_create_by(name: name)
-  game.players << User.active.shuffle.take(4).map{|u| Player.new(user: u)}
+  next if Game.find_by_name name
+  g = SeatGame.call name: name, new_player_ids: npi
+  game = g.game
+  r = SetupGame.call game_id: game.to_global_id.to_s
 end
 
-Game.find_by_name('Finished Game').update(finished_at: Time.now)
+game.update(finished_at: Time.now)
 

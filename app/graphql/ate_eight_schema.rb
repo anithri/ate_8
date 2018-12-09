@@ -9,7 +9,7 @@ class AteEightSchema < GraphQL::Schema
     GlobalID::Locator.locate id
   end
 
-  default_max_page_size 20
+  default_max_page_size 50
   mutation(Types::MutationType)
   query(Types::QueryType)
 

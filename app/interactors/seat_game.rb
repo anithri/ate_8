@@ -1,15 +1,26 @@
 class SeatGame
   include Interactor
   include ::InteractorValidations
-
-  validates :new_player_ids, presence: true, length: {is: 4}
+  validates_with NewPlayersValidator
+  attr_accessor :new_player_ids
 
   def call
-    context.game = Game.create(
+    game = Game.new(
       players:  players,
       name:     name,
       position: {phase: 0, turn: 0}
     )
+    if game.save
+      context.errors = []
+      context.game = game
+    else
+      context.errors = game.errors.full_messages
+      context.game = nil
+    end
+  end
+
+  def new_player_ids
+    context.new_player_ids
   end
 
   def users
@@ -23,5 +34,4 @@ class SeatGame
   def name
     Faker::VentureBros.organization
   end
-
 end

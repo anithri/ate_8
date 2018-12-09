@@ -29,9 +29,15 @@ class BoardLocation < ApplicationRecord
   delegate :name, to: :location
 
   def workers
-    worker_ids
+    Worker.locate_many worker_ids
+  end
+  def workers=(new_workers)
+    self.worker_ids = new_workers.map{|w| w.to_global_id.to_s}
   end
   def cards
-    card_ids
+    Card.locate_many card_ids
+  end
+  def cards=(new_cards)
+    self.card_ids = new_cards.map{|c| c.to_global_id.to_s}
   end
 end

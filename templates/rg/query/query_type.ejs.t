@@ -10,10 +10,10 @@ className: <% className = h.inflection.camelize(name) %>
       argument :<%= name %>_id, ID, required: true, as: :id
     end
     def <%= name %>(id:)
-      ::<%= className %>.find_by_id(id)
+      ::<%= className %>.locate id
     end
 
-    field :<%= lots %>, [Types::<%= className %>], null: false
+    field :<%= lots %>, Types::<%= className %>.connection_type, null: false
     def <%= lots %>
       ::<%= className %>.all
     end

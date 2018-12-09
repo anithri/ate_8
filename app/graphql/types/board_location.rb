@@ -5,7 +5,7 @@ module Types
 
     global_id_field :id
     field :name, String, null: true
-    field :workers, [String], null: true
-    field :cards, String, null: true
+    field :workers, Types::Worker.connection_type, null: true
+    field :cards, Types::Card.connection_type, null: true
   end
 end

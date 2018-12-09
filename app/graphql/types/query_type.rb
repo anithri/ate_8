@@ -52,6 +52,34 @@ module Types
     end
     #endregion
 
+    #region Worker Fields
+    field :worker, Types::Worker, null: true do
+      argument :worker_id, ID, required: true, as: :id
+    end
+    def worker(id:)
+      ::Worker.locate id
+    end
+
+    field :workers, Types::Worker.connection_type, null: false
+    def workers
+      ::Worker.all
+    end
+    #endregion
+
+    #region Card Fields
+    field :card, Types::Card, null: true do
+      argument :card_id, ID, required: true, as: :id
+    end
+    def card(id:)
+      ::Card.locate id
+    end
+
+    field :cards, Types::Card.connection_type, null: false
+    def cards
+      ::Card.all
+    end
+    #endregion
+
     # last of fields
   end
 end

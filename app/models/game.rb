@@ -29,11 +29,11 @@ class Game < ApplicationRecord
 
   scope :active, ->{where(finished_at: nil)}
 
-  def card_board
-    @card_board ||= CardBoard.new( self.board_locations)
+  def decks
+    @card_board ||= GameDecks.new(self.board_locations)
   end
 
-  def worker_board
-    @workers_board ||= WorkerBoard.new(self.board_locations)
+  def bags
+    @workers_board ||= GameBags.new(self.board_locations)
   end
 end

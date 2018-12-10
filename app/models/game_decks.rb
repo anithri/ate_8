@@ -1,11 +1,11 @@
-class CardBoard
+class GameDecks
 
   attr_accessor :board_locations
 
   def initialize(board_locations)
-    @group_idx       = board_locations.group_by(&:grouping)
-    @board_locations = board_locations
-    @loc_id_idx      = board_locations.reduce({}.with_indifferent_access) do |hsh, b_loc|
+    @card_locations = board_locations.select{|b_loc| b_loc.location.has_cards?}
+    @group_idx       = @card_locations.group_by(&:grouping)
+    @loc_id_idx      = @card_locations.reduce({}.with_indifferent_access) do |hsh, b_loc|
       hsh[b_loc]             = b_loc
       hsh[b_loc.location_id] = b_loc
       hsh
@@ -28,7 +28,7 @@ class CardBoard
     by_loc_id 'discards'
   end
 
-  def deal(worker, to:, count: 1)
+  def deal(to:, count: 1)
     dest = by_loc_id(to)
     dest.bag.push(draw.bag.pop(count))
     dest

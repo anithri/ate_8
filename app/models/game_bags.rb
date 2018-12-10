@@ -1,7 +1,8 @@
-class WorkerBoard
+class GameBags
   attr_accessor :board_locations
 
   def initialize(board_locations)
+    @worker_locations = board_locations.select{|b_loc| b_loc.location.has_workers?}
     @group_idx       = board_locations.group_by(&:grouping)
     @board_locations = board_locations
     @loc_id_idx      = board_locations.reduce({}.with_indifferent_access) do |hsh, b_loc|
@@ -15,20 +16,20 @@ class WorkerBoard
     @group_idx[group]
   end
 
-  def by_loc_id(loc_id)
-    @loc_id_idx[loc_id]
+  def by_loc(loc)
+    @loc_id_idx[loc]
   end
 
   def draw
-    by_loc_id 'draw'
+    by_loc 'draw'
   end
 
   def discards
-    by_loc_id 'discards'
+    by_loc 'discards'
   end
 
-  def deal(to:, count: 1)
-    dest = by_loc_id(to)
+  def deal(worker:, to:, count: 1)
+    dest = by_loc(to)
     dest.deck.push(draw.deck.pop(count))
     dest
   end

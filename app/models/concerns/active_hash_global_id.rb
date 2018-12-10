@@ -13,12 +13,17 @@ module ActiveHashGlobalId
     end
   end
 
+  def gid
+    self.to_global_id.to_s
+  end
+
   module ClassMethods
-    def locate(id, only: self, ignore_missing: false)
-      GlobalID::Locator.locate id, only: only, ignore_missing: ignore_missing
+    def locate(gid, only: self, ignore_missing: false)
+      GlobalID::Locator.locate gid, only: only, ignore_missing: ignore_missing
     end
-    def locate_many(*ids, only: self, ignore_missing: false)
-      GlobalID::Locator.locate_many ids.flatten, only: only, ignore_missing: ignore_missing
+
+    def locate_many(*gids, only: self, ignore_missing: false)
+      GlobalID::Locator.locate_many gids.flatten, only: only, ignore_missing: ignore_missing
     end
   end
 

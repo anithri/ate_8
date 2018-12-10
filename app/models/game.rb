@@ -18,6 +18,9 @@
 class Game < ApplicationRecord
   include UseGlobalRecord
 
+  PER_WORKER_COUNT = 30
+  TOTAL_WORKER_COUNT = Worker.count * PER_WORKER_COUNT
+
   has_many :players
   has_many :board_locations
 
@@ -26,7 +29,11 @@ class Game < ApplicationRecord
 
   scope :active, ->{where(finished_at: nil)}
 
-  def board
-    @board ||= Board.new( self.board_locations)
+  def card_board
+    @card_board ||= CardBoard.new( self.board_locations)
+  end
+
+  def worker_board
+
   end
 end

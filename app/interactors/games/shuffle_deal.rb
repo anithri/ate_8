@@ -10,8 +10,16 @@ class Games::ShuffleDeal
   end
 
   def deal_cards
+    board.add_cards('draw', Card.shuffled)
+
+    board.projects.each do |loc|
+    end
 
 
+  end
+
+  def board
+    context.game.board
   end
 
   def deal_workers

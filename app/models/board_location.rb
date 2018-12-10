@@ -27,17 +27,24 @@ class BoardLocation < ApplicationRecord
   belongs_to :game
   belongs_to_active_hash :location
   delegate :name, to: :location
-
-  def workers
-    Worker.locate_many worker_ids
+  def grouping
+    location&.group
   end
-  def workers=(new_workers)
-    self.worker_ids = new_workers.map{|w| w.to_global_id.to_s}
+
+  def deck
+    @deck ||= Deck.new(self)
+  end
+
+  def add_cards(*new_cards)
+    card_ids.push(new_cards.flatten.map(&:gid))
+  end
+  def remove_cards(count)
+    card_ids.pop(count)
   end
   def cards
     Card.locate_many card_ids
   end
   def cards=(new_cards)
-    self.card_ids = new_cards.map{|c| c.to_global_id.to_s}
+    self.card_ids = new_cards.map{|c| c.gid}
   end
 end

@@ -5,14 +5,14 @@ class Games::DealCards
   validates :game, presence: true
 
   def call
-    board.draw.cards = Card.shuffled
+    board.draw.deck.push(Card.shuffled)
 
-    board.by_group('projects').each do |b_loc|
-      board.deal(b_loc.location_id)
+    board.by_group('projects').each do |project_loc|
+      board.deal(to: project_loc.location_id)
     end
   end
 
   def board
-    context.game.board
+    context.game.card_board
   end
 end

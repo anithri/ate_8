@@ -1,9 +1,9 @@
 module Games
-  class CreateGame
+  class StartGame
     include Interactor::Organizer
 
     organize Games::SeatPlayers,
              Games::SetupBoard,
-             Games::ShuffleDeal
+             Games::DealCards
   end
 end

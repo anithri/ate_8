@@ -35,6 +35,10 @@ class BoardLocation < ApplicationRecord
     @deck ||= Deck.new(self)
   end
 
+  def bag
+    @bag ||= Bag.new(self)
+  end
+
   def add_cards(*new_cards)
     card_ids.push(new_cards.flatten.map(&:gid))
   end

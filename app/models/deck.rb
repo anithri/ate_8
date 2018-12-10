@@ -2,30 +2,34 @@ class Deck
   attr_accessor :location
   def initialize(location)
     @location = location
-    @card_ids = location.card_ids
+    @card_gids = location.card_gids
   end
 
   def count
-    @card_ids.length
+    @card_gids.length
   end
 
   def cards
-    Card.locate_many @card_ids
+    Card.locate_many @card_gids
   end
 
-  def add(*new_cards)
-    @card_ids.push(*(new_cards.flatten))
+  def push(*new_cards)
+    @card_gids.push(*as_gids(new_cards))
   end
 
-  def drop(count)
-    @card_ids.pop(count)
+  def pop(count)
+    @card_gids.pop(count)
   end
 
   def remove(*cards_to_drop)
-    removing = cards_to_drop.flatten.map{|c| c.is_a? Card ? c.gid : c}
-    keeping = @card_ids - (@card_ids & cards_to_drop)
-    @card_ids = keeping
+    removing = as_gids(cards_to_drop)
+    keeping = @card_gids - (@card_gids & removing)
+    @card_gids = keeping
     removing
+  end
+
+  def as_gids(objs)
+    objs.flatten.map{|c| c.is_a?(Card) ? c.gid : c}
   end
 
 end

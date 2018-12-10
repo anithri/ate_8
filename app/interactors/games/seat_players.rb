@@ -16,6 +16,7 @@ module Games
       else
         context.errors = game.errors.full_messages
         context.game   = nil
+        context.fail!
       end
     end
 

@@ -6,7 +6,7 @@ module Games
     validates :game, presence: true
 
     def call
-      context.locs = Location.all.each do |loc|
+      Location.all.each do |loc|
         context.game.board_locations.create(
           location:   loc,
           card_ids:   [],

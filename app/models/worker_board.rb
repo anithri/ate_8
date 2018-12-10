@@ -1,5 +1,4 @@
-class CardBoard
-
+class WorkerBoard
   attr_accessor :board_locations
 
   def initialize(board_locations)
@@ -28,9 +27,9 @@ class CardBoard
     by_loc_id 'discards'
   end
 
-  def deal(worker, to:, count: 1)
+  def deal(to:, count: 1)
     dest = by_loc_id(to)
-    dest.bag.push(draw.bag.pop(count))
+    dest.deck.push(draw.deck.pop(count))
     dest
   end
 end

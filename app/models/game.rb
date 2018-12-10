@@ -34,6 +34,6 @@ class Game < ApplicationRecord
   end
 
   def worker_board
-
+    @workers_board ||= WorkerBoard.new(self.board_locations)
   end
 end

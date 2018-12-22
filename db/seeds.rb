@@ -12,21 +12,26 @@ USER_SEEDS = {
   batman:  'bwayne@wayne-corp.com',
   robin:   'tdrake@wayne-manor.com',
   batgirl: 'bgordon@gordon.org',
-  alfred:  'apennyworth@wayne-manor.com'
+  alfred:  'apennyworth@wayne-manor.com',
+  lucius: 'lfox@wayne-corp.com',
+  leslie: 'lthompkans@gotham-clinic.org',
 }
 users      = []
 USER_SEEDS.each_pair do |(name, email)|
   users.push User.find_or_create_by(name: name.to_s.titleize, email: email)
 end
 
-npi = users.map { |u| u.to_global_id.to_s }
 game = nil
 ['Testing Game', 'Finished Game'].each do |name|
-  next if Game.find_by_name name
-  g = Games::SeatPlayers.call name: name, new_player_ids: npi
+  next if GameDatum.find_by_name name
+  npi = users.map { |u| u.to_global_id.to_s }.sample(Game::PLAYER_COUNT)
+  puts npi.inspect
+  g = Games::StartGame.call name: name, new_player_ids: npi
+  puts g.players.inspect
+  puts g.errors
   game = g.game
-  r = Games::SetupBoard.call game_id: game.to_global_id.to_s
 end
+puts game.inspect
 
 game.update(finished_at: Time.now)
 

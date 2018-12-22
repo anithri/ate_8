@@ -8,12 +8,12 @@ module Types
       argument :game_id, ID, required: true, as: :id
     end
     def game(id:)
-      ::Game.locate(id)
+      ::GameDatum.locate(id)
     end
 
     field :games, Types::Game.connection_type, null: false
     def games
-      ::Game.active
+      ::GameDatum.active
     end
     #endregion
 

@@ -2,8 +2,10 @@ module Games
   class StartGame
     include Interactor::Organizer
 
-    organize Games::SeatPlayers,
-             Games::SetupBoard,
-             Games::DealCards
+    organize SetupGame,
+             SeatPlayers,
+             SetupBoard,
+             DealCards,
+             DrawWorkers
   end
 end

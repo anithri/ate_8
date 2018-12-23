@@ -10,9 +10,9 @@ module Game
     )
   end
 
-  def self.find(game_datum_id)
+  def self.find(game_id)
     Runner.new(
-      GameDatum.find(game_datum_id)
+      GameDatum.find(game_id)
     )
   end
 

@@ -30,4 +30,21 @@ class BoardDatum < ApplicationRecord
   def grouping
     location&.group
   end
+
+  def workers
+    Game::Worker.locate_many self.worker_ids
+  end
+
+  def workers=(new_workers)
+    self.worker_ids = new_workers.map(&:to_global_id)
+  end
+
+  def cards
+    Game::Card.locate_many self.card_ids
+  end
+
+  def cards=(new_cards)
+    self.card_ids = new_cards.map(&:to_global_id)
+  end
+
 end

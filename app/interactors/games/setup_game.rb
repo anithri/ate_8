@@ -2,20 +2,27 @@ module Games
   class SetupGame
     include Interactor
 
-    def call
-      game = GameDatum.new(name: name,)
-      if game.save
-        context.errors = []
-        context.game   = game
-      else
-        context.errors = game.errors.full_messages
-        context.game   = nil
-        context.fail!
+    before do
+      puts self.class if context.debug
+      if !context.name
+        context.errors = ["no game name"]
+        context.fail!(message: context.errors.first)
+      elsif !context.board_data
+        context.errors = ["no board_data"]
+        context.fail!(message: context.errors.first)
+      elsif !context.player_data
+        context.errors = ["no player_data"]
+        context.fail!(message: context.errors.first)
       end
     end
 
-    def name
-      context.name ||= Faker::VentureBros.organization
+    def call
+      context.game_data = GameDatum.new(
+        name:        context.name,
+        board_data:  context.board_data,
+        player_data: context.player_data
+      )
+      context.game      = ::Game::Runner.new(context.game_data)
     end
   end
 end

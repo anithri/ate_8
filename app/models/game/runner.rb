@@ -7,16 +7,13 @@ module Game
     end
 
     def board
-      puts game_datum.board_data.inspect
-      @board ||= Game::Board.new(game_datum.board_data)
-      puts @board
-      @board
+      @board ||= Game::Board.new(game_datum)
     end
 
     def players
-      @players ||= Game::Players.new(game_datum.player_data)
+      @players ||= Game::Players.new(game_datum)
     end
 
-    delegate :to_global_id, :name, :turn, :phase, to: :game_datum
+    delegate :to_global_id, :name, :turn, :phase, :save, to: :game_datum
   end
 end

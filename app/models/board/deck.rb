@@ -1,38 +1,17 @@
 module Board
   class Deck
-    attr_accessor :location
-
-    def initialize(location)
-      @location  = location
-      @card_gids = location.card_gids
-    end
-
-    def count
-      @card_gids.length
+    attr_reader :board_datum
+    def initialize(board_datum)
+      @board_datum = board_datum
     end
 
     def cards
-      Game::Card.locate_many @card_gids
+      board_datum.cards
     end
 
     def push(*new_cards)
-      @card_gids.push(*as_gids(new_cards))
+      puts new_cards
+      board_datum.cards += new_cards.flatten
     end
-
-    def pop(count)
-      @card_gids.pop(count)
-    end
-
-    def remove(*cards_to_drop)
-      removing   = as_gids(cards_to_drop)
-      keeping    = @card_gids - (@card_gids & removing)
-      @card_gids = keeping
-      removing
-    end
-
-    def as_gids(objs)
-      objs.flatten.map { |c| c.is_a?(Game::Card) ? c.gid : c }
-    end
-
   end
 end

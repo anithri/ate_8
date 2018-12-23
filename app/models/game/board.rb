@@ -1,28 +1,28 @@
 module Game
   class Board
-    attr_reader :board_data
-    def initialize(board_data)
-      @board_data = board_data
+    attr_reader :board_data, :boards
+
+    def initialize(game_data)
+      @game_data  = game_data
+      @board_data = game_data.board_data
+      @boards     = game_data.board_data.reduce({}.with_indifferent_access) do |hsh, board_datum|
+        hsh[board_datum.location_id] = BoardSpace.new(board_datum)
+        hsh
+      end
+
+      ::Board::Location::GROUPS.each do |group|
+        @boards[group.to_s] = @boards.values_at(*::Board::Location.send(group).map(&:id))
+      end
     end
 
-    def all
-      board_data.where(location_id: ::Board::Location.all.map(&:id))
-    end
-    def cards
-      board_data.where(location_id: ::Board::Location.cards.map(&:id))
-    end
-    def common
-      board_data.where(location_id: ::Board::Location.common.map(&:id))
-    end
-    def players
-      board_data.where(location_id: ::Board::Location.players.map(&:id))
-    end
-    def projects
-      board_data.where(location_id: ::Board::Location.projects.map(&:id))
-    end
-    def workers
-      board_data.where(location_id: ::Board::Location.workers.map(&:id))
+    delegate :[], to: :boards
+
+    def respond_to_missing?(method_name, *args, &block)
+      @boards.has_key? method_name
     end
 
+    def method_missing(method_name, *args, &block)
+      boards[method_name] || super
+    end
   end
 end

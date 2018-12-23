@@ -1,13 +1,14 @@
 module Games
   class SetupBoard
     include Interactor
-    include ::InteractorValidations
 
-    validates :game, presence: true
+    before do
+      puts self.class if context.debug
+    end
 
     def call
-      Board::Location.all.each do |loc|
-        context.game.board_data.create(
+      context.board_data = ::Board::Location.all.map do |loc|
+        BoardDatum.new(
           location:   loc,
           card_ids:   [],
           worker_ids: []

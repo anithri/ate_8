@@ -1,27 +1,21 @@
-class Games::DealCards
-  include Interactor
-  include ::InteractorValidations
+module Games
+  class DealCards
+    include Interactor
 
-  validates :game, presence: true
+    before do
+      puts self.class if context.debug
+      unless context.game
+        context.errors = ["no game"]
+        context.fail!(message: context.errors.first)
+      end
 
-  def call
-  end
-
-
-  def deal_cards
-    # shuffle cards and put into draw pile
-    board.draw.deck.push(Card.shuffled)
-
-    board.by_group('projects').each do |project_loc|
-      board.deal(to: project_loc.location_id)
+      context.game.game_datum.board_data.each do |board_datum|
+        board_datum.card_ids = []
+      end
     end
-  end
 
-  def draw_workers
-
-  end
-
-  def board
-    context.game.card_board
+    def call
+      context.game.board.draw.deck.push(::Game::Card.shuffled)
+    end
   end
 end

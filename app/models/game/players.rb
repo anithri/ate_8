@@ -1,7 +1,8 @@
 module Game
   class Players
-    def initialize(player_data)
-      @player_data = player_data
+    def initialize(game_data)
+      @game_data = game_data
+      @player_data = game_data.player_data
     end
   end
 end

@@ -1,11 +1,13 @@
 module Games
-  class StartGame
+  class Create
     include Interactor::Organizer
 
-    organize SetupGame,
+    organize QuickStart,
              SeatPlayers,
              SetupBoard,
+             SetupGame,
              DealCards,
-             DrawWorkers
+             DrawWorkers,
+             SaveGame
   end
 end

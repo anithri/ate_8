@@ -8,12 +8,12 @@ module Types
       argument :game_id, ID, required: true, as: :id
     end
     def game(id:)
-      ::GameDatum.locate(id)
+      ::Game.locate(id)
     end
 
     field :games, Types::Game.connection_type, null: false
     def games
-      ::GameDatum.active
+      ::Game.current
     end
     #endregion
 
@@ -24,31 +24,18 @@ module Types
     end
     #endregion
 
-    #region BoardLocation Fields
-    field :board_location, Types::BoardLocation, null: true do
-      argument :board_location_id, ID, required: true, as: :id
-    end
-    def board_location(id:)
-      ::BoardLocation.locate id
+    #region Board Fields
+    field :board, Types::Board, null: true do
+      argument :board_id, ID, as: :id, required: false
+      argument :game_id, ID, as: :game_id, required: false
     end
 
-    field :board_locations, Types::BoardLocation.connection_type, null: false
-    def board_locations
-      ::BoardLocation.all
-    end
-    #endregion
-
-    #region Location Fields
-    field :location, Types::Location, null: true do
-      argument :location_id, ID, required: true, as: :id
-    end
-    def location(id:)
-      ::Location.find_by_id(id)
-    end
-
-    field :locations, Types::Location.connection_type, null: false
-    def locations
-      ::Location.all
+    def board(id:, game_id:)
+      if id || game_id
+        ::Game::Board.locate id || game_id
+      else
+        null
+      end
     end
     #endregion
 
@@ -57,12 +44,12 @@ module Types
       argument :worker_id, ID, required: true, as: :id
     end
     def worker(id:)
-      ::Worker.locate id
+      ::Game::Worker.locate id
     end
 
     field :workers, Types::Worker.connection_type, null: false
     def workers
-      ::Worker.all
+      ::Game::Worker.all
     end
     #endregion
 
@@ -71,12 +58,12 @@ module Types
       argument :card_id, ID, required: true, as: :id
     end
     def card(id:)
-      ::Card.locate id
+      ::Game::Card.locate id
     end
 
     field :cards, Types::Card.connection_type, null: false
     def cards
-      ::Card.all
+      ::Game::Card.all
     end
     #endregion
 

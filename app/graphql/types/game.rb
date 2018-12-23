@@ -8,6 +8,6 @@ module Types
     field :turn, Integer, null: false
     field :phase, Integer, null: false
     field :players, Types::Player.connection_type, null: false
-    field :board_locations, Types::BoardLocation.connection_type, null: false
+    field :board, Types::Board, null: false
   end
 end

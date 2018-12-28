@@ -16,6 +16,7 @@ module Games
 
     def call
       context.game.board.draw.deck.push(::Game::Card.shuffled)
+      context.game.board.deal(1, to: 'project1')
     end
   end
 end

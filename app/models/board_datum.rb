@@ -46,5 +46,4 @@ class BoardDatum < ApplicationRecord
   def cards=(new_cards)
     self.card_ids = new_cards.map(&:to_global_id)
   end
-
 end

@@ -9,5 +9,9 @@ module Game
       @deck ||= ::Board::Deck.new(board_datum)
     end
 
+    def bag
+      @bag ||= ::Board::Bag.new(board_datum)
+    end
+
   end
 end

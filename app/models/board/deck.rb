@@ -10,7 +10,6 @@ module Board
     end
 
     def push(*new_cards)
-      puts new_cards
       board_datum.cards += new_cards.flatten
     end
   end

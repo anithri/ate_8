@@ -4,6 +4,13 @@ module Game
   PROJECT_COUNT      = 16
   TOTAL_WORKER_COUNT = Worker.count * PER_WORKER_COUNT
 
+  STARTING_WORKER_LOCATIONS = {
+    bar:     2,
+    discards: 3,
+    draw:    5,
+    reserve: 20
+  }
+
   def self.locate(game_datum_id)
     Runner.new(
       GameDatum.locate(game_datum_id)
@@ -17,6 +24,6 @@ module Game
   end
 
   def self.current
-    GameDatum.active.map{|g| Runner.new(g)}
+    GameDatum.active.map { |g| Runner.new(g) }
   end
 end

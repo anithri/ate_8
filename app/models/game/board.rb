@@ -1,6 +1,6 @@
 module Game
   class Board
-    attr_reader :board_data, :boards
+    attr_reader :board_data, :boards, :game_data
 
     def initialize(game_data)
       @game_data  = game_data
@@ -15,7 +15,12 @@ module Game
       end
     end
 
+    delegate :to_global_id, to: :game_data
     delegate :[], to: :boards
+
+    def deal(count, to:)
+     boards[to].deck.push(draw.deck.pop(count))
+    end
 
     def respond_to_missing?(method_name, *args, &block)
       @boards.has_key? method_name

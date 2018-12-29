@@ -1,0 +1,85 @@
+body {
+	font-family: var(--open-sans);
+	font-size: var(--body-font-size);
+	color: var(--base-font-color);
+
+	line-height: var(--line-height-copy);
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: 600;
+	line-height: var(--line-height-title);
+	font-family: var(--advent-pro);
+	margin: var(--spacing-none);
+
+}
+
+h1 {
+	font-size: var(--font-size-1);
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: var(--font-size-2);
+	font-weight: 300;
+}
+
+h3 {
+	font-size: var(--font-size-3);
+	font-weight: 800;
+}
+
+h4 {
+	font-size: var(--font-size-4);
+	font-weight: 800;
+}
+
+h5 {
+	font-size: var(--font-size-5);
+	font-weight: 700;
+}
+
+h6 {
+	font-size: var(--font-size-6);
+	font-weight: 700;
+}
+
+p {
+	margin: var(--spacing-none);
+}
+
+strong {
+	font-weight: 700;
+}
+
+em {
+	font-style: italic;
+}
+
+a {
+	color: var(--base-link-color);
+	text-transform: none;
+}
+
+a:hover {
+	text-transform: none;
+}
+
+a:active {
+	text-transform: none;
+}
+
+a:visited {
+	text-transform: none;
+}
+
+ul,ol {
+	margin: var(--spacing-none);
+	padding: var(--spacing-none);
+}
+
+li {
+	margin: var(--spacing-none);
+	padding: var(--spacing-none);
+}

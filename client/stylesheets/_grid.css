@@ -12,8 +12,8 @@ main {
   padding: var(--spacing-small, .5rem);
 
   & > * {
-    background-color: var(--white-20); /* .bg-white-20 */
-    border: 1px solid var(--dark-blue);
+    background-color: var(--white-40); /* .bg-white-20 */
+    border: 2px solid var(--gold);
     border-radius: var(--border-radius-3, .5rem);
     display: block;
   }

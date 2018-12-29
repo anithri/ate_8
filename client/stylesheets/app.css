@@ -8,6 +8,7 @@
 @import './__media.css';
 @import './_flex.css';
 @import './_grid.css';
+@import '_typography.css';
 
 html, body, #ateEight {
   height: 100%; /* .h-100 */

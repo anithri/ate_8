@@ -5,10 +5,12 @@
 
 
 :root {
-  --header-height: 3rem;
-  --logo-height: 60px;
+  --body-font-size: 18px;
+  --open-sans: 'Open Sans', var(--sans-serif);
+  --advent-pro: 'Advent Pro', var(--sans-serif);
 
-  --burger-button-width: var(--font-size-3);
+  --base-font-color: var(--near-black);
+  --base-link-color: var(--dark-purple);
   --spacing-extra-extra-small: 0.125rem;
 
   --base-background-color: var(--light-purple);

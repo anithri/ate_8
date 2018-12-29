@@ -15,9 +15,9 @@ module Types
     def games
       ::Game.current
     end
-    #endregion
+    #endregion 1
 
-    #region PlayerQueue Fields
+    #region PlayerQueue Fields 11
     field :player_queue, Types::User.connection_type, null: false
     def player_queue
       ::PlayerQueue.current

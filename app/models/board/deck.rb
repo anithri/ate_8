@@ -11,9 +11,9 @@ module Board
     define_attribute_methods :card_ids, :version
 
     def initialize(deck_data)
-      @deck_data = deck_data
-      @version = deck_data[:version]
-      @card_ids = deck_data[:card_ids] || []
+      @deck_data = deck_data.with_indifferent_access
+      @version = @deck_data[:version]
+      @card_ids = @deck_data[:card_ids] || []
     end
 
     def cards

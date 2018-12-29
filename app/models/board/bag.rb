@@ -11,8 +11,9 @@ module Board
     define_attribute_methods :worker_ids, :version
 
     def initialize(bag_data)
-      @version = bag_data[:version]
-      @worker_ids = bag_data[:worker_ids] || []
+      @bag_data = bag_data.with_indifferent_access
+      @version = @bag_data[:version]
+      @worker_ids = @bag_data[:worker_ids] || []
     end
 
     def workers

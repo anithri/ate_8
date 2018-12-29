@@ -1,5 +1,5 @@
 module Game
-  class Card < ActiveHash::Base
+  class Card < ApplicationActiveHash
     include ActiveHashGlobalId
 
     field :name
@@ -247,6 +247,10 @@ module Game
 
     def workers
       worker_ids.map { |w_id| Worker.find(w_id) }
+    end
+
+    def to_s
+      self.gid
     end
 
     def self.shuffled

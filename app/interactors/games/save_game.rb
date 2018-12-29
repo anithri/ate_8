@@ -17,6 +17,9 @@ module Games
         context.errors = context.game_data.errors.full_messages
         context.fail!
       end
+    rescue ArgumentError => e
+      warn context.game_data.inspect
+      warn e.backtrace.inspect
     end
   end
 end

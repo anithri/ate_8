@@ -3,8 +3,8 @@
 # Table name: board_data
 #
 #  id            :bigint(8)        not null, primary key
-#  card_ids      :string           default([]), is an Array
-#  worker_ids    :string           default([]), is an Array
+#  bag_data      :jsonb            not null
+#  deck_data     :jsonb            not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  game_datum_id :bigint(8)
@@ -23,27 +23,39 @@ class BoardDatum < ApplicationRecord
   include UseGlobalRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  belongs_to :game_datum
+  belongs_to :game_datum, autosave: true
   belongs_to_active_hash :location, class_name: 'Board::Location'
   delegate :name, to: :location
+
+  def deck
+    @deck ||= ::Board::Deck.new(deck_data)
+  end
+
+  def deck=(new_deck)
+    self.deck_data = new_deck.to_h
+    @deck = new_deck
+  end
+
+  def bag
+    @bag ||= ::Board::Bag.new(bag_data)
+  end
+  def bag=(new_bag)
+    self.bag_data = new_bag.to_h
+    @bag = new_bag
+  end
 
   def grouping
     location&.group
   end
 
-  def workers
-    Game::Worker.locate_many self.worker_ids
+  def changed?
+    deck.changed? || bag.changed? || super
   end
 
-  def workers=(new_workers)
-    self.worker_ids = new_workers.map(&:to_global_id)
+  before_save do
+    self.deck_data = deck.to_h if deck.changed?
+    self.bag_data = bag.to_h if bag.changed?
   end
 
-  def cards
-    Game::Card.locate_many self.card_ids
-  end
-
-  def cards=(new_cards)
-    self.card_ids = new_cards.map(&:to_global_id)
-  end
+  alias :changed_for_autosave? :changed?
 end

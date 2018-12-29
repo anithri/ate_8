@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Game
-  class Worker < ActiveHash::Base
+  class Worker < ApplicationActiveHash
     include ActiveHashGlobalId
 
     field :name
@@ -16,5 +16,9 @@ module Game
 
     create id:   'workerPurple',
            name: 'Purple'
+
+    def to_s
+      self.gid
+    end
   end
 end

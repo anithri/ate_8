@@ -18,8 +18,10 @@ module Game
     delegate :to_global_id, to: :game_data
     delegate :[], to: :boards
 
-    def deal(count, to:)
-     boards[to].deck.push(draw.deck.pop(count))
+    def deal(count, to:, from: :draw)
+     boards[to].deck.push(
+       boards[from].deck.pop(count)
+     )
     end
 
     def respond_to_missing?(method_name, *args, &block)

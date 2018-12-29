@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2018_12_09_033840) do
   create_table "board_data", force: :cascade do |t|
     t.bigint "game_datum_id"
     t.string "location_id"
-    t.string "card_ids", default: [], array: true
-    t.string "worker_ids", default: [], array: true
+    t.jsonb "deck_data", default: {"version"=>"1.0.0", "card_ids"=>[]}, null: false
+    t.jsonb "bag_data", default: {"version"=>"1.0.0", "worker_ids"=>[]}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_datum_id"], name: "index_board_data_on_game_datum_id"

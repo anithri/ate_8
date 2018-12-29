@@ -10,8 +10,8 @@ module Games
       context.board_data = ::Board::Location.all.map do |loc|
         BoardDatum.new(
           location:   loc,
-          card_ids:   [],
-          worker_ids: []
+          deck_data:   Board::Deck::DEFAULT_DECK.deep_dup,
+          bag_data: Board::Bag::DEFAULT_BAG.deep_dup
         )
       end
     end

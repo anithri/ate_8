@@ -10,13 +10,16 @@ module Games
       end
 
       context.game.game_datum.board_data.each do |board_datum|
-        board_datum.card_ids = []
+        board_datum.deck = Board::Deck.default
       end
     end
 
     def call
       context.game.board.draw.deck.push(::Game::Card.shuffled)
-      context.game.board.deal(1, to: 'project1')
+
+      Board::Location.projects.each do |loc|
+        context.game.board.deal(1, to: loc.id)
+      end
     end
   end
 end

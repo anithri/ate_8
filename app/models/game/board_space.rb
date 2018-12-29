@@ -5,13 +5,6 @@ module Game
       @board_datum = board_datum
     end
 
-    def deck
-      @deck ||= ::Board::Deck.new(board_datum)
-    end
-
-    def bag
-      @bag ||= ::Board::Bag.new(board_datum)
-    end
-
+    delegate :name, :deck, :bag, to: :board_datum
   end
 end

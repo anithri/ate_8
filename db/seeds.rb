@@ -17,4 +17,3 @@ end
 10.times do
   Games::Create.call
 end
-

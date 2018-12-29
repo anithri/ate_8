@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ate Eight</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= yield :page_head %>
-  </head>
+<head>
+  <title>Ate Eight</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= yield :page_head %>
+</head>
 
-  <body>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%= yield :page_body %>
-  </body>
+<body>
+<%= yield %>
+<%= javascript_include_tag 'application' %>
+<%= yield :page_body %>
+</body>
 </html>

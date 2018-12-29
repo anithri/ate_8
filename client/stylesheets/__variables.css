@@ -11,13 +11,8 @@
   --burger-button-width: var(--font-size-3);
   --spacing-extra-extra-small: 0.125rem;
 
-  --base-background-color: var(--cpp-light-blue);
-  --background-texture: url('../images/pattern3.png');
-  --background-image: url('../images/clouds.jpg') no-repeat center/cover fixed;
-  --background-gradient: linear-gradient(to right, var(--cpp-light-blue), var(--cpp-blue));
-
-  --body-background: var(--background-texture), var(--background-image),
-  var(--background-gradient), var(--base-background-color);
-
+  --base-background-color: var(--light-purple);
+  --background-texture: url('../images/black-linen-2.png');
+  --body-background: var(--background-texture), var(--base-background-color);
 }
 

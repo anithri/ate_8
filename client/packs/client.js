@@ -7,5 +7,5 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<App />, document.getElementById('tunnelLogs'))
+  ReactDOM.render(<App />, document.getElementById('ateEight'))
 })

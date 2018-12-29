@@ -21,6 +21,9 @@ theme.bodyGrayHue = 'slate'
 theme.includeNormalize = true
 theme.blockMarginBottom = 'var(--spacing-medium)'
 theme.overrideStyles = {
+  'h1,h2,h3,h4,h5,h6': {
+    marginBottom: 'var(--spacing-extra-small)'
+  },
   'h4,h5,h6': {
     fontWeight: '500',
   },

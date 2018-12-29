@@ -4,20 +4,20 @@ module Board
 
     DEFAULT_BAG = {
       worker_ids: [].freeze,
-      version: '1.0.0'.freeze
+      version:    '1.0.0'.freeze
     }.with_indifferent_access.freeze
 
     attr_accessor :worker_ids, :version
     define_attribute_methods :worker_ids, :version
 
     def initialize(bag_data)
-      @bag_data = bag_data.with_indifferent_access
-      @version = @bag_data[:version]
+      @bag_data   = bag_data.with_indifferent_access
+      @version    = @bag_data[:version]
       @worker_ids = @bag_data[:worker_ids] || []
     end
 
     def workers
-       ::Game::Worker.locate_many worker_ids
+      ::Game::Worker.locate_many worker_ids
     end
 
     def push(*new_workers)
@@ -33,10 +33,11 @@ module Board
     def to_json
       to_h.to_json
     end
+
     def to_h
       {
         worker_ids: worker_ids,
-        version: version
+        version:    version
       }.with_indifferent_access
     end
 

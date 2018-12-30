@@ -13,7 +13,7 @@ const <%= className %>Container = ({ className, display: <%= className %>Display
       if (loading) return <div>Loading...</div>
       if (error) return <div>Error!</div>
 
-      const <%= dataName %>Data = normalizeData(data.<%= dataName %>)
+      const <%= dataName %>Data = normalizeData(data.<%= isList ? plural : dataName %>)
       return <<%= className %>Display <%= dataName %>={<%= dataName %>Data} className={className} />
     }}
   </Query>
@@ -22,6 +22,7 @@ const <%= className %>Container = ({ className, display: <%= className %>Display
 <%=className%>Container.propTypes = {
   className: PropTypes.string,
   display: PropTypes.func.isRequired,
+  <%=  %>
 }
 
 export default <%= className %>Container

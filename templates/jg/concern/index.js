@@ -1,14 +1,20 @@
 // my-generator/my-action/index.js
 const cc = require('change-case')
+const inflection = require('inflection')
 
 module.exports = {
   params: ({ args }) => {
+    const pascal = cc.pascal(args.name)
+    const camel = cc.camel(pascal)
+
     args.isList = !!args.list ? 'List' : ''
-    const name = cc.pascal(args.name) + args.isList
+
+    args.plural = inflection.pluralize(camel)
+    const name = pascal + args.isList
 
     args.className = name
-    args.queryName = cc.upper(`to_${cc.snake(name)}`)
-    args.dataName = cc.snake(name)
+    args.queryName = cc.upper(`get_${name}`)
+    args.dataName = camel
     return args
   },
 }

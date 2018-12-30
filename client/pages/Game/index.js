@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './Game.module.css'
 

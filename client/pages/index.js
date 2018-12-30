@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Error404 from 'pages/Error404'
 
+import Game from 'pages/Game'
+
 /* new imports above here - see templates/jg/pages */
 
 const SiteRouter = props => {
@@ -13,6 +15,8 @@ const SiteRouter = props => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/games" component={Games} />
+        <Route exact path="/games/:gameId" component={Game} />
+
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />
       </Switch>

@@ -1,6 +1,6 @@
 const sourcePaths = {
   components: 'client/components/',
-  containers: 'client/containers/',
+  concerns: 'client/concerns/',
   models: 'client/models/',
   pages: 'client/pages/',
 }

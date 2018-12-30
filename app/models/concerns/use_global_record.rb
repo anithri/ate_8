@@ -7,7 +7,7 @@ module UseGlobalRecord
   end
 
   def gid
-    self.to_global_id.to_s
+    self.to_signed_global_id.to_s
   end
 
   module ClassMethods

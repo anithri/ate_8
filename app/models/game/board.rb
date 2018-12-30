@@ -15,7 +15,7 @@ module Game
       end
     end
 
-    delegate :to_global_id, to: :game_data
+    delegate :to_signed_global_id, to: :game_data
     delegate :[], to: :boards
 
     def deal(count, to:, from: :draw)

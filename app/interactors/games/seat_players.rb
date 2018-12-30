@@ -17,7 +17,7 @@ module Games
     end
 
     def users
-      context.users ||= User.locate_many context.new_player_ids
+      context.users ||= User.locate_many_signed context.new_player_ids
     end
 
   end

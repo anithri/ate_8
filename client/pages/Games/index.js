@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import GameListContainer from 'concerns/GameList/container'
 import GameListDisplay from 'components/GameList'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -20,7 +21,10 @@ class GamesPage extends React.Component {
             </ul>
           </nav>
         </header>
-        <GameListDisplay className={styles.GameList} />
+        <GameListContainer
+          className={styles.GameList}
+          display={GameListDisplay}
+        />
       </main>
     )
   }

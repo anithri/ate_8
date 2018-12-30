@@ -1,3 +1,9 @@
 .GameList {
+  padding: var(--spacing-small);
 
+  & > ul {
+    & > li {
+      list-style: none;
+    }
+  }
 }

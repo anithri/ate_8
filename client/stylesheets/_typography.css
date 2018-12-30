@@ -60,18 +60,25 @@ em {
 a {
 	color: var(--base-link-color);
 	text-transform: none;
+	text-decoration: none;
 }
 
 a:hover {
+	color: var(--base-link-color);
 	text-transform: none;
+	text-decoration: none;
 }
 
 a:active {
+	color: var(--base-link-color);
 	text-transform: none;
+	text-decoration: none;
 }
 
 a:visited {
+	color: var(--base-link-color);
 	text-transform: none;
+	text-decoration: none;
 }
 
 ul,ol {

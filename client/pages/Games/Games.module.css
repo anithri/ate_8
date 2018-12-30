@@ -1,0 +1,23 @@
+.GamesPage {
+  grid-template-rows: auto 1fr;
+
+  & > header {
+    padding-left: var(--spacing-medium);
+    padding-right: var(--spacing-medium);
+
+
+    & > h1 {
+      font-size: var(--font-size-2);
+    }
+
+    & > nav {
+      & > ul > li {
+        list-style: none;
+      }
+    }
+  }
+}
+
+.GameList {
+
+}

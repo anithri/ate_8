@@ -1,5 +1,7 @@
-.homePage {
+.Error404Page {
   grid-template-rows: auto 1fr;
+  background-color: var(--red);
+
 
   & > header > h1 {
     font-size: var(--font-size-2);

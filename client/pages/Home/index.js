@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Query } from 'react-apollo'
+import { Link } from 'react-router-dom'
 import React from 'react'
 import styles from './Home.module.css'
 
@@ -39,7 +40,12 @@ class HomePage extends React.Component {
         {/*)*/}
         {/*}}*/}
         {/*</Query>*/}
-        <p>Stuff</p>
+        <nav className='centeringFlex'>
+          <ul>
+            <li><Link to='/games'>Games</Link></li>
+            <li><Link to='/Oops'>Oops</Link></li>
+          </ul>
+        </nav>
       </main>
     )
   }

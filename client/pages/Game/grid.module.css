@@ -1,7 +1,7 @@
 /* prettier-ignore */
 .game {
   composes: grid from global;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 4fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
     'playerArea gameInfo'
@@ -10,10 +10,10 @@
 
 .info {
   composes: subGrid from global;
-  grid-template-columns: auto 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-    'gameTitle drawBag discardsBag reserveBag drawDeck '
-    'gameTitle drawBag discardsBag reserveBag discardsDeck';
+    'title drawBag discardsBag reserveBag drawDeck '
+    'title drawBag discardsBag reserveBag discardsDeck';
 }
 
 .players {

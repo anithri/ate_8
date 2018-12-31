@@ -4,9 +4,9 @@ module Types
     description 'Player'
 
     global_id_field :id
-    field :tag, String, null: false
-    field :slug, String, null: false
-    field :order, Integer, null: false
     field :name, String, null: true
+    field :order, Integer, null: false
+    field :slug, String, null: false
+    field :workers, [Types::Worker], null: false
   end
 end

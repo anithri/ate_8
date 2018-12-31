@@ -20,5 +20,13 @@ module Game
     def to_s
       self.gid
     end
+
+    def slug
+      id
+    end
+
+    def self.combinations
+      self.all.shuffle.combination(3).to_a.shuffle
+    end
   end
 end

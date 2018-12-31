@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './<%= page %>.module.css'
 
-const <%= page + Name %> = ({className}) => (
+const <%= page + Name %> = ({ className }) => (
   <div className={cx(className, styles.<%= page + Name %>)}>
     <h2>Component (styled) <%= name %></h2>
   </div>

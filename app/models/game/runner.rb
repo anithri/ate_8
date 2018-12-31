@@ -11,7 +11,7 @@ module Game
     end
 
     def players
-      @players ||= Game::Players.new(game_datum)
+      game_datum.player_data.map{|pd| Player.new(pd, board[pd.slug])}
     end
 
     delegate :gid, :name, :turn, :phase, :save, to: :game_datum

@@ -1,0 +1,23 @@
+.Worker {
+  font-size: var(--font-size-4);
+  padding-left: var(--spacing-extra-small);
+  padding-right: var(--spacing-extra-small);
+  font-weight: bold;
+  background-color: var(--near-white);
+  color: var(--dark-purple); float: left;
+  border-radius: var(--border-radius-circle);
+
+}
+
+.workerGreen {
+  color: var(--workerGreen);
+}
+.workerBlue {
+  color: var(--workerBlue);
+}
+.workerRed {
+  color: var(--workerRed);
+}
+.workerPurple {
+  color: var(--workerPurple);
+}

@@ -8,7 +8,7 @@ import { Query } from 'react-apollo'
 import React from 'react'
 
 const <%= className %>Container = ({ className, display: <%= className %>Display }) => (
-  <Query query={<%= queryName %>}>
+  <Query query={ <%= queryName %> }>
     {({ loading, error, data }) => {
       if (loading) return <div>Loading...</div>
       if (error) return <div>Error!</div>

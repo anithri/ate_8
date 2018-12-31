@@ -21,6 +21,7 @@
 #
 
 class PlayerDatum < ApplicationRecord
+  include UseGlobalRecord
   belongs_to :game_datum
   belongs_to :user
 
@@ -28,9 +29,6 @@ class PlayerDatum < ApplicationRecord
 
   def slug
     "player#{order}"
-  end
-  def tag
-    "Player #{order}"
   end
   delegate :name, to: :user
 end

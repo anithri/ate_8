@@ -1,4 +1,5 @@
 .GamesPage {
+  composes: grid from global;
   grid-template-rows: auto 1fr;
 }
 .GameList {

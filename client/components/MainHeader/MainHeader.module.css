@@ -1,4 +1,6 @@
 .MainHeader {
+  composes: spredFlex from global;
+  display: flex;
   padding-left: var(--spacing-medium);
   padding-right: var(--spacing-medium);
 

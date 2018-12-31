@@ -1,3 +1,19 @@
 .homePage {
+  composes: grid from global;
   grid-template-rows: auto 1fr;
+  & > nav {
+    align-items: flex-start;
+    display: flex;
+
+    & > ul {
+      margin: var(--spacing-none);
+      padding: var(--spacing-none);
+
+      & > li {
+        list-style: none;
+        margin: var(--spacing-none);
+        padding: var(--spacing-none);
+      }
+    }
+  }
 }

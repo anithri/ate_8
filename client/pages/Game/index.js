@@ -14,7 +14,7 @@ const GamePage = ({ game, className }) => {
   return (
     <main className={cx(className, styles.game, grid.game)}>
       <Info className={regions.info} game={game} />
-      <Players className={regions.players} game={game} />
+      <Players className={regions.players} players={game.players} />
       <Projects className={regions.projects} game={game} />
     </main>
   )

@@ -35,3 +35,7 @@
     display: block;
   }
 }
+
+.grid > .subGrid {
+  background-color: var(--white-10);
+}

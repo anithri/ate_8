@@ -18,6 +18,10 @@ class Games::DrawWorkers
       pool = Game::Worker.all.map{|w| Array.new(count, w)}.flatten.shuffle
       context.game.board[loc].bag.push(pool)
     end
+    player_locs = Board::Location.players.map(&:id)
+    Game::Worker.combinations.zip(player_locs).each do |(combo, loc)|
+      context.game.board[loc].bag.push(combo)
+    end
   end
 
 end

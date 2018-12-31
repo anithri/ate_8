@@ -1,21 +1,29 @@
 import cx from 'classnames'
 import { gameShape } from 'concerns/Game/shape'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import grid from './grid.module.css'
-import MainHeader from 'components/MainHeader'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 import regions from './regions.module.css'
 import styles from './game.module.css'
 
 const GameInfo = ({ className, game }) => (
-  <div className={cx(className, grid.info, styles.info)}>
-    <MainHeader title={game.name} className={regions.title} />
+  <section className={cx(className, grid.info, styles.info)}>
+    <header className={cx(regions.title, styles.title)}>
+      <h1>{game.name}</h1>
+      <nav>
+        <Link to="/">
+          <FontAwesomeIcon icon="home" size="lg" />
+        </Link>
+      </nav>
+    </header>
     <div className={regions.drawBag}>draw_bag</div>
     <div className={regions.drawDeck}>draw_deck</div>
     <div className={regions.discardsBag}>discards_bag</div>
     <div className={regions.discardsDeck}>discards_deck</div>
     <div className={regions.reserveBag}>reserve_bag</div>
-  </div>
+  </section>
 )
 
 GameInfo.propTypes = {

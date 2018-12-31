@@ -28,7 +28,7 @@
 
 /* gameInfo grid */
 .title {
-  grid-area: gameTitle;
+  grid-area: title;
 }
 .drawBag {
   grid-area: drawBag;

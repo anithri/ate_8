@@ -1,0 +1,6 @@
+---
+to: <%= stylesPath %>
+---
+.<%= stylesName %> {
+
+}

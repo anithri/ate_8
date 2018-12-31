@@ -1,0 +1,16 @@
+import cx from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
+import styles from './pane.module.css'
+
+const PlayerPane = ({ className }) => (
+  <div className={cx(className, styles.player)}>
+    <h2>Component (styled) Player</h2>
+  </div>
+)
+
+PlayerPane.propTypes = {
+  className: PropTypes.string,
+}
+
+export default PlayerPane

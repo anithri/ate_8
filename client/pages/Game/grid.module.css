@@ -1,0 +1,40 @@
+/* prettier-ignore */
+.game {
+  composes: grid from global;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'playerArea gameInfo'
+    'playerArea projectArea';
+}
+
+.info {
+  composes: subGrid from global;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  grid-template-areas:
+    'gameTitle drawBag discardsBag reserveBag drawDeck '
+    'gameTitle drawBag discardsBag reserveBag discardsDeck';
+}
+
+.players {
+  composes: subGrid from global;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    'messages'
+    'player1'
+    'player2'
+    'player3'
+    'player4';
+}
+
+.projects {
+  composes: subGrid from global;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+  "barBag project1 project2 project3 project4"
+  "barBag project5 project6 project7 project8"
+  "barBag project9 project10 project11 project12"
+  "barBag project13 project14 project15 project16"
+;
+}

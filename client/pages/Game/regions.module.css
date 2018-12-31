@@ -1,0 +1,100 @@
+/* main grid */
+.info {
+  grid-area: gameInfo;
+}
+.messages {
+  grid-area: messages;
+}
+.players {
+ grid-area: playerArea;
+}
+.projects {
+  grid-area: projectArea;
+}
+
+/* playerArea grid */
+.player1 {
+  grid-area: player1;
+}
+.player2 {
+  grid-area: player2;
+}
+.player3 {
+  grid-area: player3;
+}
+.player4 {
+  grid-area: player4;
+}
+
+/* gameInfo grid */
+.title {
+  grid-area: gameTitle;
+}
+.drawBag {
+  grid-area: drawBag;
+}
+.drawDeck {
+  grid-area: drawDeck;
+}
+.discardsBag {
+  grid-area: discardsBag;
+}
+.discardsDeck {
+  grid-area: discardsDeck;
+}
+.reserveBag {
+  grid-area: reserveBag;
+}
+
+/* projectArea grid */
+.barBag {
+  grid-area: barBag;
+}
+.project1 {
+  grid-area: project1;
+}
+.project2 {
+  grid-area: project2;
+}
+.project3 {
+  grid-area: project3;
+}
+.project4 {
+  grid-area: project4;
+}
+.project5 {
+  grid-area: project5;
+}
+.project6 {
+  grid-area: project6;
+}
+.project7 {
+  grid-area: project7;
+}
+.project8 {
+  grid-area: project8;
+}
+.project9 {
+  grid-area: project9;
+}
+.project10 {
+  grid-area: project10;
+}
+.project11 {
+  grid-area: project11;
+}
+.project12 {
+  grid-area: project12;
+}
+.project13 {
+  grid-area: project13;
+}
+.project14 {
+  grid-area: project14;
+}
+.project15 {
+  grid-area: project15;
+}
+.project16 {
+  grid-area: project16;
+}

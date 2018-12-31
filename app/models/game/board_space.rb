@@ -6,7 +6,7 @@ module Game
       @board_datum = board_datum
     end
 
-    delegate :bag, :deck, :name, to: :board_datum
+    delegate :bag, :deck, :name, :gid, to: :board_datum
     delegate :cards, to: :deck
     delegate :workers, to: :bag
   end

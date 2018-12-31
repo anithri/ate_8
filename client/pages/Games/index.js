@@ -16,7 +16,7 @@ const GamesPage = ({ className, games }) => (
 
 GamesPage.propTypes = {
   className: PropTypes.string,
-  games: PropTypes.arrayOf(gameListShape),
+  games: gameListShape,
 }
 
 export default GameListContainer(GamesPage)

@@ -1,7 +1,7 @@
 ---
-to: <%= h.src('pages', Name, `${Name}.module.css`) %>
+to: <%= stylesPath %>
 ---
-.<%= name %>Page {
+.page {
   grid-template-rows: auto 1fr;
 
   & > header > h1 {

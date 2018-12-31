@@ -1,33 +1,29 @@
 ---
-  to: <%= h.src('pages', Name, 'index.js') %>
+  to: <%= pagePath %>
 ---
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'react-router-dom'
 import React from 'react'
-import styles from './<%= Name %>.module.css'
+import styles from './page.module.css'
 
-class <%= Name %>Page extends React.Component {
-  render() {
-    const { children, className } = this.props
-    return (
-      <main className={cx(className, styles.<%= name %>Page)}>
-        <header>
-          <h1><%= Name %> Page</h1>
-        </header>
-        <nav className='centeringFlex'>
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-        </ul>
-        </nav>
-      </main>
-    )
-  }
+const <%= pageName %> = ({className}) => {
+  return (
+    <main className={cx(className, styles.page)}>
+      <header>
+        <h1><%= Name %> Page</h1>
+      </header>
+      <nav className='centeringFlex'>
+      <ul>
+        <li><Link to='/'>Home</Link></li>
+      </ul>
+      </nav>
+    </main>
+  )
 }
 
-<%= Name %>Page.propTypes = {
-  children: PropTypes.node,
+<%= pageName %>.propTypes = {
   className: PropTypes.string,
 }
 
-export default <%= Name %>Page
+export default <%= pageName %>

@@ -1,19 +1,19 @@
 ---
-to: <%= h.src('pages', page, `${Name}.js`) %>
+to: <%= partPath %>
 ---
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './<%= page %>.module.css'
+import styles from './<%= partType %>.module.css'
 
-const <%= page + Name %> = ({ className }) => (
-  <div className={cx(className, styles.<%= page + Name %>)}>
+const <%= partName %> = ({ className }) => (
+  <div className={cx(className, styles.<%= styleName %>)}>
     <h2>Component (styled) <%= name %></h2>
   </div>
 )
 
-<%= page + Name %>.propTypes = {
+<%= partName %>.propTypes = {
   className: PropTypes.string,
 }
 
-export default <%= page + Name %>
+export default <%= partName %>

@@ -1,38 +1,22 @@
 import cx from 'classnames'
+import GameList from './List'
 import GameListContainer from 'concerns/GameList/container'
-import GameListDisplay from 'components/GameList'
-import { Link } from 'react-router-dom'
+import { gameListShape } from 'concerns/GameList/shape'
+import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './Games.module.css'
 
-class GamesPage extends React.Component {
-  render() {
-    const { className } = this.props
-    return (
-      <main className={cx(className, styles.GamesPage)}>
-        <header className="spreadFlex">
-          <h1>Games Page</h1>
-          <nav className="centeringFlex">
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <GameListContainer
-          className={styles.GameList}
-          display={GameListDisplay}
-        />
-      </main>
-    )
-  }
-}
+const GamesPage = ({ className, games }) => (
+  <main className={cx(className, styles.GamesPage)}>
+    <MainHeader title="Games" />
+    <GameList games={games} className={styles.GameList} />
+  </main>
+)
 
 GamesPage.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
+  games: PropTypes.arrayOf(gameListShape),
 }
 
-export default GamesPage
+export default GameListContainer(GamesPage)

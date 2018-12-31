@@ -1,9 +1,7 @@
-import cx from 'classnames'
 import { gameListShape } from 'concerns/GameList/shape'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './GameList.module.css'
 
 const GameList = ({ className, games }) => {
   const rows = games.map(({ id, name, turns }, idx) => {
@@ -16,7 +14,7 @@ const GameList = ({ className, games }) => {
     )
   })
   return (
-    <div className={cx(className, styles.GameList)}>
+    <div className={className}>
       <h2>Component (styled) GameList</h2>
       <ul>{rows}</ul>
     </div>

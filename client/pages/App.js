@@ -1,10 +1,10 @@
 import 'stylesheets/app.css'
 import ApolloClient from 'apollo-boost'
-import {ApolloProvider} from 'react-apollo'
+import { ApolloProvider } from 'react-apollo'
 import Pages from 'pages'
 import React from 'react'
-import {Helmet as ReactHelmet} from 'react-helmet'
-import setupIcons from 'stylesheets/fontawesome';
+import { Helmet as ReactHelmet } from 'react-helmet'
+import setupIcons from 'stylesheets/fontawesome'
 
 setupIcons()
 
@@ -13,10 +13,12 @@ const client = new ApolloClient({
     credentials: 'same-origin',
   },
   request: operation => {
-    const csrfToken = document.querySelector('meta[name=csrf-token]').getAttribute('content')
+    const csrfToken = document
+      .querySelector('meta[name=csrf-token]')
+      .getAttribute('content')
 
     operation.setContext({
-      headers: {'X-CSRF-Token': csrfToken},
+      headers: { 'X-CSRF-Token': csrfToken },
     })
   },
   uri: 'http://localhost:3000/graphql',

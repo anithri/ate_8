@@ -8,7 +8,7 @@ module Types
       argument :game_id, ID, required: true, as: :id
     end
     def game(id:)
-      ::Game.locate_signed(id)
+      ::Game.locate(id)
     end
 
     field :games, Types::Game.connection_type, null: false
@@ -32,7 +32,7 @@ module Types
 
     def board(id:, game_id:)
       if id || game_id
-        ::Game::Board.locate_signed id || game_id
+        ::Game::Board.locate id || game_id
       else
         null
       end
@@ -44,7 +44,7 @@ module Types
       argument :worker_id, ID, required: true, as: :id
     end
     def worker(id:)
-      ::Game::Worker.locate_signed id
+      ::Game::Worker.locate id
     end
 
     field :workers, Types::Worker.connection_type, null: false
@@ -58,7 +58,7 @@ module Types
       argument :card_id, ID, required: true, as: :id
     end
     def card(id:)
-      ::Game::Card.locate_signed id
+      ::Game::Card.locate id
     end
 
     field :cards, Types::Card.connection_type, null: false

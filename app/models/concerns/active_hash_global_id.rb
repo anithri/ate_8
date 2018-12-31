@@ -14,7 +14,7 @@ module ActiveHashGlobalId
   end
 
   def gid
-    self.to_signed_global_id.to_s
+    self.to_gid_param
   end
 
   module ClassMethods

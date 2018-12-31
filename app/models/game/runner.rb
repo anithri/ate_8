@@ -14,6 +14,6 @@ module Game
       @players ||= Game::Players.new(game_datum)
     end
 
-    delegate :to_signed_global_id, :name, :turn, :phase, :save, to: :game_datum
+    delegate :gid, :name, :turn, :phase, :save, to: :game_datum
   end
 end

@@ -2,20 +2,12 @@ module UseGlobalRecord
   extend ActiveSupport::Concern
 
   included do |base|
-    base.extend GlobalID::Locator
-    base.extend ClassMethods
+    include GlobalID::Identification
+    base.extend Ate8Locator
   end
 
   def gid
-    self.to_signed_global_id.to_s
+    self.send Ate8Locator::GID_METHOD
   end
 
-  module ClassMethods
-    def locate(id, only: self, ignore_missing: false)
-      GlobalID::Locator.locate id, only: only, ignore_missing: ignore_missing
-    end
-    def locate_many(*ids, only: self, ignore_missing: false)
-      GlobalID::Locator.locate_many ids.flatten, only: only, ignore_missing: ignore_missing
-    end
-  end
 end

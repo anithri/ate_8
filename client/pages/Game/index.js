@@ -1,4 +1,6 @@
 import cx from 'classnames'
+import GameContainer from 'concerns/Game/container'
+import GameDisplay from 'components/GameDisplay'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -6,20 +8,29 @@ import styles from './Game.module.css'
 
 class GamePage extends React.Component {
   render() {
-    const { match, className } = this.props
+    const {
+      match: {
+        params: { gameId },
+      },
+      className,
+    } = this.props
 
     return (
       <main className={cx(className, styles.GamePage)}>
-        <header>
-          <h1>Game Page - {match.params.gameId}</h1>
+        <header className="spreadFlex">
+          <h1>Game Page</h1>
+          <nav className="centeringFlex">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/games">Games</Link>
+              </li>
+            </ul>
+          </nav>
         </header>
-        <nav className="centeringFlex">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
+        <GameContainer gameId={gameId} display={GameDisplay} />
       </main>
     )
   }

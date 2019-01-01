@@ -3,11 +3,18 @@
   padding-left: var(--spacing-extra-small);
   padding-right: var(--spacing-extra-small);
   font-weight: bold;
-  background-color: var(--near-white);
-  color: var(--dark-purple); float: left;
   border-radius: var(--border-radius-circle);
-
+  border: thin solid var(--black-50);
 }
+
+.counter {
+  font-weight: bolder;
+  font-size: var(--font-size-4);
+  color: var(--black-80);
+  composes: fa-layers-text from global;
+  composes: fa-fw from global;
+}
+
 
 .workerGreen {
   color: var(--workerGreen);
@@ -21,3 +28,8 @@
 .workerPurple {
   color: var(--workerPurple);
 }
+
+.bar {
+
+}
+

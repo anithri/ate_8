@@ -29,7 +29,7 @@
   padding: var(--spacing-extra-small);
 
   & > * {
-    background-color: var(--white-20); /* .bg-white-20 */
+    background-color: var(--white-40); /* .bg-white-20 */
     border: 2px solid var(--dark-purple);
     border-radius: var(--border-radius-2);
     display: block;

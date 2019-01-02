@@ -1,6 +1,6 @@
 ---
 inject: true
-to: <%= h.src('pages', 'index.js') %>
+to: <%= routePath %>
 before: new imports above here
 ---
-import <%= pageName %> from 'pages/<%= baseName %>'
+import <%= pageClass %> from '<%= pageImportPath %>'

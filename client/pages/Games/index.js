@@ -5,7 +5,7 @@ import { gameListShape } from 'concerns/GameList/shape'
 import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './Games.module.css'
+import styles from './styles.module.css'
 
 const GamesPage = ({ className, games }) => (
   <main className={cx(className, styles.GamesPage)}>

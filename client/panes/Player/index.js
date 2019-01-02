@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { playerShape } from 'concerns/Player/shape'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './pane.module.css'
+import styles from './styles.module.css'
 import {WorkerBar} from 'components/Worker'
 
 const PlayerPane = ({ className, player }) => {

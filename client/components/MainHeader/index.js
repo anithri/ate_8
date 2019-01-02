@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './MainHeader.module.css'
+import styles from './styles.module.css'
 
 const MainHeader = ({ className, title }) => (
   <header className={cx(className, styles.MainHeader, 'spreadFlex')}>

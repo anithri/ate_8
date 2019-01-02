@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
 import regions from './regions.module.css'
-import styles from './game.module.css'
+import styles from './styles.module.css'
 
 const GameInfo = ({ className, game }) => (
   <section className={cx(className, grid.info, styles.info)}>

@@ -3,7 +3,7 @@ import grid from './grid.module.css'
 import Player from 'panes/Player'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './game.module.css'
+import styles from './styles.module.css'
 import regions from './regions.module.css'
 
 const GamePlayers = ({ className, players }) => {

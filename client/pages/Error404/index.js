@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'react-router-dom'
 import React from 'react'
-import styles from './Error404.module.css'
+import styles from './styles.module.css'
 
 class Error404Page extends React.Component {
   render() {

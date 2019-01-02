@@ -8,7 +8,7 @@ import Projects from './Projects'
 import PropTypes from 'prop-types'
 import React from 'react'
 import regions from './regions.module.css'
-import styles from './game.module.css'
+import styles from './styles.module.css'
 
 const GamePage = ({ game, className }) => {
   return (

@@ -3,7 +3,7 @@ import grid from './grid.module.css'
 import PropTypes from 'prop-types'
 import React from 'react'
 import regions from './regions.module.css'
-import styles from './game.module.css'
+import styles from './styles.module.css'
 
 const GameProjects = ({ className }) => (
   <div className={cx(className, grid.projects, styles.projects)}>

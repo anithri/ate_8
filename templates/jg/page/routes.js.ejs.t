@@ -1,6 +1,6 @@
 ---
 inject: true
-to: <%= h.src('pages', 'index.js') %>
+to: <%= routePath %>
 before: page routes above here
 ---
-        <Route exact path="<%= routePath %>" component={<%= pageName %>} />
+        <Route exact path="<%= pageRoute %>" component={<%= pageClass %>} />

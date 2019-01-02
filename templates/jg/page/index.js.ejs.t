@@ -5,25 +5,18 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'react-router-dom'
 import React from 'react'
-import styles from './page.module.css'
+import styles from <%= cssFile %>
 
-const <%= pageName %> = ({className}) => {
+const <%= pageClass %> = ({className}) => {
   return (
-    <main className={cx(className, styles.page)}>
-      <header>
-        <h1><%= Name %> Page</h1>
-      </header>
-      <nav className='centeringFlex'>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-      </ul>
-      </nav>
+    <main className={cx(className, styles.<%= cssSelector %>)}>
+      <h2>Component (styled) <%= Name %></h2>
     </main>
   )
 }
 
-<%= pageName %>.propTypes = {
+<%= pageClass %>.propTypes = {
   className: PropTypes.string,
 }
 
-export default <%= pageName %>
+export default <%= pageClass %>

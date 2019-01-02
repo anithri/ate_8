@@ -12,8 +12,8 @@ const WorkerBar = ({ className }) => (
 
 WorkerBar.propTypes = {
   className: PropTypes.string,
-  workers: PropTypes.array(workerShape)
-}
+  workers: PropTypes.array(workerShape),
+},
 
 export default WorkerBar
 

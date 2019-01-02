@@ -9,4 +9,6 @@ export const playerShape = PropTypes.shape({
   workers: PropTypes.arrayOf(workerShape),
 })
 
-export const playerListShape = PropTypes.arrayOf(playerShape)
+export const playerListShape = PropTypes.arrayOf(
+  PropTypes.shape({ id: PropTypes.string.isRequired }),
+)

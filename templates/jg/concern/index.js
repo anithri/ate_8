@@ -1,4 +1,11 @@
-// my-generator/my-action/index.js
+/* requires
+      containerPath
+      queryName
+      containerClass
+      queryName
+
+ */
+
 const cc = require('change-case')
 const inflection = require('inflection')
 

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
+import PlayerContainer from 'concerns/Player/container'
 
 const PlayerPane = ({ className, player }) => {
   return (
@@ -20,7 +21,7 @@ const PlayerPane = ({ className, player }) => {
 
 PlayerPane.propTypes = {
   className: PropTypes.string,
-  player: playerShape.isRequired,
+  playerId: playerShape.isRequired,
 }
 
-export default PlayerPane
+export default PlayerContainer(PlayerPane)

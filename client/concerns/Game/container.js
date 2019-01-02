@@ -6,7 +6,6 @@ import React from 'react'
 
 const GameContainer = (Display, displayName = 'Game') => {
   const container = props => {
-    console.log('GameContainer', props)
     const {
       className,
       match: {

@@ -16,7 +16,7 @@ const GamePage = ({ game, className }) => {
   return (
     <GameDataProvider value={{ workerTypes }}>
       <main className={cx(className, styles.game, grid.game)}>
-        <GameInfo className={regions.info} game={game} />
+        <GameInfo className={regions.info} gameId={game.id} />
         <PlayerInfo className={regions.players} game={game} />
         <Projects className={regions.projects} game={game} />
       </main>

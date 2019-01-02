@@ -7,7 +7,11 @@ import styles from './styles.module.css'
 
 const PlayerInfoPane = ({ className, game }) => {
   const allPlayers = game.players.map(player => (
-    <Player key={player.id} player={player} className={styles[player.id]} />
+    <Player
+      key={`player${player.id}-pane`}
+      playerId={player.id}
+      className={styles[player.id]}
+    />
   ))
   return (
     <section className={cx(className, styles.pane)}>

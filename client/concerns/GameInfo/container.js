@@ -1,17 +1,18 @@
-import { GET_PLAYER } from './query'
+import { GET_GAME_INFO } from './query'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-const PlayerContainer = (Display, displayName = 'Player') => {
-  const container = ({ className, playerId }) => {
+const GameInfoContainer = (Display, displayName = 'GameInfo') => {
+  const container = ({ gameId, ...props }) => {
     return (
-      <Query query={GET_PLAYER} variables={{ playerId }}>
+      <Query query={GET_GAME_INFO} variables={{ gameId }}>
         {({ loading, error, data }) => {
+          console.log('GameInfoContainer', gameId, data)
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          return <Display player={data.player} className={className} />
+          return <Display game={data.gameInfo} {...props} />
         }}
       </Query>
     )
@@ -19,10 +20,10 @@ const PlayerContainer = (Display, displayName = 'Player') => {
   container.displayName = displayName + 'Container'
   container.propTypes = {
     className: PropTypes.string,
-    playerId: PropTypes.string.isRequired,
+    gameId: PropTypes.string.isRequired,
   }
 
   return container
 }
 
-export default PlayerContainer
+export default GameInfoContainer

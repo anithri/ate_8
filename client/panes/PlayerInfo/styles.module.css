@@ -1,4 +1,15 @@
 .pane {
+  composes: subGrid from global;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+      'messages'
+      'player1'
+      'player2'
+      'player3'
+      'player4';
+}
+
+.player {
   display: grid;
   grid-template-rows: auto auto 1fr;
 
@@ -37,4 +48,20 @@
   & > .workerBar {
     padding-top: var(--spacing-extra-small);
   }
+}
+
+.messages {
+  grid-area: messages;
+}
+.player1 {
+  grid-area: player1;
+}
+.player2 {
+  grid-area: player2;
+}
+.player3 {
+  grid-area: player3;
+}
+.player4 {
+  grid-area: player4;
 }

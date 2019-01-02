@@ -10,8 +10,12 @@ module Game
       @board ||= Game::Board.new(game_datum)
     end
 
+    def player(player_id)
+      players.find { |pd| pd.id == player_id }
+    end
+
     def players
-      game_datum.player_data.map{|pd| Player.new(pd, board[pd.slug])}
+      game_datum.player_data.map { |pd| Player.new(pd, board[pd.slug]) }
     end
 
     def worker_types

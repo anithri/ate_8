@@ -1,0 +1,48 @@
+.pane {
+  composes: subGrid from global;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+      'title drawBag discardsBag reserveBag drawDeck '
+      'title drawBag discardsBag reserveBag discardsDeck';
+}
+
+.title {
+  composes: spreadFlex from global;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  & > h1 {
+    font-size: var(--font-size-3);
+    flex: 1 1 auto;
+    text-transform: none;
+    padding-left: var(--spacing-small);
+    padding-right: var(--spacing-small);
+  }
+
+  & > nav {
+    flex: 1 1 auto;
+    padding-left: var(--spacing-small);
+    padding-right: var(--spacing-small);
+  }
+}
+
+/* gameInfo grid */
+.title {
+  grid-area: title;
+}
+.drawBag {
+  grid-area: drawBag;
+}
+.drawDeck {
+  grid-area: drawDeck;
+}
+.discardsBag {
+  grid-area: discardsBag;
+}
+.discardsDeck {
+  grid-area: discardsDeck;
+}
+.reserveBag {
+  grid-area: reserveBag;
+}

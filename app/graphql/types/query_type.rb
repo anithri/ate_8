@@ -67,6 +67,14 @@ module Types
     end
     #endregion
 
+    #region Player
+    field :player, Types::Player, null: true do
+      argument :player_id, ID, required: true, as: :id
+    end
+    def player(id:)
+      ::Game::Player.locate id
+    end
+
     # last of fields
   end
 end

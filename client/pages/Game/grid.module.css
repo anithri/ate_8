@@ -8,25 +8,6 @@
     'playerArea projectArea';
 }
 
-.info {
-  composes: subGrid from global;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-areas:
-    'title drawBag discardsBag reserveBag drawDeck '
-    'title drawBag discardsBag reserveBag discardsDeck';
-}
-
-.players {
-  composes: subGrid from global;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-areas:
-    'messages'
-    'player1'
-    'player2'
-    'player3'
-    'player4';
-}
-
 .projects {
   composes: subGrid from global;
   grid-template-rows: repeat(4, 1fr);

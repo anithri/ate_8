@@ -19,7 +19,6 @@ const PlayerContainer = ({ className, display: PlayerDisplay }) => (
 PlayerContainer.propTypes = {
   className: PropTypes.string,
   display: PropTypes.func.isRequired,
-  
 }
 
 export default PlayerContainer

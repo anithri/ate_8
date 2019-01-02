@@ -2,48 +2,11 @@
 .info {
   grid-area: gameInfo;
 }
-.messages {
-  grid-area: messages;
-}
 .players {
  grid-area: playerArea;
 }
 .projects {
   grid-area: projectArea;
-}
-
-/* playerArea grid */
-.player1 {
-  grid-area: player1;
-}
-.player2 {
-  grid-area: player2;
-}
-.player3 {
-  grid-area: player3;
-}
-.player4 {
-  grid-area: player4;
-}
-
-/* gameInfo grid */
-.title {
-  grid-area: title;
-}
-.drawBag {
-  grid-area: drawBag;
-}
-.drawDeck {
-  grid-area: drawDeck;
-}
-.discardsBag {
-  grid-area: discardsBag;
-}
-.discardsDeck {
-  grid-area: discardsDeck;
-}
-.reserveBag {
-  grid-area: reserveBag;
 }
 
 /* projectArea grid */

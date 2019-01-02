@@ -15,7 +15,6 @@ const generateScopedName = (localName, resourcePath) => {
     .filter(str => str)
     .join('__')
 
-  console.log(selector)
   return selector
 }
 

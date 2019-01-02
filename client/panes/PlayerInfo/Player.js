@@ -7,12 +7,12 @@ import WorkerBar from 'components/Worker/Bar'
 
 const PlayerPane = ({ className, player }) => {
   return (
-    <article className={cx(className, styles.pane)}>
+    <article className={cx(className, styles.player)}>
       <header>
         <span>{player.order}</span>
         <h2>{player.name}</h2>
       </header>
-      <WorkerBar workers={player.workers} doSummary className={styles.workerBar} />
+      <WorkerBar workers={player.workers} className={styles.workerBar} />
       <section className={styles.info}>um</section>
     </article>
   )

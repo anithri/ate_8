@@ -7,8 +7,14 @@ module Game
       @board_space  = board_space
     end
 
-    delegate :gid, :order, :name, :slug, to: :player_datum
+    delegate :id, :gid, :order, :name, :slug, to: :player_datum
     delegate :bag, :deck, to: :board_space
     delegate :workers, to: :bag
+
+    def self.locate(player_datum_id)
+      player = PlayerDatum.locate(player_datum_id)
+      game = Game::Runner.new(player.game_datum)
+      game.player(player.id)
+    end
   end
 end

@@ -1,4 +1,5 @@
 import { gql } from 'apollo-boost'
+import { WORKER_FRAGMENT } from 'concerns/Worker/query'
 
 export const PLAYERS_FRAGMENT = gql`
   fragment PlayerFragment on Player {
@@ -7,9 +8,7 @@ export const PLAYERS_FRAGMENT = gql`
     order
     slug
     workers {
-      id
-      name
-      slug
+      ...WorkerFragment
     }
   }
   fragment PlayersFragment on PlayerConnection {
@@ -19,4 +18,5 @@ export const PLAYERS_FRAGMENT = gql`
       }
     }
   }
+  ${WORKER_FRAGMENT}
 `

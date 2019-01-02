@@ -12,7 +12,7 @@ const PlayerPane = ({ className, player }) => {
         <span>{player.order}</span>
         <h2>{player.name}</h2>
       </header>
-      <WorkerBar workers={player.workers} />
+      <WorkerBar workers={player.workers} doSummary />
       <section className={styles.playerInfo}>um</section>
     </article>
   )

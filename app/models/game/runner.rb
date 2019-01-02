@@ -14,6 +14,10 @@ module Game
       game_datum.player_data.map{|pd| Player.new(pd, board[pd.slug])}
     end
 
+    def worker_types
+      Worker.all
+    end
+
     delegate :gid, :name, :turn, :phase, :save, to: :game_datum
   end
 end

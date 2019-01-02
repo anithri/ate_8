@@ -12,18 +12,11 @@ const Counter = ({ count }) => {
   return null
 }
 
-const Worker = ({ className, count, worker, wrapper: Wrapper = 'span' }) => (
-  <Wrapper
-    className={cx(
-      className,
-      styles.Worker,
-      styles[worker.slug],
-      'fa-layers fa-fw',
-    )}
-  >
+const Worker = ({ className, count, worker }) => (
+  <figure className={cx(className, styles.Worker, styles[worker.slug])}>
     <FontAwesomeIcon icon="user" />
     <Counter count={count} />
-  </Wrapper>
+  </figure>
 )
 
 Worker.propTypes = {

@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import GameContainer from 'concerns/Game/container'
+import { GameDataProvider } from 'concerns/Game/context'
 import { gameShape } from 'concerns/Game/shape'
 import grid from './grid.module.css'
 import Info from './Info'
@@ -11,12 +12,15 @@ import regions from './regions.module.css'
 import styles from './styles.module.css'
 
 const GamePage = ({ game, className }) => {
+  const { workerTypes } = game
   return (
-    <main className={cx(className, styles.game, grid.game)}>
-      <Info className={regions.info} game={game} />
-      <Players className={regions.players} players={game.players} />
-      <Projects className={regions.projects} game={game} />
-    </main>
+    <GameDataProvider value={{ workerTypes }}>
+      <main className={cx(className, styles.game, grid.game)}>
+        <Info className={regions.info} game={game} />
+        <Players className={regions.players} players={game.players} />
+        <Projects className={regions.projects} game={game} />
+      </main>
+    </GameDataProvider>
   )
 }
 

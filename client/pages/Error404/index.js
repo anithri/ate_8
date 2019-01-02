@@ -12,10 +12,12 @@ class Error404Page extends React.Component {
         <header>
           <h1>Error404 Page</h1>
         </header>
-        <nav className='centeringFlex'>
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-        </ul>
+        <nav className="centeringFlex">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
         </nav>
       </main>
     )

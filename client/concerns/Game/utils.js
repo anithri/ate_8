@@ -3,7 +3,7 @@ import normalizePlayers from 'concerns/Player/utils'
 export const normalizeData = gameData => {
   return {
     ...gameData,
-    players: normalizePlayers(gameData.players)
+    players: normalizePlayers(gameData.players),
   }
 }
 

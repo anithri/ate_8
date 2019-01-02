@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './Home.module.css'
+import styles from './styles.module.css'
 
 class HomePage extends React.Component {
   render() {

@@ -1,4 +1,3 @@
-import Bar from './Bar'
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
@@ -17,7 +16,7 @@ const Worker = ({ className, count, worker, wrapper: Wrapper = 'span' }) => (
   <Wrapper
     className={cx(
       className,
-      styles.Worker,;
+      styles.Worker,
       styles[worker.slug],
       'fa-layers fa-fw',
     )}
@@ -37,5 +36,4 @@ Counter.propTypes = {
   count: PropTypes.number,
 }
 
-export {Bar as WorkerBar} from './Bar';
 export default Worker

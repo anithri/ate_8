@@ -3,7 +3,7 @@ import { playerShape } from 'concerns/Player/shape'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import {WorkerBar} from 'components/Worker'
+import WorkerBar from 'components/Worker/Bar'
 
 const PlayerPane = ({ className, player }) => {
   return (
@@ -13,7 +13,6 @@ const PlayerPane = ({ className, player }) => {
         <h2>{player.name}</h2>
       </header>
       <WorkerBar workers={player.workers} />
-      <ul className="spreadFlex">{workers}</ul>
       <section className={styles.playerInfo}>um</section>
     </article>
   )

@@ -18,7 +18,6 @@
   composes: fa-fw from global;
 }
 
-
 .workerGreen {
   color: var(--workerGreen);
 }
@@ -36,15 +35,10 @@
 }
 
 .bar {
-
-  & > ul {
-    & > li {
-
-    }
-  }
 }
 
 .spread {
   composes: spreadFlex from global;
 }
+
 

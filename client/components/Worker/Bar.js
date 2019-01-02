@@ -39,9 +39,9 @@ const WorkerBar = ({ className, workers, doSummary, workerTypes, layout }) => {
       ))
   //<FamilyConsumer>{context => <p>{context}</p>}</FamilyConsumer>;
   return (
-    <section className={cx(className, styles.bar, styles[layout])}>
-      <ul className={styles[layout]}>{workerFigures}</ul>
-    </section>
+    <ul className={cx(className, styles.bar, styles[layout])}>
+      {workerFigures}
+    </ul>
   )
 }
 

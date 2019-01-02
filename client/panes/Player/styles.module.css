@@ -1,10 +1,14 @@
 .pane {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+
   & > header {
     width: 100%;
     background-color: var(--dark-purple);
     color: var(--near-white);
     padding: var(--spacing-extra-extra-small) var(--spacing-small);
-    border-radius: var(--border-radius-2);
+    border-top-left-radius: var(--border-radius-2);
+    border-top-right-radius: var(--border-radius-2);
 
     & > span {
       font-size: var(--font-size-5);
@@ -23,13 +27,14 @@
       text-align: center;
     }
   }
-  & > ul {
-    margin: var(--spacing-none);
-    padding: var(--spacing-none);
 
-    & > li {
-      & > span {
-      }
-    }
+  & > .info {
+    background-color: var(--white-50);
+    height: 100%;
+    width: 100%;
+  }
+
+  & > .workerBar {
+    padding-top: var(--spacing-extra-small);
   }
 }

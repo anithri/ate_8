@@ -81,7 +81,7 @@ a:visited {
 	text-decoration: none;
 }
 
-ul,ol {
+ul, ol {
 	margin: var(--spacing-none);
 	padding: var(--spacing-none);
 }
@@ -89,4 +89,5 @@ ul,ol {
 li {
 	margin: var(--spacing-none);
 	padding: var(--spacing-none);
+	list-style: none;
 }

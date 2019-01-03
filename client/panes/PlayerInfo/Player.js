@@ -1,13 +1,13 @@
 import cx from 'classnames'
+import PlayerContainer from 'concerns/Player/container'
 import { playerShape } from 'concerns/Player/shape'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
-import PlayerContainer from 'concerns/Player/container'
 
 const PlayerPane = ({ className, player }) => {
-  console.log('PlayerPane', player)
+  // console.log('PlayerPane', player)
   return (
     <article className={cx(className, styles.player)}>
       <header>

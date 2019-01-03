@@ -8,15 +8,19 @@ export const GET_GAME_INFO = gql`
       name
       board {
         activeWorkers {
-          edges {
-            node {
-              id
-              name
-              slug
-            }
-          }
+          ...WorkersFragment
         }
+        deadWorkers {
+          ...WorkersFragment
+        }
+        pendingWorkers {
+          ...WorkersFragment
+        }
+      }
+      workerTypes {
+        ...WorkersFragment
       }
     }
   }
+  ${WORKERS_FRAGMENT}
 `

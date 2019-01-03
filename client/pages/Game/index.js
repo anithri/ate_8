@@ -12,7 +12,7 @@ import regions from './regions.module.css'
 import styles from './styles.module.css'
 
 const GamePage = ({ game, className }) => {
-  console.log('GamePage', game)
+  // console.log('GamePage', game)
   const { workerTypes } = game
   return (
     <GameDataProvider value={{ workerTypes: [] }}>

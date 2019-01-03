@@ -27,16 +27,22 @@ module Game
     def active_workers
       ::Board::Location::SUMMARIES[:active].reduce([]) do |arr, id|
         arr += @boards[id].workers
-
         arr
       end
-
     end
+
     def dead_workers
-
+      ::Board::Location::SUMMARIES[:dead].reduce([]) do |arr, id|
+        arr += @boards[id].workers
+        arr
+      end
     end
-    def pending_workers
 
+    def pending_workers
+      ::Board::Location::SUMMARIES[:pending].reduce([]) do |arr, id|
+        arr += @boards[id].workers
+        arr
+      end
     end
 
     def respond_to_missing?(method_name, *args, &block)

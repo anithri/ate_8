@@ -13,7 +13,7 @@ const PlayerContainer = (Display, displayName = 'Player') => {
           if (error) return <div>Error!</div>
 
           const player = normalizePlayer(data.player)
-          console.log('PlayerContainer', playerId, player)
+          // console.log('PlayerContainer', playerId, player)
           return <Display player={player} className={className} />
         }}
       </Query>

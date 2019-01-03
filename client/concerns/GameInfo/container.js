@@ -1,3 +1,4 @@
+import normalizeGameData from 'concerns/GameInfo/utils'
 import { GET_GAME_INFO } from './query'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
@@ -12,7 +13,8 @@ const GameInfoContainer = (Display, displayName = 'GameInfo') => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          return <Display game={data.gameInfo} {...props} />
+          const gameInfo = normalizeGameData(data.gameInfo)
+          return <Display gameInfo={gameInfo} {...props} />
         }}
       </Query>
     )

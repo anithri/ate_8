@@ -2,8 +2,8 @@
   composes: subGrid from global;
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-      'title drawBag discardsBag reserveBag drawDeck '
-      'title drawBag discardsBag reserveBag discardsDeck';
+      'title activeWorkers deadWorkers pendingWorkers drawDeck '
+      'title activeWorkers deadWorkers pendingWorkers discardsDeck';
 }
 
 .title {
@@ -31,14 +31,15 @@
 .title {
   grid-area: title;
 }
-.drawBag {
-  grid-area: drawBag;
+.activeWorkers {
+  grid-area: activeWorkers;
+  composes: centeringFlex from global;
 }
-.drawDeck {
-  grid-area: drawDeck;
+.deadWorkers {
+  grid-area: deadWorkers ;
 }
-.discardsBag {
-  grid-area: discardsBag;
+.pendingWorkers  {
+  grid-area: pendingWorkers ;
 }
 .discardsDeck {
   grid-area: discardsDeck;

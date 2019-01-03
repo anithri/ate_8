@@ -53,7 +53,7 @@ module.exports = {
     args.cssPath = srcPath(partType.dir, args.parent, CSS_FILE_NAME)
     args.cssSelector = partType.selector || cc.camel(pascal)
 
-    console.log(args)
+    console.log('args', args)
     return args
   },
 }

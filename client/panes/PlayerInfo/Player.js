@@ -7,6 +7,7 @@ import WorkerBar from 'components/Worker/Bar'
 import PlayerContainer from 'concerns/Player/container'
 
 const PlayerPane = ({ className, player }) => {
+  console.log('PlayerPane', player)
   return (
     <article className={cx(className, styles.player)}>
       <header>
@@ -21,7 +22,7 @@ const PlayerPane = ({ className, player }) => {
 
 PlayerPane.propTypes = {
   className: PropTypes.string,
-  playerId: playerShape.isRequired,
+  player: playerShape.isRequired,
 }
 
 export default PlayerContainer(PlayerPane)

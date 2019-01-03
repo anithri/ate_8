@@ -24,6 +24,21 @@ module Game
      )
     end
 
+    def active_workers
+      ::Board::Location::SUMMARIES[:active].reduce([]) do |arr, id|
+        arr += @boards[id].workers
+
+        arr
+      end
+
+    end
+    def dead_workers
+
+    end
+    def pending_workers
+
+    end
+
     def respond_to_missing?(method_name, *args, &block)
       @boards.has_key? method_name
     end

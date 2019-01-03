@@ -1,4 +1,5 @@
 import { GET_PLAYER } from './query'
+import { normalizePlayer } from 'concerns/Player/utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
@@ -11,7 +12,9 @@ const PlayerContainer = (Display, displayName = 'Player') => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          return <Display player={data.player} className={className} />
+          const player = normalizePlayer(data.player)
+          console.log('PlayerContainer', playerId, player)
+          return <Display player={player} className={className} />
         }}
       </Query>
     )

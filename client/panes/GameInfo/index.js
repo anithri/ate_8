@@ -1,7 +1,7 @@
 import cx from 'classnames'
-import GameInfoContainer from 'concerns/GameInfo/container'
-import { gameShape } from 'concerns/Game/shape'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import GameInfoContainer from 'concerns/GameInfo/container'
+import { gameInfoShape } from 'concerns/GameInfo/shape'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -27,7 +27,7 @@ const GameInfoPane = ({ className, game }) => (
 
 GameInfoPane.propTypes = {
   className: PropTypes.string,
-  game: gameShape,
+  gameInfo: gameInfoShape,
 }
 
 export default GameInfoContainer(GameInfoPane)

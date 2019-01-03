@@ -8,6 +8,12 @@ module Board
     OPTIONALLY_ONE = 0..1
     NONE           = 0..0
 
+    SUMMARIES = {
+      active:  ['bar', 'draw', 'discards'],
+      dead:    ['dead'],
+      pending: ['reserve']
+    }
+
     field :name
     field :group
     field :cards_range

@@ -1,5 +1,5 @@
-export const normalizeData = workerData => {
-  return workerData.all.map(g => g.game)
+export const normalizeWorkers = workerData => {
+  return workerData.all.map(({ worker }) => worker)
 }
 
-export default normalizeData
+export const normalizeWorker = workerData => workerData

@@ -1,5 +1,14 @@
-export const normalizeData = playerData => {
-  return playerData.all.map(p => p.player)
+import { normalizeWorkers } from 'concerns/Worker/utils'
+
+export const normalizePlayer = playerData => {
+  console.log('normalizePlayer', playerData)
+  return {
+    ...playerData,
+    workers: normalizeWorkers(playerData.workers),
+  }
 }
 
-export default normalizeData
+export const normalizePlayers = playerData => {
+  console.log(playerData)
+  return playerData.all.map(({ player }) => player)
+}

@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost'
-import { WORKER_FRAGMENT } from 'concerns/Worker/query'
+import { WORKERS_FRAGMENT } from 'concerns/Worker/query'
 
 export const PLAYER_FRAGMENT = gql`
   fragment PlayerFragment on Player {
@@ -25,10 +25,10 @@ export const GET_PLAYER = gql`
     player(playerId: $playerId) {
       ...PlayerFragment
       workers {
-        ...WorkerFragment
+        ...WorkersFragment
       }
     }
   }
   ${PLAYER_FRAGMENT}
-  ${WORKER_FRAGMENT}
+  ${WORKERS_FRAGMENT}
 `

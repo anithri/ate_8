@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost'
 import { PLAYERS_FRAGMENT } from 'concerns/Player/query'
-import { WORKER_FRAGMENT } from 'concerns/Worker/query'
+import { WORKERS_FRAGMENT } from 'concerns/Worker/query'
 
 export const GET_GAME = gql`
   query GET_GAME($gameId: ID!) {
@@ -11,10 +11,10 @@ export const GET_GAME = gql`
         ...PlayersFragment
       }
       workerTypes {
-        ...WorkerFragment
+        ...WorkersFragment
       }
     }
   }
   ${PLAYERS_FRAGMENT}
-  ${WORKER_FRAGMENT}
+  ${WORKERS_FRAGMENT}
 `

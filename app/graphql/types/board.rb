@@ -7,5 +7,8 @@ module Types
     field :players, Types::BoardLocation.connection_type, null: false
     field :projects, Types::BoardLocation.connection_type, null: false
     field :workers, Types::BoardLocation.connection_type, null: false
+    field :active_workers, Types::Worker.connection_type, null: false
+    field :dead_workers, Types::Worker.connection_type, null: false
+    field :pending_workers, Types::Worker.connection_type, null: false
   end
 end

@@ -17,9 +17,8 @@ const GameContainer = (Display, displayName = 'Game') => {
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
-
-          const gameData = normalizeData(data.game)
-          return <Display game={gameData} className={className} />
+          const game = normalizeData(data.game)
+          return <Display game={game} className={className} />
         }}
       </Query>
     )

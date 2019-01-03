@@ -9,6 +9,6 @@ module Types
     field :phase, Integer, null: false
     field :players, Types::Player.connection_type, null: false
     field :board, Types::Board, null: false
-    field :worker_types, [Types::Worker], null: false
+    field :worker_types, Types::Worker.connection_type, null: false
   end
 end

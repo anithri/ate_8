@@ -19,12 +19,6 @@ const countedWorkers = (workers, workerTypes) => {
   })
 }
 
-const WorkerBarContainer = props => (
-  <GameDataConsumer>
-    {({ workerTypes }) => <WorkerBar {...props} workerTypes={workerTypes} />}
-  </GameDataConsumer>
-)
-
 const WorkerBar = ({ className, workers, doSummary, workerTypes, layout }) => {
   const workerFigures = doSummary
     ? countedWorkers(workers, workerTypes).map(({ worker, count }, idx) => (
@@ -57,4 +51,4 @@ WorkerBar.defaultProps = {
   layout: 'spread',
 }
 
-export default WorkerBarContainer
+export default WorkerBar

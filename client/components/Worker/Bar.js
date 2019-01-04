@@ -7,12 +7,11 @@ import Worker from 'components/Worker'
 import { workerShape } from 'concerns/Worker/shape'
 
 const countedWorkers = (workers, workerTypes) => {
-  console.log('countedWorkers', workers, workerTypes)
+  // console.log('countedWorkers', workers, workerTypes)
   const final = workers.reduce((counter, worker) => {
     counter[worker.slug] = (counter[worker.slug] || 0) + 1
     return counter
   }, {})
-  console.log(final)
   return workerTypes.map(workerType => {
     return {
       count: final[workerType.slug] || 0,

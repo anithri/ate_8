@@ -9,7 +9,7 @@ const GameInfoContainer = (Display, displayName = 'GameInfo') => {
     return (
       <Query query={GET_GAME_INFO} variables={{ gameId }}>
         {({ loading, error, data }) => {
-          console.log('GameInfoContainer', gameId, data)
+          // console.log('GameInfoContainer', gameId, data)
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 

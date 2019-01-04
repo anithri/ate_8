@@ -3,8 +3,10 @@ import { workerShape } from 'concerns/Worker/shape'
 
 export const projectInfoShape = PropTypes.shape({
   board: PropTypes.shape({
-    bar: PropTypes.arrayOf(workerShape),
+    bar: PropTypes.shape({
+      workers: PropTypes.arrayOf(workerShape).isRequired,
+    }).isRequired,
+    orientation: PropTypes.string.isRequired,
   }),
   id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
 })

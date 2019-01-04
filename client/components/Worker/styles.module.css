@@ -37,6 +37,7 @@
 }
 
 .bar {
+
 }
 
 .spread {
@@ -44,6 +45,6 @@
 }
 
 .stack {
-  composes: centeringFlex from global;
+  composes: stackedFlex from global;
 }
 

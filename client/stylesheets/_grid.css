@@ -16,7 +16,6 @@
     background-color: var(--white-40); /* .bg-white-20 */
     border: 2px solid var(--gold);
     border-radius: var(--border-radius-3, .5rem);
-    display: block;
   }
 }
 
@@ -32,7 +31,6 @@
     background-color: var(--white-40); /* .bg-white-20 */
     border: 2px solid var(--dark-purple);
     border-radius: var(--border-radius-2);
-    display: block;
   }
 }
 

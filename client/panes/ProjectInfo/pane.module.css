@@ -3,11 +3,10 @@
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-      "barBag project1 project2 project3 project4"
-      "barBag project5 project6 project7 project8"
-      "barBag project9 project10 project11 project12"
-      "barBag project13 project14 project15 project16"
-;
+    'barBag project1 project2 project3 project4'
+    'barBag project5 project6 project7 project8'
+    'barBag project9 project10 project11 project12'
+    'barBag project13 project14 project15 project16';
 }
 
 .barBag {

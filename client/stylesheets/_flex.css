@@ -33,3 +33,16 @@
     align-self: auto;
   }
 }
+
+.stackedFlex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}

@@ -10,5 +10,8 @@ module Types
     field :active_workers, Types::Worker.connection_type, null: false
     field :dead_workers, Types::Worker.connection_type, null: false
     field :pending_workers, Types::Worker.connection_type, null: false
+    ::Board::Location.all.map do |loc|
+      field loc.id.to_sym, Types::BoardLocation, null: false
+    end
   end
 end

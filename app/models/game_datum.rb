@@ -30,4 +30,7 @@ class GameDatum < ApplicationRecord
   validates :turn, :phase, numericality: {only_integer: true}
 
   # scope :active, ->{where(finished_at: nil)}
+  def gid
+    self.to_gid_param
+  end
 end

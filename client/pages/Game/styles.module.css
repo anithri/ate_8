@@ -1,4 +1,10 @@
 .page {
+  composes: grid from global;
+  grid-template-columns: 5fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'playerArea gameInfo'
+    'playerArea projectArea';
 }
 
 .info {
@@ -29,4 +35,14 @@
     padding-left: var(--spacing-small);
     padding-right: var(--spacing-small);
   }
+}
+
+.info {
+  grid-area: gameInfo;
+}
+.players {
+  grid-area: playerArea;
+}
+.projects {
+  grid-area: projectArea;
 }

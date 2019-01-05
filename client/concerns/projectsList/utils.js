@@ -1,5 +1,5 @@
-export const normalizeData = projectsListData => {
-  return projectsListData.all.map(g => g.game)
+export const normalizeProjectsList = list => {
+  return list.all.map(data => data.project)
 }
 
-export default normalizeData
+export default normalizeProjectsList

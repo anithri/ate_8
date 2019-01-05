@@ -1,7 +1,9 @@
+import {
+  listShape as gameListShape,
+  mkListContainer as mkGameListContainer,
+} from 'concerns/game'
 import cx from 'classnames'
 import GameList from './List'
-import GameListContainer from 'concerns/gameList/container'
-import { gameListShape } from 'concerns/gameList/shape'
 import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -19,4 +21,4 @@ GamesPage.propTypes = {
   games: gameListShape,
 }
 
-export default GameListContainer(GamesPage)
+export default mkGameListContainer(GamesPage)

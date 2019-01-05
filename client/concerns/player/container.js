@@ -1,10 +1,9 @@
-import { GET_PLAYER } from './query'
-import { normalizePlayer } from 'concerns/player/utils'
+import { GET_PLAYER, parseData } from 'concerns/player'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-const PlayerContainer = (Display, displayName = 'player') => {
+export const mkContainer = (Display, displayName = 'player') => {
   const container = ({ className, playerId }) => {
     return (
       <Query query={GET_PLAYER} variables={{ playerId }}>
@@ -12,7 +11,7 @@ const PlayerContainer = (Display, displayName = 'player') => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          const player = normalizePlayer(data.player)
+          const player = parseData(data.player)
           // console.log('PlayerContainer', playerId, player)
           return <Display player={player} className={className} />
         }}
@@ -27,5 +26,3 @@ const PlayerContainer = (Display, displayName = 'player') => {
 
   return container
 }
-
-export default PlayerContainer

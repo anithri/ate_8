@@ -1,5 +1,5 @@
 import { gql } from 'apollo-boost'
-import { WORKERS_FRAGMENT } from '../worker/query'
+import { WORKERS_FRAGMENT } from 'concerns/worker/query'
 
 export const GET_GAME_INFO = gql`
   query GetGameInfo($gameId: ID!) {

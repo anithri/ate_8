@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { workerShape } from 'concerns/worker/shape'
 
-export const playerShape = PropTypes.shape({
+export const shape = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   order: PropTypes.number.isRequired,
@@ -9,6 +9,3 @@ export const playerShape = PropTypes.shape({
   workers: PropTypes.arrayOf(workerShape),
 })
 
-export const playerListShape = PropTypes.arrayOf(
-  PropTypes.shape({ id: PropTypes.string.isRequired }),
-)

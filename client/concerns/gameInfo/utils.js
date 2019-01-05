@@ -1,15 +1,13 @@
 import { normalizeWorkers } from 'concerns/worker/utils'
 
-export const normalizeGameInfo = gameInfoData => {
+export const parseData = data => {
   return {
-    ...gameInfoData,
-    workerTypes: normalizeWorkers(gameInfoData.workerTypes),
+    ...data,
+    workerTypes: normalizeWorkers(data.workerTypes),
     board: {
-      activeWorkers: normalizeWorkers(gameInfoData.board.activeWorkers),
-      deadWorkers: normalizeWorkers(gameInfoData.board.deadWorkers),
-      pendingWorkers: normalizeWorkers(gameInfoData.board.pendingWorkers),
+      activeWorkers: normalizeWorkers(data.board.activeWorkers),
+      deadWorkers: normalizeWorkers(data.board.deadWorkers),
+      pendingWorkers: normalizeWorkers(data.board.pendingWorkers),
     },
   }
 }
-
-export default normalizeGameInfo

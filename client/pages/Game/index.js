@@ -1,8 +1,10 @@
+import {
+  shape as gameShape,
+  mkContainer as mkGameContainer,
+} from 'concerns/game'
 import cx from 'classnames'
-import GameContainer from 'concerns/game/container'
 import { GameDataProvider } from 'concerns/game/context'
 import GameInfo from 'panes/GameInfo'
-import { gameShape } from 'concerns/game/shape'
 import PlayerInfo from 'panes/PlayerInfo'
 import ProjectInfo from 'panes/ProjectInfo'
 import PropTypes from 'prop-types'
@@ -10,8 +12,6 @@ import React from 'react'
 import styles from './styles.module.css'
 
 const GamePage = ({ game, className }) => {
-  // console.log('GamePage', game)
-  const { workerTypes } = game
   return (
     <GameDataProvider value={{ workerTypes: [] }}>
       <main className={cx(className, styles.page)}>
@@ -28,4 +28,4 @@ GamePage.propTypes = {
   game: gameShape.isRequired,
 }
 
-export default GameContainer(GamePage)
+export default mkGameContainer(GamePage)

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { workerShape } from 'concerns/worker/shape'
 
-export const projectInfoShape = PropTypes.shape({
+export const shape = PropTypes.shape({
   board: PropTypes.shape({
     bar: PropTypes.shape({
       workers: PropTypes.arrayOf(workerShape).isRequired,

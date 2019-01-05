@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { workerShape } from 'concerns/worker/shape'
 
-export const gameInfoShape = PropTypes.shape({
+export const shape = PropTypes.shape({
   board: PropTypes.shape({
     activeWorkers: PropTypes.arrayOf(workerShape),
     deadWorkers: PropTypes.arrayOf(workerShape),

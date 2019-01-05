@@ -1,6 +1,5 @@
+import { mkContainer, shape as playerShape } from 'concerns/player'
 import cx from 'classnames'
-import PlayerContainer from 'concerns/player/container'
-import { playerShape } from 'concerns/player/shape'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
@@ -25,4 +24,4 @@ PlayerPane.propTypes = {
   player: playerShape.isRequired,
 }
 
-export default PlayerContainer(PlayerPane)
+export default mkContainer(PlayerPane)

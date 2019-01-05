@@ -1,26 +1,24 @@
-import { GET_GAME_LIST } from 'concerns/gameList/query'
-import normalizeGameList from './utils'
+import { GET_GAME_LIST } from './query'
+import { parseList } from './../index'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-const GameListContainer = Display => {
-  const container = ({ className }) => (
+export const mkListContainer = Display => {
+  const container = props => (
     <Query query={GET_GAME_LIST}>
       {({ loading, error, data }) => {
         if (loading) return <div>Loading...</div>
         if (error) return <div>Error!</div>
 
-        const gamesData = normalizeGameList(data.games)
-        return <Display games={gamesData} className={className} />
+        const games = parseList(data.games)
+        return <Display games={games} {...props} />
       }}
     </Query>
   )
-  container.displayName = 'Woot'
+  container.displayName = 'GameListContainer'
   container.propTypes = {
     className: PropTypes.string,
   }
   return container
 }
-
-export default GameListContainer

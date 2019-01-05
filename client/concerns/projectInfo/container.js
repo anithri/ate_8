@@ -1,10 +1,9 @@
-import { GET_PROJECT_INFO } from './query'
-import { normalizeProjectInfo } from './utils'
+import { GET_PROJECT_INFO, parseData } from 'concerns/projectInfo'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-const ProjectInfoContainer = (Display, displayName = 'ProjectInfo') => {
+export const mkContainer = (Display, displayName = 'ProjectInfo') => {
   const container = ({ gameId, ...props }) => {
     return (
       <Query query={GET_PROJECT_INFO} variables={{ gameId }}>
@@ -12,7 +11,7 @@ const ProjectInfoContainer = (Display, displayName = 'ProjectInfo') => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          const projectInfo = normalizeProjectInfo(data.projectInfo)
+          const projectInfo = parseData(data.projectInfo)
           return <Display projectInfo={projectInfo} {...props} />
         }}
       </Query>
@@ -25,5 +24,3 @@ const ProjectInfoContainer = (Display, displayName = 'ProjectInfo') => {
 
   return container
 }
-
-export default ProjectInfoContainer

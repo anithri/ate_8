@@ -1,12 +1,15 @@
+import {
+  shape as gameInfoShape,
+  mkListContainer as mkGameInfoContainer,
+} from 'concerns/game'
+
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import GameInfoContainer from 'concerns/gameInfo/container'
-import { gameInfoShape } from 'concerns/gameInfo/shape'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
-import WorkerBar from '../../components/Worker/Bar'
 import styles from './styles.module.css'
+import WorkerBar from 'components/Worker/Bar'
 
 const GameInfoPane = ({ className, gameInfo }) => {
   // console.log('GameInfoPane', gameInfo)
@@ -53,4 +56,4 @@ GameInfoPane.propTypes = {
   gameInfo: gameInfoShape,
 }
 
-export default GameInfoContainer(GameInfoPane)
+export default mkGameInfoContainer(GameInfoPane)

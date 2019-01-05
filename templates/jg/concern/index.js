@@ -17,7 +17,7 @@ module.exports = {
     args.isList = !!args.list ? 'List' : ''
 
     args.plural = inflection.pluralize(camel)
-    const name = pascal + args.isList
+    const name = camel + args.isList
 
     args.className = name
     args.queryName = cc.upper(`get_${name}`)

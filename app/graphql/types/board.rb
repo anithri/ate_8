@@ -2,6 +2,7 @@ module Types
   class Board < Types::BaseObject
     global_id_field :id
     field :orientation, String, null: false
+    field :game, Types::Game, null: false
 
     field :all, Types::BoardLocation.connection_type, null: false
     field :cards, Types::BoardLocation.connection_type, null: false

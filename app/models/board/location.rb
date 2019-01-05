@@ -21,6 +21,7 @@ module Board
     field :workers_range
     field :has_workers, default: true
 
+    alias_method :slug, :id
     Game::PLAYER_COUNT.times do |i|
       create id:            "player#{i + 1}",
              name:          "player #{i + 1}",

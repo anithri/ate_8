@@ -1,6 +1,6 @@
 import cx from 'classnames'
-import PlayerContainer from 'concerns/Player/container'
-import { playerShape } from 'concerns/Player/shape'
+import PlayerContainer from 'concerns/player/container'
+import { playerShape } from 'concerns/player/shape'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'

@@ -67,7 +67,7 @@ module Types
     end
     #endregion
 
-    #region Player
+    #region player
     field :player, Types::Player, null: true do
       argument :player_id, ID, required: true, as: :id
     end

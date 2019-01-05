@@ -1,4 +1,4 @@
-import { gameListShape } from 'concerns/GameList/shape'
+import { gameListShape } from 'concerns/gameList/shape'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Types
   class Player < Types::BaseObject
-    description 'Player'
+    description 'player'
 
     global_id_field :id
     field :name, String, null: true

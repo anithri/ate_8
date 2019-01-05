@@ -1,4 +1,4 @@
-import { normalizePlayers } from 'concerns/Player/utils'
+import { normalizePlayers } from 'concerns/player/utils'
 import { normalizeWorkers } from 'concerns/worker/utils'
 
 export const normalizeData = gameData => {

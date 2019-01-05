@@ -1,4 +1,4 @@
-import { playerListShape } from 'concerns/Player/shape'
+import { playerListShape } from 'concerns/player/shape'
 import PropTypes from 'prop-types'
 import { workerShape } from 'concerns/worker/shape'
 

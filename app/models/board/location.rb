@@ -23,7 +23,7 @@ module Board
 
     Game::PLAYER_COUNT.times do |i|
       create id:            "player#{i + 1}",
-             name:          "Player #{i + 1}",
+             name:          "player #{i + 1}",
              group:         'players',
              cards_range:   MAX_CARDS,
              has_cards:     true,

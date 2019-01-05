@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-const WorkerContainer = (Display, displayName = 'Player') => {
+const WorkerContainer = (Display, displayName = 'player') => {
   const container = ({ workerId, ...props }) => {
     return (
       <Query query={GET_WORKER} variables={{ workerId }}>

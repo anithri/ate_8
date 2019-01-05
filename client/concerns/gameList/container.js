@@ -1,4 +1,4 @@
-import { GET_GAME_LIST } from 'concerns/GameList/query'
+import { GET_GAME_LIST } from 'concerns/gameList/query'
 import normalizeGameList from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'

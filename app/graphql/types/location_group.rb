@@ -3,7 +3,7 @@ module Types
     value "ALL",  "All Board Locations"
     value "CARD",  "Card Board Locations"
     value "WORKER",  "Worker Board Locations"
-    value "PLAYER",  "Player Board Locations"
+    value "PLAYER",  "player Board Locations"
     value "PROJECT",  "Project Board Locations"
   end
 end

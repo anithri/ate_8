@@ -5045,6 +5045,13 @@ postcss-colormin@^2.1.8:
     postcss "^5.0.13"
     postcss-value-parser "^3.2.3"
 
+postcss-comment-2@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-comment-2/-/postcss-comment-2-1.0.1.tgz#7f4102e6a3cb22da459bf72fd6ee07439adcd064"
+  integrity sha512-weiQr0cpVj6y51k6MzKE3pzoDrpzHsb8cObNe9UpINa0rohwjEpa2bl7qwTrQGmJWLdyrC2dsYBMY2I5rLH5HA==
+  dependencies:
+    postcss "^6.0.11"
+
 postcss-convert-values@^2.3.4:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/postcss-convert-values/-/postcss-convert-values-2.6.1.tgz#bbd8593c5c1fd2e3d1c322bb925dcae8dae4d62d"

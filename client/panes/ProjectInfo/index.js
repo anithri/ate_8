@@ -4,22 +4,19 @@ import ProjectInfoContainer from 'concerns/ProjectInfo/container'
 import { projectInfoShape } from 'concerns/ProjectInfo/shape'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './pane.module.css'
+import styles from './styles.module.css'
 
 const ProjectInfoPane = ({ className, projectInfo }) => {
+  const { id } = projectInfo
+  const { orientation, bar } = projectInfo.board
+
   return (
-    <section
-      className={cx(
-        className,
-        styles.projectInfo,
-        styles[projectInfo.board.orientation],
-      )}
-    >
+    <section className={cx(className, styles.pane, styles[orientation])}>
       <WorkerBar
         className={styles.barBag}
         label={'Draft Bar'}
         layout={'stack'}
-        workers={projectInfo.board.bar.workers}
+        {...bar}
       />
 
       <div className={styles.project1}>project1</div>

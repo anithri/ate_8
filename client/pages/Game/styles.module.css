@@ -3,16 +3,16 @@
   grid-template-columns: 5fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
-    'playerArea gameInfo'
-    'playerArea projectArea';
+    'players info'
+    'players projects';
 }
 
 .info {
-  grid-area: gameInfo;
+  //grid-area: info;
 }
 .players {
-  grid-area: playerArea;
+  grid-area: players;
 }
 .projects {
-  grid-area: projectArea;
+  grid-area: projects;
 }

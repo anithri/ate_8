@@ -18,6 +18,10 @@ module Game
     delegate :gid, to: :game_data
     delegate :[], to: :boards
 
+    def orientation
+      Game::BOARD_ORIENTATIONS.sample
+    end
+
     def deal(count, to:, from: :draw)
      boards[to].deck.push(
        boards[from].deck.pop(count)

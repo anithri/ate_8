@@ -4,12 +4,14 @@ module Game
   PROJECT_COUNT      = 16
   TOTAL_WORKER_COUNT = Worker.count * PER_WORKER_COUNT
 
+  BOARD_ORIENTATIONS = %w{north east south west}.freeze
+
   STARTING_WORKER_LOCATIONS = {
     bar:     2,
     discards: 3,
     draw:    5,
     reserve: 20
-  }
+  }.freeze
 
   def self.locate(game_datum_id)
     Runner.new(

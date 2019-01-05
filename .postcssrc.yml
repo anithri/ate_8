@@ -1,4 +1,5 @@
 plugins:
+#  postcss-comment-2: {}
   postcss-import: {}
   postcss-preset-env:
     stage: 0

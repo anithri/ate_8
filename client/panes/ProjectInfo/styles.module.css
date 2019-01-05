@@ -1,4 +1,4 @@
-.projectInfo {
+.pane {
   composes: subGrid from global;
 }
 
@@ -6,6 +6,9 @@
 .south {
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(4, 1fr);
+  & > .barBag {
+    flex-direction: row;
+  }
 }
 
 .east,
@@ -48,7 +51,6 @@
 
 .barBag {
   grid-area: barBag;
-  flex-direction: row;
 }
 
 .project1 {

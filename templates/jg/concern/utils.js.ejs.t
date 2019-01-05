@@ -1,8 +1,10 @@
 ---
-to: <%= h.src('concerns', className, 'utils.js') %>
+to: <%= containerPath %>
 ---
-export const normalizeData = <%= dataName %>Data => {
-  return <%= dataName %>Data.all.map(g => g.game)
+export const <% normalizeDataList %> = <%= dataName %>Data => {
+  return <%= dataName %>.all.map(obj => ({
+    return obj
+  ))
 }
 
 export default normalizeData

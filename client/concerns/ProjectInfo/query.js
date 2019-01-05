@@ -6,6 +6,7 @@ export const GET_PROJECT_INFO = gql`
     projectInfo: game(gameId: $gameId) {
       id
       board {
+        orientation
         bar {
           workers {
             ...WorkersFragment

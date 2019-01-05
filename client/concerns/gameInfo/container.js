@@ -1,5 +1,5 @@
 import { GET_GAME_INFO } from './query'
-import normalizeGameData from 'concerns/GameInfo/utils'
+import normalizeGameData from 'concerns/gameInfo/utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'

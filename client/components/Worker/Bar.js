@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import Worker from 'components/Worker'
-import { workerShape } from 'concerns/Worker/shape'
+import { workerShape } from 'concerns/worker/shape'
 
 const countedWorkers = (workers, workerTypes) => {
   // console.log('countedWorkers', workers, workerTypes)

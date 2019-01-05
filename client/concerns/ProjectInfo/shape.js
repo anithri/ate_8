@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { workerShape } from 'concerns/Worker/shape'
+import { workerShape } from 'concerns/worker/shape'
 
 export const projectInfoShape = PropTypes.shape({
   board: PropTypes.shape({

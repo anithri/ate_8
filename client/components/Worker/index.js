@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import { workerShape } from 'concerns/Worker/shape'
+import { workerShape } from 'concerns/worker/shape'
 
 const Counter = ({ count }) => {
   if (count || count === 0)

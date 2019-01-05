@@ -1,4 +1,4 @@
-import { normalizeWorkers } from 'concerns/Worker/utils'
+import { normalizeWorkers } from 'concerns/worker/utils'
 
 export const normalizeProjectInfo = projectInfoData => {
   return {

@@ -5,6 +5,8 @@ export const PLAYERS_FRAGMENT = gql`
     all: edges {
       player: node {
         id
+        order
+        slug
       }
     }
   }

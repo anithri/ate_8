@@ -5,8 +5,8 @@ import React from 'react'
 import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
-const PlayerPane = ({ className, player }) => {
-  // console.log('PlayerPane', player)
+const PlayerCard = ({ className, player }) => {
+  console.log('PlayerCard', player)
   return (
     <article className={cx(className, styles.player)}>
       <header>
@@ -19,9 +19,9 @@ const PlayerPane = ({ className, player }) => {
   )
 }
 
-PlayerPane.propTypes = {
+PlayerCard.propTypes = {
   className: PropTypes.string,
   player: playerShape.isRequired,
 }
 
-export default mkContainer(PlayerPane)
+export default mkContainer(PlayerCard)

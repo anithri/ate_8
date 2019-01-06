@@ -1,7 +1,7 @@
 import {
   shape as gameInfoShape,
-  mkListContainer as mkGameInfoContainer,
-} from 'concerns/game'
+  mkContainer as mkGameInfoContainer,
+} from 'concerns/gameInfo'
 
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +12,7 @@ import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const GameInfoPane = ({ className, gameInfo }) => {
-  // console.log('GameInfoPane', gameInfo)
+  console.log('GameInfoPane', gameInfo)
   return (
     <section className={cx(className, styles.pane)}>
       <header className={cx(styles.title, styles.title)}>

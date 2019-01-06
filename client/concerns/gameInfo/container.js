@@ -1,9 +1,10 @@
-import { GET_GAME_INFO, parseData } from 'concerns/gameInfo'
+import { GET_GAME_INFO } from 'concerns/gameInfo/query'
+import { parseData } from 'concerns/gameInfo/utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-const GameInfoContainer = (Display, displayName = 'GameInfo') => {
+export const mkContainer = (Display, displayName = 'GameInfo') => {
   const container = ({ gameId, ...props }) => {
     return (
       <Query query={GET_GAME_INFO} variables={{ gameId }}>

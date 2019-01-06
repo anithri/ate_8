@@ -9,6 +9,7 @@ export const GET_PROJECT_INFO = gql`
       board {
         orientation
         bar {
+          name
           workers {
             ...WorkersFragment
           }
@@ -19,6 +20,6 @@ export const GET_PROJECT_INFO = gql`
       }
     }
   }
-  ${WORKERS_FRAGMENT}
   ${BOARD_LOCATIONS_FRAGMENT}
+  ${WORKERS_FRAGMENT}
 `

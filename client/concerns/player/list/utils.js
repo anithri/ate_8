@@ -1,4 +1,3 @@
 export const parseList = data => {
-  return data.all.map(g => g.game)
+  return data.all.map(({ player }) => player)
 }
-

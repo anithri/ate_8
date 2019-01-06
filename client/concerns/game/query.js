@@ -1,5 +1,5 @@
-import { BOARD_LOCATIONS_FRAGMENT } from 'concerns/boardLocation'
 import { gql } from 'apollo-boost'
+import { PLAYERS_FRAGMENT } from 'concerns/player'
 import { WORKERS_FRAGMENT } from 'concerns/worker/query'
 
 export const GET_GAME = gql`
@@ -8,13 +8,13 @@ export const GET_GAME = gql`
       id
       name
       players {
-        ...BoardLocationsFragment
+        ...PlayersFragment
       }
       workerTypes {
         ...WorkersFragment
       }
     }
   }
-  ${BOARD_LOCATIONS_FRAGMENT}
+  ${PLAYERS_FRAGMENT}
   ${WORKERS_FRAGMENT}
 `

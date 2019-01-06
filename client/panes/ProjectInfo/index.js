@@ -3,21 +3,20 @@ import {
   shape as projectInfoShape,
 } from 'concerns/projectInfo'
 import cx from 'classnames'
+import ProjectCard from 'panes/ProjectCard'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
-
 const ProjectInfoPane = ({ className, projectInfo }) => {
   console.log('ProjectInfoPane', projectInfo)
   const { orientation, bar, projects } = projectInfo.board
-  const projectCards = projects.map((project, idx) => (
-    <div
-      className={styles[`project${idx + 1}`]}
-      key={`project-card-${idx + 1}`}
-    >
-      Project {idx + 1}
-    </div>
+  const projectCards = projects.map(({ id, slug }) => (
+    <ProjectCard
+      className={styles[slug]}
+      key={`project-card-${id}`}
+      projectId={id}
+    />
   ))
 
   return (

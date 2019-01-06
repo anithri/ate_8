@@ -12,7 +12,7 @@ import React from 'react'
 import styles from './styles.module.css'
 
 const GamePage = ({ game, className }) => {
-  console.log('GamePage', game)
+  // console.log('GamePage', game)
   return (
     <GameDataProvider
       value={{ gameId: game.id, workerTypes: game.workerTypes }}

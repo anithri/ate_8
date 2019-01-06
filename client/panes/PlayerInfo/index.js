@@ -1,12 +1,12 @@
 import cx from 'classnames'
 import { shape as gameShape } from 'concerns/game'
-import Player from './PlayerCard'
+import Player from 'panes/PlayerCard'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 
 const PlayerInfoPane = ({ className, game }) => {
-  console.log('PlayerInfoPane', game)
+  // console.log('PlayerInfoPane', game)
   const allPlayers = game.players.map(player => (
     <Player
       key={`player${player.id}-pane`}

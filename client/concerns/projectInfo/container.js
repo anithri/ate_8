@@ -1,4 +1,5 @@
-import { GET_PROJECT_INFO, parseData } from 'concerns/projectInfo'
+import { GET_PROJECT_INFO } from './query'
+import { parseData } from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'

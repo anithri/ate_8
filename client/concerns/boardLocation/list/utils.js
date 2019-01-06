@@ -1,3 +1,3 @@
 export const parseList = data => {
-  return data.all.map(({ player }) => player)
+  return data.all.map(({ boardLocation }) => boardLocation)
 }

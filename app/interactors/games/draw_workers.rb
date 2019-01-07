@@ -1,27 +1,27 @@
-class Games::DrawWorkers
-  include Interactor
+module Games
+  class DrawWorkers < Base
 
-  before do
-    puts self.class if context.debug
-    unless context.game_data
-      context.errors = ["no game_data"]
-      context.fail!(message: context.errors.first)
+    before do
+      puts self.class if context.debug
+      unless board
+        context.errors = ["no board"]
+        context.fail!(message: context.errors.first)
+      end
     end
 
-    context.game_data.board_data.each do |board_datum|
-      board_datum.bag = Board::Bag.default
+    def call
+      RULES::STARTING_WORKER_SPACES.each do |tile_id, count|
+        pool = BITS::Worker.all.reduce([]) do |arr, w|
+          arr.push(*Array.new(count, w))
+        end.shuffle
+        puts tile_id.inspect
+        board[tile_id.to_s].bag.push(pool)
+      end
+
+      BITS::Worker.combinations.zip(board.players).each do |combo, player|
+        board_space = board[player.slug]
+        board_space.bag.push(combo)
+      end
     end
   end
-
-  def call
-    Game::STARTING_WORKER_LOCATIONS.each_pair do |loc, count|
-      pool = Game::Worker.all.map{|w| Array.new(count, w)}.flatten.shuffle
-      context.game.board[loc].bag.push(pool)
-    end
-    player_locs = Board::Location.players.map(&:id)
-    Game::Worker.combinations.zip(player_locs).each do |(combo, loc)|
-      context.game.board[loc].bag.push(combo)
-    end
-  end
-
 end

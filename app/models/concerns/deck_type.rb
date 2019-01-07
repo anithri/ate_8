@@ -1,13 +1,13 @@
 class DeckType < ActiveRecord::Type::Value
-  def cast(deck_data)
-    if deck_data.instance_of? ::Board::Deck
-      deck_data
-    elsif deck_data.is_a? Hash
-      ::Board::Deck.new(deck_data)
-    elsif deck_data.respond_to? :to_s
-      ::Board::Deck.new(JSON.parse(deck_data))
+  def cast(deck_contents)
+    if deck_contents.instance_of? ::Game::Deck
+      deck_contents
+    elsif deck_contents.is_a? Hash
+      ::Game::Deck.new(deck_contents)
+    elsif deck_contents.respond_to? :to_s
+      ::Game::Deck.new(JSON.parse(deck_contents))
     else
-      ::Board::Deck.default
+      ::Game::Deck.default
     end
   end
 

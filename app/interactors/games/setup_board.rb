@@ -1,17 +1,18 @@
 module Games
-  class SetupBoard
-    include Interactor
+  class SetupBoard < Base
 
     before do
       puts self.class if context.debug
     end
 
     def call
-      context.board_data = ::Board::Location.all.map do |loc|
-        BoardDatum.new(
-          location:   loc,
-          deck_data:   Board::Deck::DEFAULT_DECK.deep_dup,
-          bag_data: Board::Bag::DEFAULT_BAG.deep_dup
+      context.board_contents = BITS::Tile.all.map do |tile|
+        BoardContent.new(
+          {
+            tile:          tile,
+            deck_contents: Game::Deck::DEFAULT_DECK.deep_dup,
+            bag_contents:  Game::Bag::DEFAULT_BAG.deep_dup
+          }
         )
       end
     end

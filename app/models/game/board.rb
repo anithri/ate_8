@@ -1,60 +1,60 @@
 module Game
   class Board
-    attr_reader :board_data, :boards, :game_data
+    attr_reader :board_contents, :spaces, :game_session
 
-    def initialize(game_data)
-      @game_data  = game_data
-      @board_data = game_data.board_data
-      @boards     = game_data.board_data.reduce({}.with_indifferent_access) do |hsh, board_datum|
-        hsh[board_datum.location_id] = BoardSpace.new(board_datum)
+    def initialize(game_session)
+      @game_session  = game_session
+      @board_contents = game_session.board_contents
+      @spaces = {}.with_indifferent_access
+      @spaces = @board_contents.reduce(@spaces) do |hsh, board_content|
+        hsh[board_content.tile_id] = BoardSpace.new(board_content)
         hsh
       end
-
-      ::Board::Location::GROUPS.each do |group|
-        @boards[group.to_s] = @boards.values_at(*::Board::Location.send(group).map(&:id))
+      Game::Bits::Tile::GROUPS.each do |group|
+        @spaces[group.to_s] = @spaces.values_at(*Game::Bits::Tile.send(group))
       end
-    end
+1    end
 
-    delegate :gid, to: :game_data
-    delegate :[], to: :boards
+    delegate :gid, to: :game_session
+    delegate :[], to: :spaces
 
     def orientation
-      Game::BOARD_ORIENTATIONS.sample
+      Game::Bits::Rules::BOARD_ORIENTATIONS.sample
     end
 
     def deal(count, to:, from: :draw)
-     boards[to].deck.push(
-       boards[from].deck.pop(count)
-     )
+      spaces[to].deck.push(
+        spaces[from].deck.pop(count)
+      )
     end
 
     def active_workers
-      ::Board::Location::SUMMARIES[:active].reduce([]) do |arr, id|
-        arr += @boards[id].workers
+      Game::Bits::Tile.summary('active').reduce([]) do |arr, id|
+        arr += @spaces[id].workers
         arr
       end
     end
 
     def dead_workers
-      ::Board::Location::SUMMARIES[:dead].reduce([]) do |arr, id|
-        arr += @boards[id].workers
+      Game::Bits::Tile.summary('dead').reduce([]) do |arr, id|
+        arr += @spaces[id].workers
         arr
       end
     end
 
     def pending_workers
-      ::Board::Location::SUMMARIES[:pending].reduce([]) do |arr, id|
-        arr += @boards[id].workers
+      Game::Bits::Tile.summary('pending').reduce([]) do |arr, id|
+        arr += @spaces[id].workers
         arr
       end
     end
 
     def respond_to_missing?(method_name, *args, &block)
-      @boards.has_key? method_name
+      @spaces.has_key? method_name
     end
 
     def method_missing(method_name, *args, &block)
-      boards[method_name] || super
+      spaces[method_name] || super
     end
   end
 end

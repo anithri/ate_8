@@ -1,4 +1,4 @@
-import { listShape as playersShape } from 'concerns/boardLocation'
+import { listShape as playersShape } from 'concerns/boardTile'
 import PropTypes from 'prop-types'
 import { workerShape } from 'concerns/worker/shape'
 

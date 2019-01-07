@@ -1,4 +1,4 @@
-module Board
+module Game
   class Deck
     include ActiveModel::Dirty
 
@@ -10,14 +10,14 @@ module Board
     attr_reader :card_ids, :version
     define_attribute_methods :card_ids, :version
 
-    def initialize(deck_data)
-      @deck_data = deck_data.with_indifferent_access
-      @version = @deck_data[:version]
-      @card_ids = @deck_data[:card_ids] || []
+    def initialize(play_area)
+      @play_area = play_area.with_indifferent_access
+      @version = @play_area[:version]
+      @card_ids = @play_area[:card_ids] || []
     end
 
     def cards
-      ::Game::Card.locate_many card_ids
+      ::Game::Bits::Card.locate_many card_ids
     end
 
     def push(*cards)

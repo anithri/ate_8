@@ -1,5 +1,5 @@
 import { normalizeWorkers } from 'concerns/worker/utils'
-import { parseList as parseProjectsList } from 'concerns/boardLocation'
+import { parseList as parseProjectsList } from 'concerns/boardTile'
 
 export const parseData = data => {
   return {

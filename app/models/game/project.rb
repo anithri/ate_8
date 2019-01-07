@@ -1,5 +1,5 @@
 class Project
-  def initialize(project_location)
+  def initialize(board_space)
 
   end
 end

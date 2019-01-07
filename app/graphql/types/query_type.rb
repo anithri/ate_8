@@ -32,15 +32,10 @@ module Types
     #region Board Fields
     field :board, Types::Board, null: true do
       argument :board_id, ID, as: :id, required: false
-      argument :game_id, ID, as: :game_id, required: false
     end
 
-    def board(id:, game_id:)
-      if id || game_id
-        ::Game::Board.locate id || game_id
-      else
-        null
-      end
+    def board(id:)
+        ::Game::Board.locate id
     end
 
     #endregion
@@ -76,30 +71,26 @@ module Types
     def cards
       ::Game::Card.all
     end
-
     #endregion
 
     #region player
     field :player, Types::Player, null: true do
       argument :player_id, ID, required: true, as: :id
     end
-
     def player(id:)
-      ::Game::Player.locate id
+      ::Game::Seat.locate id
     end
 
     #endregion
 
-    #region board_location
-    field :board_location, Types::BoardLocation, null: true do
-      argument :board_location_id, ID, required: true, as: :id
+    #region board_space
+    field :board_space, Types::BoardSpace, null: true do
+      argument :board_space_id, ID, required: true, as: :id
     end
-
-    def board_location(id:)
+    def board_space(id:)
       ::Game::BoardSpace.locate id
     end
     #endregion
-
     # last of fields
   end
 end

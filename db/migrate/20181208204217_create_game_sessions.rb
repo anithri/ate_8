@@ -1,7 +1,7 @@
 
-class CreateGames < ActiveRecord::Migration[5.2]
+class CreateGameSessions < ActiveRecord::Migration[5.2]
   def change
-    create_table :game_data do |t|
+    create_table :game_sessions do |t|
       t.string :name, unique: true
       t.integer :turn, default: 0, null: false
       t.integer :phase, default: 0, null: false

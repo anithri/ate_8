@@ -1,13 +1,13 @@
 class BagType < ActiveRecord::Type::Value
-  def cast(bag_data)
-    if bag_data.instance_of? ::Board::Bag
-      bag_data
-    elsif bag_data.is_a? Hash
-      ::Board::Bag.new(bag_data)
-    elsif bag_data.respond_to? :to_s
-      ::Board::Bag.new(JSON.parse(bag_data))
+  def cast(bag_contents)
+    if bag_contents.instance_of? ::Game::Bag
+      bag_contents
+    elsif bag_contents.is_a? Hash
+      ::Game::Bag.new(bag_contents)
+    elsif bag_contents.respond_to? :to_s
+      ::Game::Bag.new(JSON.parse(bag_contents))
     else
-      ::Board::Bag.default
+      ::Game::Bag.default
     end
   end
 

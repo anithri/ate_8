@@ -1,4 +1,4 @@
-import { BOARD_LOCATIONS_FRAGMENT } from 'concerns/boardLocation'
+import { BOARD_LOCATIONS_FRAGMENT } from 'concerns/boardTile'
 import { gql } from 'apollo-boost'
 import { WORKERS_FRAGMENT } from 'concerns/worker/query'
 

@@ -1,20 +1,18 @@
 module Game
   class BoardSpace
-    attr_reader :board_datum
+    attr_reader :board_content
 
-    def initialize(board_datum)
-      @board_datum = board_datum
+    def initialize(board_content)
+      @board_content = board_content
     end
 
-    delegate :bag, :deck, :location, :gid, :name, :board, to: :board_datum
-    delegate :cards, to: :deck
+    delegate :bag, :board, :deck, :gid, :name, :tile, to: :board_content
     delegate :workers, to: :bag
-    delegate :slug, to: :location
+    delegate :cards, to: :deck
+    delegate :slug, to: :tile
 
     def self.locate(gid)
-      self.new(
-            BoardDatum.locate gid
-      )
+      self.new(BoardContent.locate gid)
     end
   end
 end

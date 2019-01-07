@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Types
-  class BoardLocation < Types::BaseObject
-    description 'Board Location'
+  class BoardSpace < Types::BaseObject
+    description 'Board Space'
 
     global_id_field :id
     field :name, String, null: true

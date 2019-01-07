@@ -1,27 +1,27 @@
 module Game
   class Runner
-    attr_reader :game_datum
+    attr_reader :game_session
 
-    def initialize(game_datum)
-      @game_datum = game_datum
+    def initialize(game_session)
+      @game_session = game_session
     end
 
     def board
-      @board ||= Game::Board.new(game_datum)
+      @board ||= Game::Board.new(game_session)
     end
 
     def player(player_id)
       players.find { |pd| pd.id == player_id }
     end
 
-    def players
-      game_datum.player_data.map { |pd| Player.new(pd, board[pd.slug]) }
+    def seats
+      game_session.players.map { |pd| Seat.new(pd, board[pd.slug]) }
     end
 
     def worker_types
       Worker.all
     end
 
-    delegate :gid, :name, :turn, :phase, :save, to: :game_datum
+    delegate :gid, :name, :turn, :phase, :save, to: :game_session
   end
 end

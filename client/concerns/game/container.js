@@ -1,5 +1,5 @@
 import { GET_GAME } from './query'
-import parseData from './utils'
+import { parseData } from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'

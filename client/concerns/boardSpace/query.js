@@ -6,6 +6,14 @@ export const GET_BOARD_SPACE = gql`
       id
       name
       slug
+      cards {
+        all: edges {
+          card: node {
+            id
+            name
+          }
+        }
+      }
     }
   }
 `

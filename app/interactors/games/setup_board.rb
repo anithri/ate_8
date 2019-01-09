@@ -2,7 +2,8 @@ module Games
   class SetupBoard < Base
 
     before do
-      puts self.class if context.debug
+      # puts '=' * 30
+      # puts self.class if context.debug
     end
 
     def call

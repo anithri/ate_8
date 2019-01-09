@@ -2,7 +2,8 @@ module Games
   class SaveGame < Base
 
     before do
-      puts self.class if context.debug
+      # puts '=' * 30
+      # puts self.class if context.debug
       unless game_session
         context.errors = ["no game_session"]
         context.fail!(message: context.errors.first)

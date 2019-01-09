@@ -30,5 +30,6 @@ class Player < ApplicationRecord
   def slug
     "player#{order}"
   end
+
   delegate :name, to: :user
 end

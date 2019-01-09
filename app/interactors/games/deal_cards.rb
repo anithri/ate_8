@@ -2,7 +2,8 @@ module Games
   class DealCards < Base
 
     before do
-      puts self.class if context.debug
+      # puts '=' * 30
+      # puts self.class if context.debug
       unless board
         context.errors = ["no board"]
         context.fail!(message: context.errors.first)

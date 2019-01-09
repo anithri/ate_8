@@ -84,7 +84,7 @@ module Types
     #endregion
 
     #region board_space
-    field :board_space, Types::BoardSpace, null: true do
+    field :board_space, Types::Tile, null: true do
       argument :board_space_id, ID, required: true, as: :id
     end
     def board_space(id:)

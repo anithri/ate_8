@@ -1,9 +1,10 @@
 module Games
   class QuickStart < Base
 
-    before do
-      puts self.class if context.debug
-    end
+    # before do
+    #   puts '=' * 30
+    #   puts self.class if context.debug
+    # end
 
     def call
       if Rails.env.development?

@@ -29,7 +29,7 @@ class GameSession < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :turn, :phase, numericality: {only_integer: true}
 
-  default_scope ->{includes(:players, :board_contents)}
+  default_scope -> { includes(:players, :board_contents) }
   # scope :active, ->{where(finished_at: nil)}
   def gid
     self.to_gid_param

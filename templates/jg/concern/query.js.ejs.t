@@ -1,29 +1,19 @@
 ---
-to: <%= h.src('concerns', className, 'query.js') %>
+to: <%= mkPath('query.js') %>
 ---
-import {gql} from 'apollo-boost'
+import { gql } from 'apollo-boost'
 
-<% if(isList){ -%>
-  export const <%= queryName %> = gql`
-    query <%= queryName %> {
-      <%= plural %> {
-        all: edges {
-          <%= args.dataName %>: node {
-            id
-            name
-          }
-        }
-      }
+export const <%= FRAGMENT_NAME %> = gql`
+  fragment <%= fragmentName %> on <%= graphQLName %> {
+    id
+    name
+    slug
+  }
+`
+export const <%= QUERY_NAME %> = gql`
+  query (<%= idName %>: ID!) {
+    <%= varName %>(<%= idName %>: $<%= idName %>) {
+      ...<%= fragmentName %>
     }
-  `
-<% } else { -%>
-  export const <%= queryName %> = gql`
-    query <%= queryName %> {
-      <%= dataName %> {
-        all: edges {
-
-        }
-      }
-    }
-  `
-<% } -%>
+  }
+`

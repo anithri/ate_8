@@ -1,33 +1,30 @@
 ---
-to: <%= h.src('concerns', className, 'container.js') %>
+to: <%= mkPath('container.js') %>
 ---
-import { <%= queryName %> } from './query'
-import normalizeData from './utils'
+import { <%= QUERY_NAME %> } from './query'
+import { <%= parseName %> } from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-const <%= className %>Container = (Display, displayName) => {
-  const container = ({ }) => {
+export const <%= containerName %> = Display => {
+  const displayContainer = ({ <%= idName %>, ...props }) => {
     return (
-      <Query query={ <%= queryName %> }>
+      <Query query={<%= QUERY_NAME %>} variables={{<%= idName %>}}>
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          const <%= dataName %>Data = normalizeData(data.<%= isList ? plural : dataName %>)
-          return <<%= className %>Display <%= dataName %>={<%= dataName %>Data} className={className} />
+          const <%= varName %> = <%= parseName %>(data.<%= varName %>)
+          return <Display <%= varName %>={<%= varName %>} {...props} />
         }}
       </Query>
     )
   }
-  container.displayName = displayName + 'Container'
-  container.propTypes = {
-    className: PropTypes.string,
-    display: PropTypes.func.isRequired,
+  displayContainer.displayName = <%= containerName %>
+  displayContainer.propTypes = {
+    <%= idName %>: PropTypes.string.isRequired,
   }
 
-  return container
+  return displayContainer
 }
-
-export default <%= className %>Container

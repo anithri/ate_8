@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost'
 import { WORKER_LIST_FRAGMENT } from 'concerns/worker'
 
 export const PLAYER_FRAGMENT = gql`
-  fragment PlayerFragment on Player {
+  fragment PlayerFragment on player {
     id
     name
     order

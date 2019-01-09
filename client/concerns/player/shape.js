@@ -5,7 +5,7 @@ export const shape = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   order: PropTypes.number.isRequired,
+  requiredWorkers: PropTypes.arrayOf(workerShape),
   slug: PropTypes.string.isRequired,
-  workers: PropTypes.arrayOf(workerShape),
 })
 

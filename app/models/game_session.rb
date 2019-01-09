@@ -31,6 +31,7 @@ class GameSession < ApplicationRecord
 
   default_scope -> { includes(:players, :board_contents) }
   # scope :active, ->{where(finished_at: nil)}
+
   def gid
     self.to_gid_param
   end

@@ -1,4 +1,4 @@
-import { BOARD_LOCATIONS_FRAGMENT } from 'concerns/boardTile'
+import { BOARD_SPACES_FRAGMENT } from 'concerns/boardSpace'
 import { gql } from 'apollo-boost'
 import { WORKERS_FRAGMENT } from 'concerns/worker/query'
 
@@ -15,11 +15,11 @@ export const GET_PROJECT_INFO = gql`
           }
         }
         projects {
-          ...BoardLocationsFragment
+          ...BoardSpacesFragment
         }
       }
     }
   }
-  ${BOARD_LOCATIONS_FRAGMENT}
+  ${BOARD_SPACES_FRAGMENT}
   ${WORKERS_FRAGMENT}
 `

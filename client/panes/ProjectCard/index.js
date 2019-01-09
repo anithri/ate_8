@@ -1,4 +1,4 @@
-import { mkContainer, shape as projectShape } from 'concerns/boardTile'
+import { mkContainer, shape as projectShape } from 'concerns/boardSpace'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'

@@ -13,7 +13,9 @@
   name = Faker::Superhero.name
   User.find_or_create_by(name: name, email: Faker::Internet.email(name))
 end
+puts "Users Created: #{User.count}"
 
 10.times do
   Games::Create.call
 end
+puts "Games Created: #{GameSession.count}"

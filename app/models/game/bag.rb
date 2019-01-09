@@ -17,7 +17,7 @@ module Game
     end
 
     def workers
-      ::Game::Worker.locate_many worker_ids
+      Bits::Worker.locate_many worker_ids
     end
 
     def push(*new_workers)

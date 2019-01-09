@@ -14,7 +14,7 @@ export const GET_PLAYER = gql`
   query GetPlayer($playerId: ID!) {
     player(playerId: $playerId) {
       ...PlayerFragment
-      workers {
+      requiredWorkers {
         ...WorkersFragment
       }
     }

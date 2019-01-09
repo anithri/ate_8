@@ -19,9 +19,9 @@ module Game
     end
 
     def worker_types
-      Worker.all
+      Bits::Worker.all
     end
 
-    delegate :gid, :name, :turn, :phase, :save, to: :game_session
+    delegate :gid, :name, :turn, :phase, :players, :save, to: :game_session
   end
 end

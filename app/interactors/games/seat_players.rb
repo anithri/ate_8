@@ -5,14 +5,17 @@ module Games
       # puts '=' * 30
       # puts self.class if context.debug
       unless users
-        context.errors = ["no "]
+        context.errors = ["no users"]
         context.fail!(message: context.errors.first)
       end
     end
 
     def call
-      context.players = users.shuffle.each_with_index.map do |u, i|
-        Player.new({user: u, order: i + 1})
+      context.players = Game::Bits::Worker.combinations.zip(users).each_with_index.map do |(combo,
+        user), idx|
+        p = Player.new({user: user, order: idx + 1})
+        p.required_workers = combo
+        p
       end
     end
 

@@ -17,10 +17,6 @@ module Games
         end.shuffle
         board[tile_id.to_s].bag.push(pool)
       end
-
-      BITS::Worker.combinations.zip(players).each do |combo, player|
-        board[player.slug].bag.push(combo)
-      end
     end
   end
 end

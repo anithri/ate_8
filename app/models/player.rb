@@ -4,6 +4,7 @@
 #
 #  id              :bigint(8)        not null, primary key
 #  order           :integer
+#  seat_contents   :jsonb            not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  game_session_id :bigint(8)
@@ -29,6 +30,19 @@ class Player < ApplicationRecord
 
   def slug
     "player#{order}"
+  end
+
+  def worker_ids
+    seat_contents['worker_ids']
+  end
+  def worker_ids=(new_workers)
+    seat_contents['worker_ids'] = new_workers
+  end
+  def required_workers
+    Game::Bits::Worker.locate_many seat_contents['worker_ids']
+  end
+  def required_workers=(new_workers)
+    self.worker_ids = new_workers.map{|w| w.is_a?(String) ? w : w.gid}
   end
 
   delegate :name, to: :user

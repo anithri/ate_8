@@ -4,6 +4,6 @@ export const parseData = data => {
   // console.log('normalizePlayer', playerData)
   return {
     ...data,
-    workers: normalizeWorkers(data.workers),
+    requiredWorkers: normalizeWorkers(data.requiredWorkers),
   }
 }

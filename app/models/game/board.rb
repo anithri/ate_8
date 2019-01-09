@@ -11,7 +11,7 @@ module Game
       end
 
       Game::Bits::Tile::GROUPS.each do |group|
-        @spaces[group.to_s] = @spaces.values_at(*Game::Bits::Tile.send(group))
+        @spaces[group.to_s] = @spaces.values_at(*Game::Bits::Tile.send(group).map(&:id))
       end
     end
 

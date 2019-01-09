@@ -46,13 +46,13 @@ module Types
     end
 
     def worker(id:)
-      ::Game::Worker.locate id
+      ::Game::Bits::Worker.locate id
     end
 
     field :workers, Types::Worker.connection_type, null: false
 
     def workers
-      ::Game::Worker.all
+      ::Game::Bits::Worker.all
     end
 
     #endregion
@@ -84,7 +84,7 @@ module Types
     #endregion
 
     #region board_space
-    field :board_space, Types::Tile, null: true do
+    field :board_space, Types::BoardSpace, null: true do
       argument :board_space_id, ID, required: true, as: :id
     end
     def board_space(id:)

@@ -1,25 +1,25 @@
-import { GET_BOARD_TILE, parseData } from './index'
+import { GET_BOARD_SPACE, parseData } from './index'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
 export const mkContainer = (Display, displayName) => {
-  const displayContainer = ({ tileId, ...props }) => {
+  const displayContainer = ({ boardSpaceId, ...props }) => {
     return (
-      <Query query={GET_BOARD_TILE}>
+      <Query query={GET_BOARD_SPACE}>
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          const tile = parseData(data.tile)
-          return <Display tile={tile} {...props} />
+          const boardSpace = parseData(data.boardSpace)
+          return <Display boardSpace={boardSpace} {...props} />
         }}
       </Query>
     )
   }
   displayContainer.displayName = displayName + 'Container'
   displayContainer.propTypes = {
-    tileId: PropTypes.string.isRequired,
+    boardSpaceId: PropTypes.string.isRequired,
   }
 
   return displayContainer

@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_033840) do
     t.bigint "game_session_id"
     t.bigint "user_id"
     t.integer "order"
+    t.jsonb "seat_contents", default: {"version"=>"1.0.0", "worker_ids"=>[]}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_session_id"], name: "index_players_on_game_session_id"

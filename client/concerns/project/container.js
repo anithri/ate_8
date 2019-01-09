@@ -1,18 +1,18 @@
 import { GET_PROJECT } from './query'
-import normalizeData from './utils'
+import { parseProject } from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
 const ProjectContainer = (Display, displayName) => {
-  const container = ({ }) => {
+  const container = ({}) => {
     return (
-      <Query query={ GET_PROJECT }>
+      <Query query={GET_PROJECT}>
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          const projectData = normalizeData(data.project)
+          const projectData = parseProject(data.project)
           return <ProjectDisplay project={projectData} className={className} />
         }}
       </Query>

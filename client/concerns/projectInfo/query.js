@@ -1,9 +1,9 @@
-import { BOARD_SPACES_FRAGMENT } from 'concerns/boardSpace'
+import { BOARD_SPACE_LIST_FRAGMENT } from 'concerns/boardSpace'
 import { gql } from 'apollo-boost'
-import { WORKERS_FRAGMENT } from 'concerns/worker/query'
+import { WORKER_LIST_FRAGMENT } from 'concerns/worker'
 
 export const GET_PROJECT_INFO = gql`
-  query GetProjectInfo($gameId: ID!) {
+  query getProjectInfo($gameId: ID!) {
     projectInfo: game(gameId: $gameId) {
       id
       board {
@@ -11,15 +11,15 @@ export const GET_PROJECT_INFO = gql`
         bar {
           name
           workers {
-            ...WorkersFragment
+            ...workerListFragment
           }
         }
         projects {
-          ...BoardSpacesFragment
+          ...boardSpaceListFragment
         }
       }
     }
   }
-  ${BOARD_SPACES_FRAGMENT}
-  ${WORKERS_FRAGMENT}
+  ${BOARD_SPACE_LIST_FRAGMENT}
+  ${WORKER_LIST_FRAGMENT}
 `

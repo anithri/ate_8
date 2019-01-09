@@ -1,10 +1,10 @@
-import { normalizeWorkers } from 'concerns/worker/utils'
-import { parseList as parsePlayerList } from 'concerns/player'
+import { parsePlayerList } from 'concerns/player'
+import { parseWorkerList } from 'concerns/worker'
 
-export const parseData = data => {
+export const parseGame = data => {
   return {
     ...data,
     players: parsePlayerList(data.players),
-    workerTypes: normalizeWorkers(data.workerTypes),
+    workerTypes: parseWorkerList(data.workerTypes),
   }
 }

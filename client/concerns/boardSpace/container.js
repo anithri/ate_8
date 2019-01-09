@@ -1,10 +1,10 @@
 import { GET_BOARD_SPACE } from './query'
-import { parseData } from './utils'
+import { parseBoardSpace } from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-export const mkContainer = (Display, displayName) => {
+export const boardSpaceContainer = (Display, displayName) => {
   const displayContainer = ({ boardSpaceId, ...props }) => {
     return (
       <Query query={GET_BOARD_SPACE} variables={{boardSpaceId}}>
@@ -12,7 +12,7 @@ export const mkContainer = (Display, displayName) => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          const boardSpace = parseData(data.boardSpace)
+          const boardSpace = parseBoardSpace(data.boardSpace)
           return <Display boardSpace={boardSpace} {...props} />
         }}
       </Query>

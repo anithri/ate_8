@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
-import { workerShape } from 'concerns/worker/shape'
+import { workerListShape } from 'concerns/worker'
 
-export const shape = PropTypes.shape({
+export const playerShape = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   order: PropTypes.number.isRequired,
-  requiredWorkers: PropTypes.arrayOf(workerShape),
+  requiredWorkers: workerListShape,
   slug: PropTypes.string.isRequired,
 })
-

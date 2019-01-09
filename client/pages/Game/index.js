@@ -1,7 +1,4 @@
-import {
-  shape as gameShape,
-  mkContainer as mkGameContainer,
-} from 'concerns/game'
+import { GameContainer, gameShape } from 'concerns/game'
 import cx from 'classnames'
 import { GameDataProvider } from 'concerns/game/context'
 import GameInfo from 'panes/GameInfo'
@@ -31,4 +28,4 @@ GamePage.propTypes = {
   game: gameShape.isRequired,
 }
 
-export default mkGameContainer(GamePage)
+export default GameContainer(GamePage)

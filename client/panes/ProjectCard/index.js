@@ -1,4 +1,4 @@
-import { mkContainer, shape as projectShape } from 'concerns/boardSpace'
+import { boardSpaceContainer, boardSpaceShape } from 'concerns/boardSpace'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -23,8 +23,8 @@ const ProjectCard = ({ className, boardSpace: project }) => {
 }
 
 ProjectCard.propTypes = {
-  boardSpace: projectShape,
+  boardSpace: boardSpaceShape,
   className: PropTypes.string,
 }
 
-export default mkContainer(ProjectCard)
+export default boardSpaceContainer(ProjectCard)

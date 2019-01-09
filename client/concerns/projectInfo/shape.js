@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import { workerShape } from 'concerns/worker/shape'
+import { workerListShape } from 'concerns/worker'
 
-export const shape = PropTypes.shape({
+export const projectInfoShape = PropTypes.shape({
   board: PropTypes.shape({
     bar: PropTypes.shape({
-      workers: PropTypes.arrayOf(workerShape).isRequired,
+      workers: workerListShape,
     }).isRequired,
     orientation: PropTypes.string.isRequired,
   }),

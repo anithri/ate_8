@@ -1,5 +1,1 @@
-export const parseData = boardSpaceData => {
-  return {
-    ...boardSpaceData,
-  }
-}
+export const parseBoardSpace = boardSpaceData => boardSpaceData

@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost'
 
-export const PLAYERS_FRAGMENT = gql`
-  fragment PlayersFragment on PlayerConnection {
+export const PLAYER_LIST_FRAGMENT = gql`
+  fragment playerListFragment on PlayerConnection {
     all: edges {
       player: node {
         id

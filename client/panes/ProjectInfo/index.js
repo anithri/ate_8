@@ -1,7 +1,4 @@
-import {
-  mkContainer as mkProjectInfoContainer,
-  shape as projectInfoShape,
-} from 'concerns/projectInfo'
+import { ProjectInfoContainer, projectInfoShape } from 'concerns/projectInfo'
 import cx from 'classnames'
 import ProjectCard from 'panes/ProjectCard'
 import PropTypes from 'prop-types'
@@ -40,4 +37,4 @@ ProjectInfoPane.propTypes = {
   projectInfo: projectInfoShape,
 }
 
-export default mkProjectInfoContainer(ProjectInfoPane)
+export default ProjectInfoContainer(ProjectInfoPane)

@@ -1,10 +1,10 @@
 import { GET_GAME } from './query'
-import { parseData } from './utils'
+import { parseGame } from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-export const mkContainer = (Display, displayName = 'Game') => {
+export const GameContainer = (Display, displayName = 'Game') => {
   const displayContainer = props => {
     // console.log('GameContainer',props)
     const {
@@ -18,7 +18,7 @@ export const mkContainer = (Display, displayName = 'Game') => {
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
-          const game = parseData(data.game)
+          const game = parseGame(data.game)
           return <Display game={game} className={className} />
         }}
       </Query>

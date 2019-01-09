@@ -1,10 +1,10 @@
-import { listShape as playersShape } from 'concerns/boardSpace'
+import { playerListShape } from 'concerns/player'
 import PropTypes from 'prop-types'
-import { workerShape } from 'concerns/worker/shape'
+import { workerListShape } from 'concerns/worker'
 
-export const shape = PropTypes.shape({
+export const gameShape = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  players: playersShape.isRequired,
-  workerTypes: PropTypes.arrayOf(workerShape),
+  players: playerListShape,
+  workerTypes: workerListShape,
 })

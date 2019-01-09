@@ -1,4 +1,4 @@
-import { listShape as gameListShape } from 'concerns/game'
+import { gameListShape } from 'concerns/game'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -15,7 +15,6 @@ const GameList = ({ className, games }) => {
   })
   return (
     <div className={className}>
-      <h2>Component (styled) GameList</h2>
       <ul>{rows}</ul>
     </div>
   )

@@ -1,7 +1,4 @@
-import {
-  mkContainer as mkPlayerContainer,
-  shape as playerShape,
-} from 'concerns/player'
+import { PlayerContainer, playerShape } from 'concerns/player'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -27,7 +24,7 @@ const PlayerCard = ({ className, player }) => {
 
 PlayerCard.propTypes = {
   className: PropTypes.string,
-  player: playerShape.isRequired,
+  player: playerShape,
 }
 
-export default mkPlayerContainer(PlayerCard)
+export default PlayerContainer(PlayerCard)

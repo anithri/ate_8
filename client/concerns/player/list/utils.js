@@ -1,3 +1,3 @@
-export const parseList = data => {
+export const parsePlayerList = data => {
   return data.all.map(({ player }) => player)
 }

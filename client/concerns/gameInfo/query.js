@@ -1,26 +1,26 @@
 import { gql } from 'apollo-boost'
-import { WORKERS_FRAGMENT } from 'concerns/worker/query'
+import { WORKER_LIST_FRAGMENT } from 'concerns/worker'
 
 export const GET_GAME_INFO = gql`
-  query GetGameInfo($gameId: ID!) {
+  query getGameInfo($gameId: ID!) {
     gameInfo: game(gameId: $gameId) {
       id
       name
       board {
         activeWorkers {
-          ...WorkersFragment
+          ...workerListFragment
         }
         deadWorkers {
-          ...WorkersFragment
+          ...workerListFragment
         }
         pendingWorkers {
-          ...WorkersFragment
+          ...workerListFragment
         }
       }
       workerTypes {
-        ...WorkersFragment
+        ...workerListFragment
       }
     }
   }
-  ${WORKERS_FRAGMENT}
+  ${WORKER_LIST_FRAGMENT}
 `

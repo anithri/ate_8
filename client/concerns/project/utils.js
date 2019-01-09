@@ -1,5 +1,3 @@
-export const normalizeData = projectData => {
-  return projectData.all.map(g => g.game)
+export const parseProject = ({ all }) => {
+  return all.map(({ game }) => game)
 }
-
-export default normalizeData

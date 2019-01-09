@@ -1,16 +1,16 @@
-import { normalizeWorkers } from 'concerns/worker/utils'
-import { parseList as parseProjectsList } from 'concerns/boardSpace'
+import { parseBoardSpaceList } from 'concerns/boardSpace'
+import { parseWorkerList } from 'concerns/worker'
 
-export const parseData = data => {
+export const parseProjectInfo = data => {
   return {
     ...data,
     board: {
       ...data.board,
       bar: {
         ...data.board.bar,
-        workers: normalizeWorkers(data.board.bar.workers),
+        workers: parseWorkerList(data.board.bar.workers),
       },
-      projects: parseProjectsList(data.board.projects),
+      projects: parseBoardSpaceList(data.board.projects),
     },
   }
 }

@@ -1,9 +1,9 @@
-import { normalizeWorkers } from 'concerns/worker/utils'
+import { parseWorkerList } from 'concerns/worker'
 
-export const parseData = data => {
+export const parsePlayer = data => {
   // console.log('normalizePlayer', playerData)
   return {
     ...data,
-    requiredWorkers: normalizeWorkers(data.requiredWorkers),
+    requiredWorkers: parseWorkerList(data.requiredWorkers),
   }
 }

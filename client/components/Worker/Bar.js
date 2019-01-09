@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import Worker from 'components/Worker'
-import { workerShape } from 'concerns/worker/shape'
+import { workerListShape } from 'concerns/worker'
 
 const countedWorkers = (workers, workerTypes) => {
   // console.log('countedWorkers', workers, workerTypes)
@@ -60,8 +60,8 @@ WorkerBar.propTypes = {
   isSummary: PropTypes.bool,
   label: PropTypes.string,
   layout: PropTypes.string,
-  workerTypes: PropTypes.arrayOf(workerShape),
-  workers: PropTypes.arrayOf(workerShape),
+  workerTypes: workerListShape,
+  workers: workerListShape,
 }
 WorkerBar.defaultProps = {
   isSummary: false,

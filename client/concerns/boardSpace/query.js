@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost'
 
 export const GET_BOARD_SPACE = gql`
-  query GetBoardSpace($boardSpaceId: ID!) {
+  query getBoardSpace($boardSpaceId: ID!) {
     boardSpace(boardSpaceId: $boardSpaceId) {
       id
       name

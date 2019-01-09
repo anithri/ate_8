@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-export const listShape = PropTypes.arrayOf(
+export const boardSpaceListShape = PropTypes.arrayOf(
   PropTypes.shape({
     id: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
 )

@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { shape as gameShape } from 'concerns/game'
+import { gameShape } from 'concerns/game'
 import Player from 'panes/PlayerCard'
 import PropTypes from 'prop-types'
 import React from 'react'

@@ -1,3 +1,3 @@
-export const parseList = boardSpacesData => {
-  return boardSpacesData.all.map(bs => bs.boardSpace)
+export const parseBoardSpaceList = ({ all }) => {
+  return all.map(({ boardSpace }) => boardSpace)
 }

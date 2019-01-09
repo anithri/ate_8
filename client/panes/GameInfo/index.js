@@ -1,8 +1,4 @@
-import {
-  shape as gameInfoShape,
-  mkContainer as mkGameInfoContainer,
-} from 'concerns/gameInfo'
-
+import { GameInfoContainer, gameInfoShape } from 'concerns/gameInfo'
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
@@ -56,4 +52,4 @@ GameInfoPane.propTypes = {
   gameInfo: gameInfoShape,
 }
 
-export default mkGameInfoContainer(GameInfoPane)
+export default GameInfoContainer(GameInfoPane)

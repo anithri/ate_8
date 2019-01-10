@@ -1,1 +1,3 @@
-export const parseCard = cardData => cardData
+export const parseCard = ({card}) => {
+
+}

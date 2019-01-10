@@ -5,6 +5,12 @@ export const gameInfoShape = PropTypes.shape({
   board: PropTypes.shape({
     activeWorkers: workerSummaryShape,
     deadWorkers: workerSummaryShape,
+    discards: PropTypes.shape({
+      cardCount: PropTypes.number,
+    }),
+    draw: PropTypes.shape({
+      cardCount: PropTypes.number,
+    }),
     pendingWorkers: workerSummaryShape,
   }),
   id: PropTypes.string.isRequired,

@@ -11,9 +11,9 @@ module Types
     field :projects, Types::BoardSpace.connection_type, null: false
     field :workers, Types::BoardSpace.connection_type, null: false
 
-    field :active_workers, Types::WorkerSummary.connection_type, null: false
-    field :dead_workers, Types::WorkerSummary.connection_type, null: false
-    field :pending_workers, Types::WorkerSummary.connection_type, null: false
+    field :active_workers, Types::BagConnection, null: false
+    field :dead_workers, Types::BagConnection, null: false
+    field :pending_workers, Types::BagConnection, null: false
 
     ::Game::Bits::Tile.all.map do |loc|
       field loc.id.to_sym, Types::BoardSpace, null: false

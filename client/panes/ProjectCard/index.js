@@ -1,29 +1,30 @@
-import { boardSpaceContainer, boardSpaceShape } from 'concerns/boardSpace'
+import { ProjectContainer, projectShape } from 'concerns/project'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
-const ProjectCard = ({ className, boardSpace: project }) => {
-  const card = project.cards[0]
+const ProjectCard = ({ className, project }) => {
+  console.log('ProjectCard', project.projectCard)
+  const card = project.projectCard
   return (
     <article
       className={cx(className, styles.pane)}
       key={`project-card-${project.id}`}
     >
       <header>
-        <h2>{project.name}</h2>
+        <h2>{card.name}</h2>
       </header>
       <section>Some notes</section>
-      <WorkerBar workers={[]} />
+      <WorkerBar workers={card.requiredWorkers} />
     </article>
   )
 }
 
 ProjectCard.propTypes = {
-  boardSpace: boardSpaceShape,
   className: PropTypes.string,
+  project: projectShape,
 }
 
-export default boardSpaceContainer(ProjectCard)
+export default ProjectContainer(ProjectCard)

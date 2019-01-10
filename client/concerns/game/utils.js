@@ -5,6 +5,5 @@ export const parseGame = data => {
   return {
     ...data,
     players: parsePlayerList(data.players),
-    workerTypes: parseWorkerList(data.workerTypes),
   }
 }

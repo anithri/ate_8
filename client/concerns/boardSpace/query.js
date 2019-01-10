@@ -1,5 +1,4 @@
 import { gql } from 'apollo-boost'
-
 export const GET_BOARD_SPACE = gql`
   query getBoardSpace($boardSpaceId: ID!) {
     boardSpace(boardSpaceId: $boardSpaceId) {
@@ -11,6 +10,24 @@ export const GET_BOARD_SPACE = gql`
           card: node {
             id
             name
+            requiredWorkers {
+              all: edges {
+                worker: node {
+                  id
+                  name
+                  slug
+                }
+              }
+            }
+          }
+        }
+      }
+      workers {
+        all: edges {
+          worker: node {
+            id
+            name
+            slug
           }
         }
       }

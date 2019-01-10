@@ -7,12 +7,12 @@ import React from 'react'
 export const boardSpaceContainer = (Display, displayName) => {
   const displayContainer = ({ boardSpaceId, ...props }) => {
     return (
-      <Query query={GET_BOARD_SPACE} variables={{boardSpaceId}}>
+      <Query query={GET_BOARD_SPACE} variables={{ boardSpaceId }}>
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>
           if (error) return <div>Error!</div>
 
-          const boardSpace = parseBoardSpace(data.boardSpace)
+          const boardSpace = parseBoardSpace(data)
           return <Display boardSpace={boardSpace} {...props} />
         }}
       </Query>

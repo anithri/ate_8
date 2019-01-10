@@ -42,8 +42,12 @@ const GameInfoPane = ({ className, gameInfo }) => {
         isSummary={true}
       />
 
-      <div className={styles.drawDeck}>Draw Deck: {}</div>
-      <div className={styles.discardsDeck}>DiscardDeck</div>
+      <div className={styles.drawDeck}>
+        Draw Deck: {gameInfo.board.draw.cardCount}
+      </div>
+      <div className={styles.discardsDeck}>
+        Discard Deck: {gameInfo.board.discards.cardCount}
+      </div>
     </section>
   )
 }

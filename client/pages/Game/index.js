@@ -11,9 +11,7 @@ import styles from './styles.module.css'
 const GamePage = ({ game, className }) => {
   // console.log('GamePage', game)
   return (
-    <GameDataProvider
-      value={{ gameId: game.id, workerTypes: game.workerTypes }}
-    >
+    <GameDataProvider value={{ gameId: game.id }}>
       <main className={cx(className, styles.page)}>
         <GameInfo className={styles.info} gameId={game.id} />
         <PlayerInfo className={styles.players} game={game} />

@@ -6,5 +6,4 @@ export const gameShape = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   players: playerListShape,
-  workerTypes: workerListShape,
 })

@@ -1,6 +1,4 @@
-import { BOARD_SPACE_LIST_FRAGMENT } from 'concerns/boardSpace'
 import { gql } from 'apollo-boost'
-import { WORKER_LIST_FRAGMENT } from 'concerns/worker'
 
 export const GET_PROJECT_INFO = gql`
   query getProjectInfo($gameId: ID!) {
@@ -11,15 +9,25 @@ export const GET_PROJECT_INFO = gql`
         bar {
           name
           workers {
-            ...workerListFragment
+            all: edges {
+              worker: node {
+                id
+                name
+                slug
+              }
+            }
           }
         }
         projects {
-          ...boardSpaceListFragment
+          all: edges {
+            worker: node {
+              id
+              name
+              slug
+            }
+          }
         }
       }
     }
   }
-  ${BOARD_SPACE_LIST_FRAGMENT}
-  ${WORKER_LIST_FRAGMENT}
 `

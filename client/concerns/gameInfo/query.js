@@ -1,5 +1,4 @@
 import { gql } from 'apollo-boost'
-import { WORKER_SUMMARY_FRAGMENT } from 'concerns/worker'
 
 export const GET_GAME_INFO = gql`
   query getGameInfo($gameId: ID!) {
@@ -8,27 +7,43 @@ export const GET_GAME_INFO = gql`
       name
       board {
         activeWorkers {
-          ...workerSummaryFragment
+          all: edges {
+            worker: node {
+              id
+              name
+              slug
+            }
+          }
         }
         deadWorkers {
-          ...workerSummaryFragment
+          all: edges {
+            worker: node {
+              id
+              name
+              slug
+            }
+          }
         }
         pendingWorkers {
-          ...workerSummaryFragment
+          all: edges {
+            worker: node {
+              id
+              name
+              slug
+            }
+          }
         }
         draw {
           cards {
-            all: edges {
-              card: node {
-                id
-                name
-                slug
-              }
-            }
+            totalCount
+          }
+        }
+        discards {
+          cards {
+            totalCount
           }
         }
       }
     }
   }
-  ${WORKER_SUMMARY_FRAGMENT}
 `

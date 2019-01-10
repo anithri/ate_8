@@ -49,7 +49,7 @@ module Types
       ::Game::Bits::Worker.locate id
     end
 
-    field :workers, Types::Worker.connection_type, null: false
+    field :workers, Types::BagConnection, null: false
 
     def workers
       ::Game::Bits::Worker.all
@@ -66,7 +66,7 @@ module Types
       ::Game::Bits::Card.locate id
     end
 
-    field :cards, Types::Card.connection_type, null: false
+    field :cards, Types::DeckConnection, null: false
     def cards
       ::Game::Bits::Card.all
     end

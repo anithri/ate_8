@@ -7,6 +7,6 @@ module Types
     field :name, String, null: true
     field :order, Integer, null: false
     field :slug, String, null: false
-    field :required_workers, Types::Worker.connection_type, null: false
+    field :required_workers, Types::BagConnection, null: false
   end
 end

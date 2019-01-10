@@ -13,7 +13,7 @@ const ProjectInfoPane = ({ className, projectInfo }) => {
     <ProjectCard
       className={styles[slug]}
       key={`project-card-${id}`}
-      boardSpaceId={id}
+      projectId={id}
     />
   ))
 

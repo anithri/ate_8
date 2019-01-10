@@ -7,14 +7,8 @@ module Types
     field :name, String, null: false
     field :slug, String, null: false
 
-    field :cards, Types::Card.connection_type, null: true
-    field :card_count, Int, null: true
-    def card_count
-      puts '=' * 30
-      puts cards.inspect
-      cards.length
-    end
-    field :workers, Types::Worker.connection_type, null: true
-    field :workerSummary, Types::Worker.connection_type, null: true
+    field :cards, Types::DeckConnection, null: true
+    field :workers, Types::BagConnection, null: true
+    field :workerSummary, Types::BagConnection, null: true
   end
 end

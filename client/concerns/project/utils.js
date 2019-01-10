@@ -1,3 +1,8 @@
-export const parseProject = ({ all }) => {
-  return all.map(({ game }) => game)
+import {parseCard} from 'concerns/card'
+
+export const parseProject = ({ project }) => {
+  return {
+    ...project,
+    projectCard: parseCard(project.cards),
+  }
 }

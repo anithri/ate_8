@@ -1,6 +1,5 @@
 module Games
   class DealCards < Base
-
     before do
       # puts '=' * 30
       # puts self.class if context.debug

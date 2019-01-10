@@ -39,7 +39,6 @@ WorkerBar.propTypes = {
   isSummary: PropTypes.bool,
   label: PropTypes.string,
   layout: PropTypes.string,
-  workerTypes: workerListShape,
   workers: workerListShape,
 }
 WorkerBar.defaultProps = {

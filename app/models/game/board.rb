@@ -29,24 +29,27 @@ module Game
     end
 
     def active_workers
-      all = Game::Bits::Tile.summary('active').map do |arr, id|
-        @spaces[id].worker_summary
+      all = Game::Bits::Tile.summary('active').map do |id|
+        @spaces[id].workers
       end.flatten
+      puts 'ActiveWorkers', all.inspect
       WorkerSummary.for(all)
     end
 
     def dead_workers
-      Game::Bits::Tile.summary('dead').reduce([]) do |arr, id|
-        arr += @spaces[id].workers
-        arr
-      end
+      all = Game::Bits::Tile.summary('dead').map do |id|
+        @spaces[id].workers
+      end.flatten
+      puts 'DeadWorkers', all.inspect
+      WorkerSummary.for(all)
     end
 
     def pending_workers
-      Game::Bits::Tile.summary('pending').reduce([]) do |arr, id|
-        arr += @spaces[id].workers
-        arr
-      end
+      all = Game::Bits::Tile.summary('pending').map do |id|
+        @spaces[id].workers
+      end.flatten
+      puts 'PendingWorkers', all.inspect
+      WorkerSummary.for(all)
     end
 
     def respond_to_missing?(method_name, *args, &block)

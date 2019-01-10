@@ -7,9 +7,8 @@ import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const ProjectInfoPane = ({ className, projectInfo }) => {
-  console.log('ProjectInfoPane', projectInfo)
   const { orientation, bar, projects } = projectInfo.board
-  console.log('ProjectInfoPane -> projects', projects)
+  // console.log('ProjectInfoPane -> projects', projects)
   const projectCards = projects.map(({ id, slug }) => (
     <ProjectCard
       className={styles[slug]}

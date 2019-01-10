@@ -1,13 +1,12 @@
-import { parseWorkerList } from 'concerns/worker'
+import { parseWorkerSummary } from 'concerns/worker'
 
 export const parseGameInfo = gameInfoData => {
   return {
     ...gameInfoData,
-    workerTypes: parseWorkerList(gameInfoData.workerTypes),
     board: {
-      activeWorkers: parseWorkerList(gameInfoData.board.activeWorkers),
-      deadWorkers: parseWorkerList(gameInfoData.board.deadWorkers),
-      pendingWorkers: parseWorkerList(gameInfoData.board.pendingWorkers),
+      activeWorkers: parseWorkerSummary(gameInfoData.board.activeWorkers),
+      deadWorkers: parseWorkerSummary(gameInfoData.board.deadWorkers),
+      pendingWorkers: parseWorkerSummary(gameInfoData.board.pendingWorkers),
     },
   }
 }

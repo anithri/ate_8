@@ -1,5 +1,5 @@
-import { WORKER_LIST_FRAGMENT, WORKER_SUMMARY_FRAGMENT } from 'concerns/worker'
 import { gql } from 'apollo-boost'
+import { WORKER_SUMMARY_FRAGMENT } from 'concerns/worker'
 
 export const GET_GAME_INFO = gql`
   query getGameInfo($gameId: ID!) {
@@ -17,11 +17,7 @@ export const GET_GAME_INFO = gql`
           ...workerSummaryFragment
         }
       }
-      workerTypes {
-        ...workerListFragment
-      }
     }
   }
   ${WORKER_SUMMARY_FRAGMENT}
-  ${WORKER_LIST_FRAGMENT}
 `

@@ -8,6 +8,7 @@ import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const GameInfoPane = ({ className, gameInfo }) => {
+  console.log(gameInfo.board)
   // console.log('GameInfoPane', gameInfo)
   return (
     <section className={cx(className, styles.pane)}>
@@ -20,23 +21,23 @@ const GameInfoPane = ({ className, gameInfo }) => {
         </nav>
       </header>
       <WorkerBar
+        key={'gameInfo-activeWorkers'}
         label={'Active'}
         workers={gameInfo.board.activeWorkers}
-        workerTypes={gameInfo.workerTypes}
         className={styles.activeWorkers}
         isSummary={true}
       />
       <WorkerBar
+        key={'gameInfo-pendingWorkers'}
         label={'Pending'}
         workers={gameInfo.board.pendingWorkers}
-        workerTypes={gameInfo.workerTypes}
         className={styles.pendingWorkers}
         isSummary={true}
       />
       <WorkerBar
+        key={'gameInfo-deadWorkers'}
         label={'Dead'}
         workers={gameInfo.board.deadWorkers}
-        workerTypes={gameInfo.workerTypes}
         className={styles.deadWorkers}
         isSummary={true}
       />

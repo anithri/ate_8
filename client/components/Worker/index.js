@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import { workerSummaryShape } from 'concerns/worker'
+import { workerShape } from 'concerns/worker'
 
 const Worker = ({ className, isSummary, worker: { slug, total } }) => (
   <figure className={cx(className, styles.Worker, styles[slug])}>
@@ -15,7 +15,7 @@ const Worker = ({ className, isSummary, worker: { slug, total } }) => (
 Worker.propTypes = {
   className: PropTypes.string,
   isSummary: PropTypes.bool,
-  worker: workerSummaryShape.isRequired,
+  worker: workerShape.isRequired,
 }
 
 export default Worker

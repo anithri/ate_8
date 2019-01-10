@@ -7,17 +7,17 @@ module Game
       version: '1.0.0'.freeze
     }.freeze
 
-    attr_reader :card_ids, :version
+    attr_reader :card_ids, :version, :deck_contents
     define_attribute_methods :card_ids, :version
 
-    def initialize(play_area)
-      @play_area = play_area.with_indifferent_access
-      @version = @play_area[:version]
-      @card_ids = @play_area[:card_ids] || []
+    def initialize(deck_contents)
+      @deck_contents = deck_contents.with_indifferent_access
+      @version     = @deck_contents[:version]
+      @card_ids    = @deck_contents[:card_ids] || []
     end
 
     def cards
-      ::Game::Bits::Card.locate_many card_ids
+      Bits::Card.locate_many self.card_ids
     end
 
     def push(*cards)

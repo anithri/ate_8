@@ -63,13 +63,12 @@ module Types
     end
 
     def card(id:)
-      ::Game::Card.locate id
+      ::Game::Bits::Card.locate id
     end
 
     field :cards, Types::Card.connection_type, null: false
-
     def cards
-      ::Game::Card.all
+      ::Game::Bits::Card.all
     end
     #endregion
 

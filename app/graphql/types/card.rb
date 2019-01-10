@@ -5,6 +5,7 @@ module Types
 
     field :id, ID, null: false
     field :name, String, null: true
+    field :slug, String, null: true
     field :requiredWorkers, Types::Worker.connection_type, null: false, method: :workers
   end
 end

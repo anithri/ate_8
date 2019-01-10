@@ -16,6 +16,17 @@ export const GET_GAME_INFO = gql`
         pendingWorkers {
           ...workerSummaryFragment
         }
+        draw {
+          cards {
+            all: edges {
+              card: node {
+                id
+                name
+                slug
+              }
+            }
+          }
+        }
       }
     }
   }

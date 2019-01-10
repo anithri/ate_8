@@ -9,5 +9,6 @@ module Types
 
     field :cards, Types::Card.connection_type, null: true
     field :workers, Types::Worker.connection_type, null: true
+    field :workerSummary, Types::Worker.connection_type, null: true
   end
 end

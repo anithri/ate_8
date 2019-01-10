@@ -4,6 +4,7 @@ module Game
     class Worker < ApplicationActiveHash
       include ActiveHashGlobalId
 
+      field :total, default: 0
       field :name
 
       create id:   'workerRed',

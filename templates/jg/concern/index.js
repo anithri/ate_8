@@ -8,7 +8,7 @@ module.exports = {
     const camel = cc.camel(args.name)
     const pascal = cc.pascal(args.name)
     const SCREAMING = cc.upper(cc.snake(args.name))
-    const a = {
+    return {
       ...args,
       containerName: `${pascal}Container`,
       idName: `${camel}Id`,
@@ -27,7 +27,5 @@ module.exports = {
       mkPath: (...parts) => srcPath('concerns', camel, ...parts),
       graphQLName: pascal,
     }
-    console.log(a)
-    return a
   },
 }

@@ -3,30 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import { workerShape } from 'concerns/worker'
+import { workerSummaryShape } from 'concerns/worker'
 
-const Counter = ({ count }) => {
-  if (count || count === 0)
-    return <span className={styles.counter}>{count}</span>
-
-  return null
-}
-
-const Worker = ({ className, count, worker }) => (
-  <figure className={cx(className, styles.Worker, styles[worker.slug])}>
+const Worker = ({ className, isSummary, worker: { slug, total } }) => (
+  <figure className={cx(className, styles.Worker, styles[slug])}>
     <FontAwesomeIcon icon="user" />
-    <Counter count={count} />
+    {isSummary && <span className={styles.counter}>{total}</span>}
   </figure>
 )
 
 Worker.propTypes = {
   className: PropTypes.string,
-  count: PropTypes.number,
-  worker: workerShape,
-  wrapper: PropTypes.node,
-}
-Counter.propTypes = {
-  count: PropTypes.number,
+  isSummary: PropTypes.bool,
+  worker: workerSummaryShape.isRequired,
 }
 
 export default Worker

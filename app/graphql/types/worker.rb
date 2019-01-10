@@ -4,7 +4,8 @@ module Types
     description 'Worker'
 
     global_id_field :id
-    field :name, String, null: true
-    field :slug, String, null: true
+    field :total, Int, null: true
+    field :name, String, null: false
+    field :slug, String, null: false
   end
 end

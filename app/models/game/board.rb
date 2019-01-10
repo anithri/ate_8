@@ -29,10 +29,10 @@ module Game
     end
 
     def active_workers
-      Game::Bits::Tile.summary('active').reduce([]) do |arr, id|
-        arr += @spaces[id].workers
-        arr
-      end
+      all = Game::Bits::Tile.summary('active').map do |arr, id|
+        @spaces[id].worker_summary
+      end.flatten
+      WorkerSummary.for(all)
     end
 
     def dead_workers

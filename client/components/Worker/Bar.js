@@ -6,26 +6,11 @@ import styles from './styles.module.css'
 import Worker from 'components/Worker'
 import { workerListShape } from 'concerns/worker'
 
-const countedWorkers = (workers, workerTypes) => {
-  // console.log('countedWorkers', workers, workerTypes)
-  const final = workers.reduce((counter, worker) => {
-    counter[worker.slug] = (counter[worker.slug] || 0) + 1
-    return counter
-  }, {})
-  return workerTypes.map(workerType => {
-    return {
-      count: final[workerType.slug] || 0,
-      worker: workerType,
-    }
-  })
-}
-
 const WorkerBar = ({
   className,
   isSummary,
   label: labelText,
   layout,
-  workerTypes,
   workers,
 }) => {
   const label = labelText ? (
@@ -34,17 +19,11 @@ const WorkerBar = ({
     </li>
   ) : null
 
-  const workerFigures = isSummary
-    ? countedWorkers(workers, workerTypes).map(({ worker, count }, idx) => (
-        <li key={`worker-summary-${idx}`}>
-          <Worker worker={worker} count={count} />
-        </li>
-      ))
-    : workers.map((worker, idx) => (
-        <li key={`worker-${idx}`}>
-          <Worker worker={worker} />
-        </li>
-      ))
+  const workerFigures = workers.map((worker, idx) => (
+    <li key={`worker-summary-${idx}`}>
+      <Worker worker={worker} isSummary={isSummary} />
+    </li>
+  ))
 
   //<FamilyConsumer>{context => <p>{context}</p>}</FamilyConsumer>;
   return (

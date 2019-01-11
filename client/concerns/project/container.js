@@ -6,13 +6,13 @@ import React from 'react'
 
 export const ProjectContainer = Display => {
   const container = ({ projectId, ...props }) => {
+    console.log('ProjectContainer', projectId)
     return (
-      <Query query={GET_PROJECT} variable={{ boardSpaceId: projectId }}>
+      <Query query={GET_PROJECT} variables={{ boardSpaceId: projectId }}>
         {({ loading, error, data }) => {
           if (loading) return <div>Loading...</div>
-          if (error) return <div>Error!</div>
+          if (error) return console.log(error) || <div>Error!</div>
 
-          console.log('ProjectContainer', data)
           const projectData = parseProject(data)
           return <Display project={projectData} {...props} />
         }}

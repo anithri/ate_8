@@ -20,7 +20,7 @@ export const GET_PROJECT_INFO = gql`
         }
         projects {
           all: edges {
-            worker: node {
+            boardSpace: node {
               id
               name
               slug

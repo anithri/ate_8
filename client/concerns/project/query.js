@@ -7,17 +7,15 @@ export const GET_PROJECT = gql`
       name
       slug
       cards {
-        all: edges {
-          card: node {
-            id
-            name
-            requiredWorkers {
-              all: edges {
-                worker: node {
-                  id
-                  name
-                  slug
-                }
+        projectCard: first {
+          id
+          name
+          requiredWorkers {
+            all: edges {
+              worker: node {
+                id
+                name
+                slug
               }
             }
           }

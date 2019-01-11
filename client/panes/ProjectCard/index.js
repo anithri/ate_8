@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const ProjectCard = ({ className, project }) => {
-  console.log('ProjectCard', project.projectCard)
+  console.log('ProjectCard', project)
   const card = project.projectCard
   return (
     <article

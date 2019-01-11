@@ -11,11 +11,11 @@ module Game
     end
 
     def player(player_id)
-      players.find { |pd| pd.id == player_id }
+      seats.find { |pd| pd.id == player_id }
     end
 
     def seats
-      game_session.players.map { |pd| Seat.new(pd, board[pd.slug]) }
+      game_session.players.map { |pd| Seat.new(pd, board) }
     end
 
     def worker_types

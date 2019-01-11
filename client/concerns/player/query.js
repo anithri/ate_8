@@ -6,6 +6,7 @@ export const GET_PLAYER = gql`
       id
       name
       order
+      score
       slug
       requiredWorkers {
         all: edges {

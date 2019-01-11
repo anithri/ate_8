@@ -6,7 +6,8 @@ module Types
     global_id_field :id
     field :name, String, null: true
     field :order, Integer, null: false
-    field :slug, String, null: false
     field :required_workers, Types::BagConnection, null: false
+    field :score, Integer, null: false
+    field :slug, String, null: false
   end
 end

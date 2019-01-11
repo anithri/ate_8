@@ -1,16 +1,17 @@
 module Game
   class Seat
-    attr_reader :player, :board_space
+    attr_reader :player, :board_space, :board
 
     DEFAULT_SEAT = {
       worker_ids: [].freeze,
-      version: '1.0.0'.freeze
+      version:    '1.0.0'.freeze
     }.freeze
 
 
-    def initialize(player, board_space)
-      @player = player
-      @board_space  = board_space
+    def initialize(player, board)
+      @player      = player
+      @board       = board
+      @board_space = board[player.slug]
     end
 
     delegate :id, :gid, :order, :name, :required_workers, :slug, to: :player
@@ -18,8 +19,14 @@ module Game
 
     def self.locate(player_id)
       player = Player.locate(player_id)
-      game = Game::Runner.new(player.game_session)
+      game   = Game::Runner.new(player.game_session)
       game.player(player.id)
+    end
+
+    def score
+      board.active_workers
+        .select{|ws| player.required_workers.include?(ws.worker)}
+        .sum(&:total)
     end
 
 

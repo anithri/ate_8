@@ -17,7 +17,11 @@ const PlayerCard = ({ className, player }) => {
         workers={player.requiredWorkers}
         className={styles.workerBar}
       />
-      <section className={styles.info}>um</section>
+      <section className={styles.info}>
+        <ul>
+          <li>Score: {player.score}</li>
+        </ul>
+      </section>
     </article>
   )
 }

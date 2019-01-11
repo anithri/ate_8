@@ -12,6 +12,7 @@ export const GET_GAME_INFO = gql`
               id
               name
               slug
+              total
             }
           }
         }
@@ -21,6 +22,7 @@ export const GET_GAME_INFO = gql`
               id
               name
               slug
+              total
             }
           }
         }
@@ -30,6 +32,7 @@ export const GET_GAME_INFO = gql`
               id
               name
               slug
+              total
             }
           }
         }

@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 module Game
   module Bits
+    class SatisfiedWorker
+      delegate_missing_to :@worker
+      def initialize(worker)
+        @worker = worker
+        self
+      end
+      def is_met
+        'met'
+      end
+    end
     class Worker < ApplicationActiveHash
       include ActiveHashGlobalId
 
@@ -25,6 +35,14 @@ module Game
 
       def slug
         id
+      end
+
+      def is_met
+        'unmet'
+      end
+
+      def satisfy!
+        Bits::SatisfiedWorker.new(self)
       end
 
       def self.combinations

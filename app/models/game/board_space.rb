@@ -7,12 +7,14 @@ module Game
     end
 
     delegate :bag, :board, :deck, :gid, :name, :tile, to: :board_content
-    delegate :workers, :worker_summary, to: :bag
+    delegate :workers, to: :bag
     delegate :cards, to: :deck
     delegate :slug, to: :tile
 
     def self.locate(gid)
-      self.new(BoardContent.locate gid)
+      bc = BoardContent.locate gid
+      g = Game::Runner.new(bc.game_session)
+      g.board[bc.tile_id]
     end
   end
 end

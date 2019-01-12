@@ -13,8 +13,8 @@ export const ProjectContainer = Display => {
           if (loading) return <div>Loading...</div>
           if (error) return console.log(error) || <div>Error!</div>
 
-          const projectData = parseProject(data)
-          return <Display project={projectData} {...props} />
+          const project = parseProject(data)
+          return <Display project={project} {...props} />
         }}
       </Query>
     )

@@ -17,7 +17,7 @@ const ProjectCard = ({ className, project }) => {
         <h2>{card.name}</h2>
       </header>
       <section>Some notes</section>
-      <WorkerBar workers={card.requiredWorkers} />
+      <WorkerBar workers={project.workers} />
     </article>
   )
 }

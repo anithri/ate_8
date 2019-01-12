@@ -28,6 +28,7 @@ export const GET_BOARD_SPACE = gql`
             id
             name
             slug
+            isMet
           }
         }
       }

@@ -9,6 +9,5 @@ module Types
 
     field :cards, Types::DeckConnection, null: true
     field :workers, Types::BagConnection, null: true
-    field :workerSummary, Types::BagConnection, null: true
   end
 end

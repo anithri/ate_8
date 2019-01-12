@@ -48,19 +48,19 @@ module Game
              worker_ids: ['workerPurple', 'workerGreen']
 
       create id:         'card11',
-             name:       "Test Card #'workerRed'",
+             name:       "Test Card #11",
              worker_ids: ['workerBlue', 'workerPurple']
 
       create id:         'card12',
-             name:       "Test Card #'workerBlue'",
+             name:       "Test Card #12",
              worker_ids: ['workerPurple', 'workerBlue']
 
       create id:         'card13',
-             name:       "Test Card #'workerGreen'",
+             name:       "Test Card #13",
              worker_ids: ['workerRed', 'workerGreen']
 
       create id:         'card14',
-             name:       "Test Card #'workerPurple'",
+             name:       "Test Card #14",
              worker_ids: ['workerGreen', 'workerRed']
 
       create id:         'card15',

@@ -19,9 +19,6 @@ module Game
     def workers
       Bits::Worker.locate_many worker_ids
     end
-    def worker_summary
-      WorkerSummary.for(workers)
-    end
 
     def push(*new_workers)
       worker_ids_will_change! unless new_workers.flatten.empty?

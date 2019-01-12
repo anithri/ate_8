@@ -16,6 +16,7 @@ export const GET_PROJECT = gql`
                 id
                 name
                 slug
+                isMet
               }
             }
           }

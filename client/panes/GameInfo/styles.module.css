@@ -1,45 +1,17 @@
-.pane {
-  composes: subGrid from global;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-areas:
-      'title activeWorkers deadWorkers pendingWorkers drawDeck '
-      'title activeWorkers deadWorkers pendingWorkers discardsDeck';
-}
 
-.title {
-  composes: spreadFlex from global;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-
-  & > h1 {
-    font-size: var(--font-size-3);
-    flex: 1 1 auto;
-    text-transform: none;
-    padding-left: var(--spacing-small);
-    padding-right: var(--spacing-small);
-  }
-
-  & > nav {
-    flex: 1 1 auto;
-    padding-left: var(--spacing-small);
-    padding-right: var(--spacing-small);
-  }
-}
-
-/* gameInfo grid */
 .title {
   grid-area: title;
 }
+
 .activeWorkers {
-  grid-area: activeWorkers;
+  grid-area: draw;
   composes: centeringFlex from global;
 }
 .deadWorkers {
-  grid-area: deadWorkers ;
+  grid-area: dead;
 }
 .pendingWorkers  {
-  grid-area: pendingWorkers ;
+  grid-area: pending;
 }
 .discardsDeck {
   grid-area: discardsDeck;

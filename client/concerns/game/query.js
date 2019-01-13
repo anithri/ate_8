@@ -13,6 +13,25 @@ export const GET_GAME = gql`
           }
         }
       }
+      board {
+        orientation
+        projects {
+          all: edges {
+            boardSpace: node {
+              id
+              slug
+            }
+          }
+        }
+        draftBar: bar {
+          id
+          slug
+        }
+        drawBag: draw {
+          id
+          slug
+        }
+      }
     }
   }
 `

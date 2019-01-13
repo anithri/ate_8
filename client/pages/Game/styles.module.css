@@ -1,18 +1,164 @@
 .page {
   composes: grid from global;
-  grid-template-columns: 5fr;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: var(--wide) var(--thin) repeat(4,var(--wide)) var(--thin);
+  grid-template-rows: repeat(10, var(--short));
   grid-template-areas:
-    'players info'
-    'players projects';
-}
+      'title nw north north north north ne'
+      'messages west project1 project2 project3 project4 east'
+      'messages west project1 project2 project3 project4 east'
+      'player1 west project5 project6 project7 project8 east'
+      'player2 west project5 project6 project7 project8 east'
+      'player3 west project9 project10 project11 project12 east'
+      'player4 west project9 project10 project11 project12 east'
+      'drawBag west project13 project14 project15 project16 east'
+      'discardsBag west project13 project14 project15 project16 east'
+      'deadBag sw south south south south se';
 
-.info {
-  //grid-area: info;
+  & > * {
+    border-radius: var(--border-radius-3);
+    background-color: var(--white-40);
+  }
 }
-.players {
-  grid-area: players;
+.bar{
+  background-color: var(--white-10);
+  border-radius: var(--border-radius-3);
+  border-color: var(--dark-purple);
 }
-.projects {
-  grid-area: projects;
+.north {
+  composes: spreadFlex from global;
+  composes: bar;
+  flex-direction: row;
+  grid-area: north;
+}
+.east {
+  composes: spreadFlex from global;
+  composes: bar;
+  flex-direction: column;
+  grid-area: east;
+}
+.south {
+  composes: spreadFlex from global;
+  composes: bar;
+  flex-direction: row;
+  grid-area: south;
+}
+.west {
+  composes: spreadFlex from global;
+  composes: bar;
+  flex-direction: column;
+  grid-area: west;
+}
+.corner {
+  border-radius: var(--border-radius-none);
+  border-color: var(--dark-purple);
+}
+.nw {
+  composes: corner;
+  grid-area: nw;
+  background: radial-gradient(ellipse at bottom right, var(--white-20) 0%, var(--transparent) 100%);
+  border-top: none;
+  border-left: none;
+}
+.ne {
+  composes: corner;
+  grid-area: ne;
+  background: radial-gradient(ellipse at bottom left, var(--white-20) 0%, var(--transparent) 100%);
+  border-top: none;
+  border-right: none;
+}
+.se {
+  composes: corner;
+  grid-area: se;
+  background: radial-gradient(circle at top left, var(--white-20) 0%, var(--transparent) 100%);
+  border-bottom: none;
+  border-right: none;
+}
+.sw {
+  composes: corner;
+  grid-area: sw;
+  background: radial-gradient(circle at top right, var(--white-20) 0%, var(--transparent) 100%);
+  border-bottom: none;
+  border-left: none;
+
+}
+.title {
+  grid-area: title;
+}
+.messages {
+  grid-area: messages;
+}
+.player1 {
+  grid-area: player1;
+}
+.player2 {
+  grid-area: player2;
+}
+.player3 {
+  grid-area: player3;
+}
+.player4 {
+  grid-area: player4;
+}
+.drawBag {
+  grid-area: drawBag;
+}
+.drawDeck {
+  grid-area: drawDeck;
+}
+.deadBag {
+  grid-area: deadBag;
+}
+.discardsBag {
+  grid-area: discardsBag;
+}
+.reserveBag {
+  grid-area: reserveBag;
+}
+.project1 {
+  grid-area: project1;
+}
+.project2 {
+  grid-area: project2;
+}
+.project3 {
+  grid-area: project3;
+}
+.project4 {
+  grid-area: project4;
+}
+.project5 {
+  grid-area: project5;
+}
+.project6 {
+  grid-area: project6;
+}
+.project7 {
+  grid-area: project7;
+}
+.project8 {
+  grid-area: project8;
+}
+.project9 {
+  grid-area: project9;
+}
+.project10 {
+  grid-area: project10;
+}
+.project11 {
+  grid-area: project11;
+}
+.project12 {
+  grid-area: project12;
+}
+.project13 {
+  grid-area: project13;
+}
+.project14 {
+  grid-area: project14;
+}
+.project15 {
+  grid-area: project15;
+}
+.project16 {
+  grid-area: project16;
 }

@@ -2,6 +2,11 @@ export * from './query'
 export * from './shape'
 export * from './utils'
 
+export * from './bag/container'
+export * from './bag/query'
+export * from './bag/shape'
+export * from './bag/utils'
+
 export * from './list/query'
 export * from './list/shape'
 export * from './list/utils'

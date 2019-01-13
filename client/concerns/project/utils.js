@@ -1,5 +1,5 @@
 import { parseCard } from 'concerns/card'
-import {parseWorkerList} from 'concerns/worker'
+import { parseWorkerList } from 'concerns/worker'
 
 export const parseProject = ({ project }) => {
   console.log('parseProject', project)

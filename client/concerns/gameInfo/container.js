@@ -5,9 +5,9 @@ import { Query } from 'react-apollo'
 import React from 'react'
 
 export const GameInfoContainer = (Display, displayName = 'GameInfo') => {
-  const container = ({ gameId, ...props }) => {
+  const container = ({ game, ...props }) => {
     return (
-      <Query query={GET_GAME_INFO} variables={{ gameId }}>
+      <Query query={GET_GAME_INFO} variables={{ gameId: game.id }}>
         {({ loading, error, data }) => {
           // console.log('GameInfoContainer', gameId, data)
           if (loading) return <div>Loading...</div>
@@ -21,7 +21,9 @@ export const GameInfoContainer = (Display, displayName = 'GameInfo') => {
   }
   container.displayName = displayName + 'Container'
   container.propTypes = {
-    gameId: PropTypes.string.isRequired,
+    game: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
   }
 
   return container

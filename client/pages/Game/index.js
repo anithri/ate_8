@@ -1,24 +1,51 @@
 import { GameContainer, gameShape } from 'concerns/game'
 import cx from 'classnames'
-import { GameDataProvider } from 'concerns/game/context'
-import GameInfo from 'panes/GameInfo'
-import PlayerInfo from 'panes/PlayerInfo'
-import ProjectInfo from 'panes/ProjectInfo'
+import DraftBarPane from 'panes/DraftBar'
+import GameFrame from './Frame'
+import Messages from 'components/Messages'
+import PlayerCard from 'panes/PlayerCard'
+import ProjectCard from 'panes/ProjectCard'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
+import Title from 'components/Title'
 
-const GamePage = ({ game, className }) => {
-  // console.log('GamePage', game)
-  return (
-    <GameDataProvider value={{ gameId: game.id }}>
+class GamePage extends React.Component {
+  componentDidMount() {
+    this.setState({ check: 1 })
+  }
+  render() {
+    const { game, className } = this.props
+
+    const players = game.players.map(({ id, slug }) => (
+      <PlayerCard
+        key={`${slug}-PlayerCard`}
+        playerId={id}
+        className={styles[slug]}
+      />
+    ))
+    const projects = game.projects.map(({ id, slug }) => (
+      <ProjectCard
+        key={`${slug}-ProjectCard}`}
+        projectId={id}
+        className={styles[slug]}
+      />
+    ))
+
+    return (
       <main className={cx(className, styles.page)}>
-        <GameInfo className={styles.info} gameId={game.id} />
-        <PlayerInfo className={styles.players} game={game} />
-        <ProjectInfo className={styles.projects} gameId={game.id} />
+        <GameFrame/>
+        <Title className={styles.title} name={game.name} />
+        <Messages className={styles.messages} />
+        <DraftBarPane
+          className={styles[game.orientation]}
+          boardSpaceId={game.draftBar.id}
+        />
+        {players}
+        {projects}
       </main>
-    </GameDataProvider>
-  )
+    )
+  }
 }
 
 GamePage.propTypes = {

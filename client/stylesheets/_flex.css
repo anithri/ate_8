@@ -5,10 +5,9 @@
 
 .centeringFlex {
   display: flex;
-  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  align-content: stretch;
+  align-content: space-around;
   align-items: center;
 
   & > * {
@@ -18,9 +17,16 @@
   }
 }
 
+.flexRow {
+  flex-direction: row;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
 .spreadFlex {
   display: flex;
-  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-content: stretch;
@@ -36,7 +42,6 @@
 
 .stackedFlex {
   display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;

@@ -57,6 +57,7 @@ module Types
     def board_space(id:)
       ::Game::BoardSpace.locate id
     end
+
     #endregion
     # last of fields
   end

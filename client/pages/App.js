@@ -25,6 +25,10 @@ const client = new ApolloClient({
 })
 
 class App extends React.Component {
+  componentDidMount() {
+    this.setState({a: 1})
+  }
+
   render() {
     return (
       <ApolloProvider client={client}>

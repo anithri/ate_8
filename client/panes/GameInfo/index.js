@@ -11,15 +11,7 @@ const GameInfoPane = ({ className, gameInfo }) => {
   console.log(gameInfo.board)
   // console.log('GameInfoPane', gameInfo)
   return (
-    <section className={cx(className, styles.pane)}>
-      <header className={cx(styles.title, styles.title)}>
-        <h1>{gameInfo.name}</h1>
-        <nav>
-          <Link to="/">
-            <FontAwesomeIcon icon="home" size="lg" />
-          </Link>
-        </nav>
-      </header>
+    <React.Fragment>
       <WorkerBar
         key={'gameInfo-activeWorkers'}
         label={'Active'}
@@ -48,7 +40,7 @@ const GameInfoPane = ({ className, gameInfo }) => {
       <div className={styles.discardsDeck}>
         Discard Deck: {gameInfo.board.discards.cardCount}
       </div>
-    </section>
+    </React.Fragment>
   )
 }
 

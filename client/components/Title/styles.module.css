@@ -1,6 +1,6 @@
 .title {
   background-color: var(--white-40);
-  composes: spreadFlex from global;
+  composes: flexAround-Center from global;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;

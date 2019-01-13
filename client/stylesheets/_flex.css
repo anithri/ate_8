@@ -22,6 +22,18 @@
     flex: 0 1 auto;
   }
 }
+.flexBetween-Center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
 
 /* various flex combinations
 .flexStart-Start {

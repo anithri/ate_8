@@ -40,38 +40,6 @@ module Types
 
     #endregion
 
-    #region Worker Fields
-    field :worker, Types::Worker, null: true do
-      argument :worker_id, ID, required: true, as: :id
-    end
-
-    def worker(id:)
-      ::Game::Bits::Worker.locate id
-    end
-
-    field :workers, Types::BagConnection, null: false
-
-    def workers
-      ::Game::Bits::Worker.all
-    end
-
-    #endregion
-
-    #region Card Fields
-    field :card, Types::Card, null: true do
-      argument :card_id, ID, required: true, as: :id
-    end
-
-    def card(id:)
-      ::Game::Bits::Card.locate id
-    end
-
-    field :cards, Types::DeckConnection, null: false
-    def cards
-      ::Game::Bits::Card.all
-    end
-    #endregion
-
     #region player
     field :player, Types::Player, null: true do
       argument :player_id, ID, required: true, as: :id

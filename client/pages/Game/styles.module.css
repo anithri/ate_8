@@ -25,25 +25,21 @@
   border-color: var(--dark-purple);
 }
 .north {
-  composes: spreadFlex from global;
   composes: bar;
   flex-direction: row;
   grid-area: north;
 }
 .east {
-  composes: spreadFlex from global;
   composes: bar;
   flex-direction: column;
   grid-area: east;
 }
 .south {
-  composes: spreadFlex from global;
   composes: bar;
   flex-direction: row;
   grid-area: south;
 }
 .west {
-  composes: spreadFlex from global;
   composes: bar;
   flex-direction: column;
   grid-area: west;

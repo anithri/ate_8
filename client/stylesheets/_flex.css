@@ -1,53 +1,269 @@
-/*
- * Copyright (c) 2018. CPP, Inc. All rights reserved.
- * Also protected by Patent Pending: 15/916,593
- */
-
-.centeringFlex {
+.flexCenter-Start {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  align-content: space-around;
-  align-items: center;
-
-  & > * {
-    order: 0;
-    flex: 0 1 auto;
-    align-self: auto;
-  }
-}
-
-.flexRow {
-  flex-direction: row;
-}
-
-.flexCol {
-  flex-direction: column;
-}
-
-.spreadFlex {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-content: stretch;
-  align-items: center;
+  align-items: flex-start;
+  align-content: center;
 
   & > * {
     display: inline-block;
-    order: 0;
     flex: 0 1 auto;
-    align-self: auto;
+  }
+}
+.flexAround-Center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
   }
 }
 
-.stackedFlex {
+/* various flex combinations
+.flexStart-Start {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexStart-End {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexStart-Center {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
+  align-content: center;
 
   & > * {
     display: inline-block;
     flex: 0 1 auto;
   }
 }
+.flexStart-Stretch {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexEnd-Start {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexEnd-End {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexEnd-Center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexEnd-Stretch {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: stretch;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexCenter-Start {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexCenter-End {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexCenter-Center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexCenter-Stretch {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexBetween-Start {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexBetween-End {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexBetween-Center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexBetween-Stretch {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexAround-Start {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+
+.flexAround-End {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-end;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexAround-Center {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+.flexAround-Stretch {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: center;
+
+  & > * {
+    display: inline-block;
+    flex: 0 1 auto;
+  }
+}
+
+*/

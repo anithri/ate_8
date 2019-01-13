@@ -9,7 +9,6 @@
   font-weight: bold;
   border-radius: var(--border-radius-circle);
   text-align: center;
-
 }
 
 .counter {
@@ -37,22 +36,18 @@
 }
 
 .bar {
+  & > li > figure {
+    margin: var(--spacing-none);
+    padding: var(--spacing-none);
 
+  }
 }
 
 .spread {
-  composes: spreadFlex from global;
+  composes: flexAround-Center from global;
+  flex-direction: column;
 }
 
-.stack {
-  composes: stackedFlex from global;
-}
-
-.met {
-  background-color: var(--white-50);
-
-}
-
-.unmet {
-
+.center {
+  composes: flexCenter-Start from global;
 }

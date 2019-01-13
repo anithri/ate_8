@@ -12,7 +12,8 @@ const DraftBarPane = ({ className, bag }) => {
       <WorkerBar
         className={cx(className, styles.draftBar)}
         label={'Draft Bar'}
-        layout={'centeringFlex'}
+        layout={'spread'}
+        size={'lg'}
         {...bag}
       />
     </React.Fragment>

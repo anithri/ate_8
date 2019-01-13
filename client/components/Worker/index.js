@@ -5,9 +5,9 @@ import React from 'react'
 import styles from './styles.module.css'
 import { workerShape } from 'concerns/worker'
 
-const Worker = ({ className, isSummary, worker: { slug, total, isMet } }) => (
+const Worker = ({ className, isSummary, size, worker: { slug, total, isMet } }) => (
   <figure className={cx(className, styles.Worker, styles[slug], styles[isMet])}>
-    <FontAwesomeIcon icon="user" />
+    <FontAwesomeIcon icon="user" size={size} />
     {isSummary && <span className={styles.counter}>{total}</span>}
   </figure>
 )
@@ -15,6 +15,7 @@ const Worker = ({ className, isSummary, worker: { slug, total, isMet } }) => (
 Worker.propTypes = {
   className: PropTypes.string,
   isSummary: PropTypes.bool,
+  size: PropTypes.string,
   worker: workerShape.isRequired,
 }
 

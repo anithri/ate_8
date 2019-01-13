@@ -36,6 +36,8 @@
 
 /* Modules */
 @import 'tachyons-custom/src/_box-sizing.css';
+@import 'tachyons-custom/src/_flexbox.css';
+
 /* @import 'tachyons-custom/src/_aspect-ratios.css'; */
 /* @import 'tachyons-custom/src/_images.css'; */
 /* @import 'tachyons-custom/src/_background-size.css'; */

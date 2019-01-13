@@ -8,9 +8,11 @@ import { workerListShape } from 'concerns/worker'
 
 const WorkerBar = ({
   className,
+  children,
   isSummary,
   label: labelText,
   layout,
+  size,
   workers,
 }) => {
   const label = labelText ? (
@@ -21,7 +23,7 @@ const WorkerBar = ({
 
   const workerFigures = workers.map((worker, idx) => (
     <li key={`worker-summary-${idx}`}>
-      <Worker worker={worker} isSummary={isSummary} />
+      <Worker worker={worker} isSummary={isSummary} size={size} />
     </li>
   ))
 
@@ -30,20 +32,24 @@ const WorkerBar = ({
     <ul className={cx(className, styles.bar, styles[layout])}>
       {label}
       {workerFigures}
+      <li>{children}</li>
     </ul>
   )
 }
 
 WorkerBar.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
   isSummary: PropTypes.bool,
   label: PropTypes.string,
   layout: PropTypes.string,
+  size: PropTypes.string,
   workers: workerListShape,
 }
 WorkerBar.defaultProps = {
   isSummary: false,
   layout: 'spread',
+  size: 'md',
 }
 
 export default WorkerBar

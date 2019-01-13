@@ -1,6 +1,6 @@
 .pane {
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto 1fr;
 
   & > header {
     width: 100%;
@@ -35,6 +35,15 @@
   }
 
   & > .workerBar {
+    height: 100%;
+    flex-direction: row;
     padding-top: var(--spacing-extra-small);
   }
+
+  & > figure {
+    margin: var(--spacing-none);
+    padding: var(--spacing-none);
+
+  }
 }
+

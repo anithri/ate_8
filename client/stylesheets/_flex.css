@@ -1,3 +1,18 @@
+/*
+flexCol
+flexRow
+
+justifyBetween
+justifyStart
+justifyEnd
+justifyCenter
+justifyAround
+
+alignStart
+alignEnd
+alignCenter
+alignStretch
+*/
 .flexCenter-Start {
   display: flex;
   flex-wrap: nowrap;

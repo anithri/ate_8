@@ -4,13 +4,10 @@
  */
 
 :root {
-  --body-font-size: 18px;
-  --open-sans: 'Open Sans', var(--sans-serif);
-  --advent-pro: 'Advent Pro', var(--sans-serif);
+  --body-font: var(--open-sans);
+  --header-font: var(--open-sans);
 
-  --base-font-color: var(--near-black);
   --base-link-color: var(--dark-purple);
-  --spacing-extra-extra-small: 0.125rem;
 
   --base-background-color: var(--light-purple);
   --background-texture: url('../images/black-linen-2.png');
@@ -26,7 +23,6 @@
   --short: var(--base-height-unit);
   --wide: calc(2 * var(--base-width-unit) + 1 * var(--spacing-small));
   --thin: var(--base-width-unit);
-
 
   --part-1: minmax(1fr,1fr);
   --part-2: minmax(2fr,2fr);

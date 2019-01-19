@@ -2,13 +2,10 @@
  * Copyright (c) 2018. CPP, Inc. All rights reserved.
  * Also protected by Patent Pending: 15/916,593
  */
-@import './tachyons.css';
-@import './__palette.css';
-@import './__variables.css';
-@import './__media.css';
-@import './_flex.css';
-@import './_grid.css';
-@import '_typography.css';
+@import "atmosphere/css/atmoPlus.css";
+@import "./__palette.css";
+@import "./__variables.css";
+@import "./_grid.css";
 
 html, body, #ateEight {
   height: 100%; /* .h-100 */

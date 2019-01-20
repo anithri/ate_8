@@ -34,7 +34,7 @@ class GamePage extends React.Component {
 
     return (
       <main className={cx(className, styles.page)}>
-        <GameFrame/>
+        <GameFrame />
         <Title className={styles.title} name={game.name} />
         <Messages className={styles.messages} />
         <DraftBarPane

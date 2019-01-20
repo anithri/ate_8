@@ -3,7 +3,7 @@
   composes: fa-fw from global;
 
   margin: var(--spacing-none);
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-5);
   padding-left: var(--spacing-extra-small);
   padding-right: var(--spacing-extra-small);
   font-weight: bold;
@@ -45,9 +45,8 @@
 
 .spread {
   composes: flexRow justifyAround itemsCenter from global;
-  flex-direction: column;
 }
 
 .center {
-  composes: flexCenter-Start from global;
+  composes: flexRow itemsCenter justifyCenter from global;
 }

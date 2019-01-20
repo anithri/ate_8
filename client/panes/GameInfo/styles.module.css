@@ -5,7 +5,6 @@
 
 .activeWorkers {
   grid-area: draw;
-  composes: centeringFlex from global;
 }
 .deadWorkers {
   grid-area: dead;

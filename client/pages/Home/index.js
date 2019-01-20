@@ -11,7 +11,7 @@ class HomePage extends React.Component {
     return (
       <main className={cx(className, styles.homePage)}>
         <MainHeader title="Welcome!" />
-        <nav className="centeringFlex">
+        <nav className="pageNav">
           <ul>
             <li>
               <Link to="/games">Games</Link>

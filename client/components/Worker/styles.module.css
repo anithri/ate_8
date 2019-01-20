@@ -44,7 +44,7 @@
 }
 
 .spread {
-  composes: flexAround-Center from global;
+  composes: flexRow justifyAround itemsCenter from global;
   flex-direction: column;
 }
 

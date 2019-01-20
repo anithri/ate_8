@@ -3,7 +3,6 @@
  * Also protected by Patent Pending: 15/916,593
  */
 
-
 .grid {
   & > * {
     background-color: var(--white-40); /* .bg-white-20 */

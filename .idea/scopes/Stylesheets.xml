@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Stylesheets" pattern="file[ate_8]:client//*.css" />
+</component>

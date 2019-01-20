@@ -4,9 +4,6 @@
  */
 
 :root {
-  --body-font: var(--open-sans);
-  --header-font: var(--open-sans);
-
   --base-link-color: var(--dark-purple);
 
   --base-background-color: var(--light-purple);

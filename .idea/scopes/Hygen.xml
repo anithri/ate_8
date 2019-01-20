@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Hygen" pattern="file[ate_8]:.hygen.js||file[ate_8]:templates//*" />
+</component>

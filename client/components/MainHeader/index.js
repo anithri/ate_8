@@ -5,10 +5,10 @@ import React from 'react'
 import styles from './styles.module.css'
 
 const MainHeader = ({ className, title }) => (
-  <header className={cx(className, styles.MainHeader, 'spreadFlex')}>
+  <header className={cx(className, styles.MainHeader)}>
     <h1>{title}</h1>
     <nav>
-      <ul className="centeringFlex">
+      <ul className={styles.pageNav}>
         <li>
           <Link to="/">Home</Link>
         </li>

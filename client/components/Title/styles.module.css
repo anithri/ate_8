@@ -1,18 +1,38 @@
 .title {
-  composes: flexRow justifyBetween itemsCenter flexRowReverse from global;
+  display: grid;
+  grid-gap: 0;
   background-color: var(--white-40);
+  grid-template-columns: 4rem 1fr 1fr 4rem;
+  grid-template-rows: 1fr 1fr;
+  padding: var(--spacing-extra-small);
+
 
   & > h1 {
-    font-size: var(--font-size-3);
+    font-size: var(--font-size-5);
     flex: 1 1 auto;
     text-transform: none;
     padding-left: var(--spacing-small);
     padding-right: var(--spacing-small);
+    grid-column: 2 / span 3;
+    text-align: center;
+
   }
 
   & > nav {
     flex: 1 1 auto;
-    padding-left: var(--spacing-small);
-    padding-right: var(--spacing-small);
+  }
+
+  & > figure {
+    margin: var(--spacing-none);
+    padding: var(--spacing-none);
+    justify-self: center;
+    align-self: center;
+  }
+
+  & > figure:first-child {
+    grid-column: 1 / span 2;
+  }
+  & > figure:last-child {
+    grid-column: 3 / span 2;
   }
 }

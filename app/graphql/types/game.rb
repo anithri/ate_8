@@ -4,10 +4,11 @@ module Types
     description 'Game'
 
     global_id_field :id
-    field :name, String, null: false
-    field :turn, Integer, null: false
-    field :phase, Integer, null: false
-    field :players, Types::Player.connection_type, null: false
     field :board, Types::Board, null: false
+    field :current_player, Types::Player, null: false
+    field :name, String, null: false
+    field :players, Types::Player.connection_type, null: false
+    field :round, Integer, null: false
+    field :turn, Integer, null: false
   end
 end

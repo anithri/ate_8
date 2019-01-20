@@ -14,14 +14,22 @@ module Game
       seats.find { |pd| pd.id == player_id }
     end
 
+    def current_player
+      seats[round]
+    end
+
     def seats
       game_session.players.map { |pd| Seat.new(pd, board) }
+    end
+
+    def round
+      game_session.turn % seats.length
     end
 
     def worker_types
       Bits::Worker.all
     end
 
-    delegate :gid, :name, :turn, :phase, :players, :save, to: :game_session
+    delegate :gid, :name, :players, :save, :turn, to: :game_session
   end
 end

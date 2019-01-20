@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 2018_12_09_033840) do
 
   create_table "game_sessions", force: :cascade do |t|
     t.string "name"
+    t.integer "round", default: 0, null: false
     t.integer "turn", default: 0, null: false
-    t.integer "phase", default: 0, null: false
+    t.string "workflow_state"
     t.datetime "finished_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -5,6 +5,8 @@ export const GET_GAME = gql`
     game(gameId: $gameId) {
       id
       name
+      turn
+      round
       players {
         all: edges {
           player: node {

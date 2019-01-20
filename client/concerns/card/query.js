@@ -5,7 +5,9 @@ export const GET_CARD = gql`
     card(cardId: $cardId) {
       id
       name
+      round
       slug
+      turn
       requiredWorkers {
         all: edges {
           worker: node {

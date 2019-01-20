@@ -4,8 +4,7 @@
 
   margin: var(--spacing-none);
   font-size: var(--font-size-5);
-  padding-left: var(--spacing-extra-small);
-  padding-right: var(--spacing-extra-small);
+  padding: var(--spacing-small);
   font-weight: bold;
   border-radius: var(--border-radius-circle);
   text-align: center;
@@ -15,8 +14,7 @@
   font-weight: bolder;
   font-size: var(--font-size-4);
   color: var(--black-80);
-  composes: fa-layers-text from global;
-  composes: fa-fw from global;
+  composes: fa-layers-text fa-fw from global;
 }
 
 .workerGreen {
@@ -35,10 +33,17 @@
   color: var(--near-white);
 }
 
+.unmet {
+  background-color: var(--white-10);
+}
+.met {
+  background-color: var(--black-30);
+}
+
 .bar {
   & > li > figure {
     margin: var(--spacing-none);
-    padding: var(--spacing-none);
+    padding: var(--spacing-small);
 
   }
 }

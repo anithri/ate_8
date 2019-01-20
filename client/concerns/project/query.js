@@ -22,15 +22,6 @@ export const GET_PROJECT = gql`
           }
         }
       }
-      workers {
-        all: edges {
-          worker: node {
-            id
-            name
-            slug
-          }
-        }
-      }
     }
   }
 `

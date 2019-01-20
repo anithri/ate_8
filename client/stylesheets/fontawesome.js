@@ -1,13 +1,26 @@
-import { faBars, faHome, faUser } from '@fortawesome/pro-solid-svg-icons'
 import {
+  faBars,
+  faHome,
+  faUser,
+  faUserCheck,
+} from '@fortawesome/pro-solid-svg-icons'
+import {
+  faCheckCircle,
   faChevronDoubleLeft,
   faChevronDoubleRight,
-  faCheckCircle,
 } from '@fortawesome/pro-regular-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 const setupIcons = () => {
-  library.add(faBars, faHome, faUser, faCheckCircle, faChevronDoubleRight, faChevronDoubleLeft)
+  library.add(
+    faBars,
+    faCheckCircle,
+    faChevronDoubleRight,
+    faChevronDoubleLeft,
+    faHome,
+    faUser,
+    faUserCheck,
+  )
 }
 
 export default setupIcons

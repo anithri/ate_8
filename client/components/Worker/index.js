@@ -5,9 +5,19 @@ import React from 'react'
 import styles from './styles.module.css'
 import { workerShape } from 'concerns/worker'
 
-const Worker = ({ className, isSummary, size, worker: { slug, total, isMet } }) => (
+const workerIcons = {
+  met: 'user-check',
+  unmet: 'user',
+}
+
+const Worker = ({
+  className,
+  isSummary,
+  size,
+  worker: { slug, total, isMet },
+}) => (
   <figure className={cx(className, styles.Worker, styles[slug], styles[isMet])}>
-    <FontAwesomeIcon icon="user" size={size} />
+    <FontAwesomeIcon icon={workerIcons[isMet] || 'user'} size={size} />
     {isSummary && <span className={styles.counter}>{total}</span>}
   </figure>
 )
@@ -18,5 +28,6 @@ Worker.propTypes = {
   size: PropTypes.string,
   worker: workerShape.isRequired,
 }
+
 
 export default Worker

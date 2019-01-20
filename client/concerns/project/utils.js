@@ -6,6 +6,5 @@ export const parseProject = ({ project }) => {
   return {
     ...project,
     projectCard: parseCard(project.cards.projectCard),
-    workers: parseWorkerList(project.workers),
   }
 }

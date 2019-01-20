@@ -16,7 +16,6 @@ const PlayerCard = ({ className, player }) => {
       <WorkerBar
         workers={player.requiredWorkers}
         className={styles.workerBar}
-        size="md"
         layout="spread"
       >
         <figure className={styles.info}>{player.score}</figure>

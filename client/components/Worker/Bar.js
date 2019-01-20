@@ -32,7 +32,7 @@ const WorkerBar = ({
     <ul className={cx(className, styles.bar, styles[layout])}>
       {label}
       {workerFigures}
-      <li>{children}</li>
+      {children && <li>{children}</li>}
     </ul>
   )
 }
@@ -49,7 +49,7 @@ WorkerBar.propTypes = {
 WorkerBar.defaultProps = {
   isSummary: false,
   layout: 'spread',
-  size: 'md',
+  size: '1x',
 }
 
 export default WorkerBar

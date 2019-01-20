@@ -1,35 +1,32 @@
 module Game
   class Runner
-    attr_reader :game_session
+    include Workflow
+    attr_accessor :game, :session
 
-    def initialize(game_session)
-      @game_session = game_session
+    def initialize(game)
+      @game = game
+      @session = game.game_session
     end
 
-    def board
-      @board ||= Game::Board.new(game_session)
+    def load_workflow_state
+      session.workflow_state
     end
 
-    def player(player_id)
-      seats.find { |pd| pd.id == player_id }
+    def persist_workflow_state(new_value)
+      session.workflow_state = new_value
+      session.save
     end
 
-    def current_player
-      seats[round]
+    workflow do
+      state :new do
+        event :start, transitions_to: :player_start
+        event :stop, transition_to: :end_game
+      end
+
+      state :player_start
+
+      state :end_game
     end
 
-    def seats
-      game_session.players.map { |pd| Seat.new(pd, board) }
-    end
-
-    def round
-      game_session.turn % seats.length
-    end
-
-    def worker_types
-      Bits::Worker.all
-    end
-
-    delegate :gid, :name, :players, :save, :turn, to: :game_session
   end
 end

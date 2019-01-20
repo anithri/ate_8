@@ -32,7 +32,7 @@ module Game
       puts ['Game::Project#locate', gid].inspect
       bs = BoardContent.locate(gid)
       return unless bs
-      g = Game::Runner.new(bs.game_session)
+      g = Game::Table.new(bs.game_session)
       Game::Project.new(g.board[bs.tile_id])
     end
   end

@@ -1,11 +1,11 @@
 module Mutations
-  class CreateGame < BaseMutation
+  class StartGame < BaseMutation
     field :game, Types::Game, null: true
 
-    argument :new_player_ids, [ID], required: true
+    argument :game_id, ID, required: true
 
-    def resolve(new_player_ids:)
-      r = Games::Create.call new_player_ids: new_player_ids
+    def resolve(game_id:)
+      r = Actions::StartGame.call game_id: game_id
       if r.failure?
         {game: nil, errors: r.error ? [r.error] : []}
       else

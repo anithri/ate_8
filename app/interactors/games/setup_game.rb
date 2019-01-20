@@ -23,7 +23,7 @@ module Games
           board_contents: board_contents,
           players:        players
         })
-      context.game         = Game::Runner.new(game_session)
+      context.game         = Game::Table.new(game_session)
     end
   end
 end

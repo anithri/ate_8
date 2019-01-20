@@ -3,6 +3,7 @@ import { playerListShape } from 'concerns/player'
 import PropTypes from 'prop-types'
 
 export const gameShape = PropTypes.shape({
+  currentState: PropTypes.string.isRequired,
   draftBar: PropTypes.shape({
     id: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
@@ -16,4 +17,6 @@ export const gameShape = PropTypes.shape({
   orientation: PropTypes.string.isRequired,
   players: playerListShape,
   projects: boardSpaceListShape,
+  round: PropTypes.number.isRequired,
+  turn: PropTypes.number.isRequired,
 })

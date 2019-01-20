@@ -7,6 +7,7 @@ export const GET_GAME = gql`
       name
       turn
       round
+      currentState
       players {
         all: edges {
           player: node {

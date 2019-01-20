@@ -19,7 +19,7 @@ module Game
 
     def self.locate(player_id)
       player = Player.locate(player_id)
-      game   = Game::Runner.new(player.game_session)
+      game   = Game::Table.new(player.game_session)
       game.player(player.id)
     end
 

@@ -36,7 +36,7 @@ class GamePage extends React.Component {
       <main className={cx(className, styles.page)}>
         <GameFrame />
         <Title className={styles.title} game={game} />
-        <Messages className={styles.messages} />
+        <Messages className={styles.messages} game={game} />
         <DraftBarPane
           className={styles[game.orientation]}
           boardSpaceId={game.draftBar.id}

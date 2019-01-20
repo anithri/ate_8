@@ -13,7 +13,7 @@ module Game
 
     def self.locate(gid)
       bc = BoardContent.locate gid
-      g = Game::Runner.new(bc.game_session)
+      g = Game::Table.new(bc.game_session)
       g.board[bc.tile_id]
     end
   end

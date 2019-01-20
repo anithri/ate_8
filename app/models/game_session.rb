@@ -19,7 +19,6 @@ require 'workflow'
 require 'workflow_activerecord'
 class GameSession < ApplicationRecord
   include UseGlobalRecord
-  include WorkflowActiverecord
 
   has_many :players,
            autosave:  true,
@@ -39,16 +38,5 @@ class GameSession < ApplicationRecord
     self.to_gid_param
   end
 
-  workflow do
-    state :new do
-      event :start, :transitions_to => :starting
-      event :stop, :transitions_to => :stopping
-    end
-
-    state :starting
-
-    state :stop
-
-  end
 
 end

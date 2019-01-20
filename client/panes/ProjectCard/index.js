@@ -6,18 +6,18 @@ import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const ProjectCard = ({ className, project }) => {
+  const { card } = project
   console.log('ProjectCard', project)
-  const card = project.projectCard
   return (
     <article
       className={cx(className, styles.pane)}
-      key={`project-card-${project.id}`}
+      key={`project-card-${card.id}`}
     >
       <header>
         <h2>{card.name}</h2>
       </header>
       <section>Some notes</section>
-      <WorkerBar workers={card.requiredWorkers} />
+      <WorkerBar workers={project.workers} asRequired={true} />
     </article>
   )
 }

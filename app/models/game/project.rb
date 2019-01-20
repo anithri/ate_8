@@ -7,16 +7,14 @@ module Game
     end
 
     delegate :bag, :deck, :id, :gid, :name, :tile, to: :board_space
-    delegate :workers, to: :bag
-    delegate :cards, to: :deck
     delegate :slug, to: :tile
 
-    def project_card
+    def card
       deck.cards[0]
     end
 
     def required_workers
-      project_card.workers
+      card.workers
     end
 
     def workers
@@ -26,7 +24,8 @@ module Game
     end
 
     def assign_workers_for_project!
-      bag.required!(Array.new(required_workers.length))
+      faked = required_workers.map{|w| rand(2).zero? ? nil: w.id}
+      bag.required!(faked)
     end
 
     def self.locate(gid)

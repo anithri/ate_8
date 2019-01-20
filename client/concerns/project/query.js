@@ -1,24 +1,32 @@
 import { gql } from 'apollo-boost'
 
 export const GET_PROJECT = gql`
-  query getProject($boardSpaceId: ID!) {
-    project: boardSpace(boardSpaceId: $boardSpaceId) {
+  query getProject($projectId: ID!) {
+    project(projectId: $projectId) {
       id
       name
       slug
-      cards {
-        projectCard: first {
-          id
-          name
-          requiredWorkers {
-            all: edges {
-              worker: node {
-                id
-                name
-                slug
-                isMet
-              }
+      card {
+        id
+        name
+        requiredWorkers {
+          all: edges {
+            worker: node {
+              id
+              isMet
+              name
+              slug
             }
+          }
+        }
+      }
+      workers {
+        all: edges {
+          worker: node {
+            id
+            isMet
+            name
+            slug
           }
         }
       }

@@ -7,7 +7,7 @@ import React from 'react'
 export const ProjectContainer = Display => {
   const container = ({ projectId, ...props }) => {
     return (
-      <Query query={GET_PROJECT} variables={{ boardSpaceId: projectId }}>
+      <Query query={GET_PROJECT} variables={{ projectId }}>
         {({ loading, error, data }) => {
           if (loading) return <div {...props}>Loading...</div>
           if (error) return <div {...props}>Error! {error}</div>

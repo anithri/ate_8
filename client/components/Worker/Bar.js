@@ -7,6 +7,7 @@ import Worker from 'components/Worker'
 import { workerListShape } from 'concerns/worker'
 
 const WorkerBar = ({
+  asRequired,
   className,
   children,
   isSummary,
@@ -23,7 +24,12 @@ const WorkerBar = ({
 
   const workerFigures = workers.map((worker, idx) => (
     <li key={`worker-summary-${idx}`}>
-      <Worker worker={worker} isSummary={isSummary} size={size} />
+      <Worker
+        worker={worker}
+        isSummary={isSummary}
+        size={size}
+        asRequired={asRequired}
+      />
     </li>
   ))
 
@@ -38,6 +44,7 @@ const WorkerBar = ({
 }
 
 WorkerBar.propTypes = {
+  asRequired: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
   isSummary: PropTypes.bool,

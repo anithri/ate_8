@@ -11,23 +11,31 @@ const workerIcons = {
 }
 
 const Worker = ({
+  asRequired,
   className,
   isSummary,
   size,
   worker: { slug, total, isMet },
 }) => (
-  <figure className={cx(className, styles.Worker, styles[slug], styles[isMet])}>
+  <figure
+    className={cx(
+      className,
+      styles.Worker,
+      styles[slug],
+      styles[asRequired && isMet],
+    )}
+  >
     <FontAwesomeIcon icon={workerIcons[isMet] || 'user'} size={size} />
     {isSummary && <span className={styles.counter}>{total}</span>}
   </figure>
 )
 
 Worker.propTypes = {
+  asRequired: PropTypes.bool,
   className: PropTypes.string,
   isSummary: PropTypes.bool,
   size: PropTypes.string,
   worker: workerShape.isRequired,
 }
-
 
 export default Worker

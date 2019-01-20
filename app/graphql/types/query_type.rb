@@ -59,6 +59,15 @@ module Types
     end
 
     #endregion
+    #region Project Fields
+    field :project, Types::Project, null: true do
+      argument :project_id, ID, required: true, as: :id
+    end
+    def project(id:)
+      ::Game::Project.locate id
+    end
+    #endregion
+
     # last of fields
   end
 end

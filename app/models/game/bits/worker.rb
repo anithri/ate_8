@@ -11,6 +11,16 @@ module Game
         'met'
       end
     end
+    class UnsatisfiedWorker
+      delegate_missing_to :@worker
+      def initialize(worker)
+        @worker = worker
+        self
+      end
+      def is_met
+        'unmet'
+      end
+    end
     class Worker < ApplicationActiveHash
       include ActiveHashGlobalId
 
@@ -38,11 +48,11 @@ module Game
       end
 
       def is_met
-        'unmet'
+        ''
       end
 
-      def satisfy!
-        Bits::SatisfiedWorker.new(self)
+      def satisfy!(isMet = true)
+        isMet ? Bits::SatisfiedWorker.new(self) : Bits::UnsatisfiedWorker.new(self)
       end
 
       def self.combinations

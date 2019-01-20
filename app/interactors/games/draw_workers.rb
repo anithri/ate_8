@@ -12,10 +12,15 @@ module Games
 
     def call
       RULES::STARTING_WORKER_SPACES.each do |tile_id, count|
-        pool = BITS::Worker.all.reduce([]) do |arr, w|
+        pool = Bits::Worker.all.reduce([]) do |arr, w|
           arr.push(*Array.new(count, w))
         end.shuffle
         board[tile_id.to_s].bag.push(pool)
+      end
+
+      Bits::Tile.projects.each do |tile|
+        project = Game::Project.new(board[tile.id])
+        project.assign_workers_for_project!
       end
     end
   end

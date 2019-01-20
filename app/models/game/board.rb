@@ -28,6 +28,7 @@ module Game
       )
     end
 
+
     def active_workers
       all = Game::Bits::Tile.summary('active').map do |id|
         @spaces[id].workers

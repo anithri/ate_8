@@ -6,10 +6,10 @@
         <option name="TAB_SIZE" value="2" />
       </value>
     </option>
-    <option name="RIGHT_MARGIN" value="100" />
+    <option name="RIGHT_MARGIN" value="80" />
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="true" />
     <option name="FORMATTER_TAGS_ENABLED" value="true" />
-    <option name="SOFT_MARGINS" value="100" />
+    <option name="SOFT_MARGINS" value="80" />
     <HTMLCodeStyleSettings>
       <option name="HTML_SPACE_INSIDE_EMPTY_TAG" value="true" />
     </HTMLCodeStyleSettings>

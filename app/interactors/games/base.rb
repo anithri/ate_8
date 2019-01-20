@@ -2,7 +2,7 @@ module Games
   class Base
     include Interactor
 
-    BITS  = Game::Bits
+    Bits  = Game::Bits
     RULES = Game::Bits::Rules
 
     delegate :board, :board_contents, :game, :game_session, :name, :players, :users, to: :context

@@ -10,9 +10,9 @@ module Games
     end
 
     def call
-      board.draw.deck.push(BITS::Card.shuffled)
+      board.draw.deck.push(Bits::Card.shuffled)
 
-      BITS::Tile.projects.each do |tile|
+      Bits::Tile.projects.each do |tile|
         board.deal(1, to: tile.id)
       end
     end

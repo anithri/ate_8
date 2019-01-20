@@ -7,7 +7,7 @@ module Games
     end
 
     def call
-      context.board_contents = BITS::Tile.all.map do |tile|
+      context.board_contents = Bits::Tile.all.map do |tile|
         BoardContent.new(
           {
             tile:          tile,

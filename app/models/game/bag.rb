@@ -26,13 +26,21 @@ module Game
     end
 
     def pop(count = 1)
-      card_ids_will_change! unless count == 0 || card_ids.length == 0
+      worker_ids_will_change! unless count == 0 || worker_ids.length == 0
       worker_ids.pop(count)
+    end
+
+    def required!(arr)
+      return arr if worker_ids == arr
+      worker_ids_will_change!
+      worker_ids.clear
+      worker_ids.push(*arr)
     end
 
     def to_json
       to_h.to_json
     end
+
 
     def to_h
       {

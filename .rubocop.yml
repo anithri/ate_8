@@ -2,6 +2,8 @@ Metrics/LineLength:
   Max: 100
 Style/Documentation:
   Enabled: false
+Style/SymbolArray:
+  Enabled: false
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
 Lint/AmbiguousBlockAssociation:

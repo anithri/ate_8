@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="React-Components" pattern="file[ate_8]:client/components//*.js" />
-</component>

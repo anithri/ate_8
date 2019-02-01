@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="RailsApp" pattern="file[ate_8]:app//*||file[ate_8]:lib//*||file[ate_8]:db//*||file[ate_8]:spec//*||file[ate_8]:templates/rg//*||file[ate_8]:config//*" />
-</component>

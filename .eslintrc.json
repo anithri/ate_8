@@ -59,7 +59,7 @@
     "prefer-const": 2,
     "prefer-promise-reject-errors": 2,
     "sort-imports": [
-      2,
+      0,
       {
         "ignoreCase": true
       }

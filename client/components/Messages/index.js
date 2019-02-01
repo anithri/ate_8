@@ -3,11 +3,11 @@ import { gameShape } from 'concerns/game'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import StartGameControl from 'components/StartGameControl'
+import StartGameControl from 'controls/StartGame'
 
 const Messages = ({ className, game }) => (
-  <div className={cx(className, styles.Messages)}>
-    {game.currentState === 'new' && <StartGameControl/>}
+  <div className={cx(className, styles.messages)}>
+    {game.currentState === 'new' && <StartGameControl />}
   </div>
 )
 

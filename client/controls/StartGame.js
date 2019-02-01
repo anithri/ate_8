@@ -1,7 +1,7 @@
 import cx from 'classnames'
+import { gameShape } from 'concerns/game'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './StartGameControl.module.css'
 
 const StartGameControl = ({ className, game }) => {
   return (
@@ -14,7 +14,7 @@ const StartGameControl = ({ className, game }) => {
 
 StartGameControl.propTypes = {
   className: PropTypes.string,
-  game: gameShape.isRequired
+  game: gameShape.isRequired,
 }
 
 export default StartGameControl

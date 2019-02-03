@@ -12,7 +12,7 @@ module Types
       ::Game.locate(id)
     end
 
-    field :steps, Types::Game.connection_type, null: false
+    field :games, Types::Game.connection_type, null: false
 
     def games
       ::Game.current

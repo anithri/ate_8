@@ -10,10 +10,6 @@ module Game
       @board ||= Game::Board.new(game_session)
     end
 
-    def runner
-      @runner ||= Game::Runner.new(self)
-    end
-
     def player(player_id)
       seats.find { |pd| pd.id == player_id }
     end
@@ -23,7 +19,7 @@ module Game
     end
 
     def current_state
-      runner.current_state.to_s
+      game_session.aasm.current_state.to_s
     end
 
     def seats

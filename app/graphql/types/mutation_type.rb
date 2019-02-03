@@ -2,7 +2,7 @@
 
 module Types
   class MutationType < BaseObject
-    field :create_game, mutation: Mutations::CreateGame
+    field :setup_table, mutation: Mutations::SetupTable
     field :start_game, mutation: Mutations::StartGame
   end
 end

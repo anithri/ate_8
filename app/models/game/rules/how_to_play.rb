@@ -41,6 +41,7 @@ module Game
         end
 
       end
+      # rubocop:enable Metrics/BlockLength
     end
   end
 end

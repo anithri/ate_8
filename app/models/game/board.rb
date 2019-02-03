@@ -19,7 +19,7 @@ module Game
     delegate :[], to: :spaces
 
     def orientation
-      Game::Bits::Glossary::BOARD_ORIENTATIONS.sample
+      Game::Rules::Glossary::BOARD_ORIENTATIONS.sample
     end
 
     def deal(count, to:, from: :draw)

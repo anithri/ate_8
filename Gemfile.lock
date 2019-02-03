@@ -80,6 +80,7 @@ GEM
     crass (1.0.4)
     database_cleaner (1.7.0)
     diff-lcs (1.3)
+    dotenv (0.7.0)
     erubi (1.8.0)
     factory_bot (5.0.0)
       activesupport (>= 4.2.0)
@@ -89,6 +90,9 @@ GEM
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.10.0)
+    foreman (0.64.0)
+      dotenv (~> 0.7.0)
+      thor (>= 0.13.6)
     formatador (0.2.5)
     fuubar (2.3.2)
       rspec-core (~> 3.0)
@@ -306,6 +310,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails
   faker
+  foreman (~> 0.64.0)
   fuubar
   globalid
   graphiql-rails

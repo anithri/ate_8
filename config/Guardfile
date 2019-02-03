@@ -51,7 +51,7 @@ guard 'rails', host: '0.0.0.0', force_run: true do
   watch(%r{^(config|lib)/.*})
 end
 
-guard :process, name: 'webpack-dev-server', command: 'bin/webpack-dev-server'
+# guard :process, name: 'webpack-dev-server', command: 'bin/webpack-dev-server'
 
 # group :specs do
 #   guard :rspec, cmd: 'spring rspec', all_on_start: true, all_after_pass: true do

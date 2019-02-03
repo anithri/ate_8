@@ -38,4 +38,7 @@ class GameSession < ApplicationRecord
     self.to_gid_param
   end
 
+  def current_player
+    self.players[turn]
+  end
 end

@@ -41,7 +41,29 @@ module Game
         end
 
       end
-      # rubocop:enable Metrics/BlockLength
+
+      def state_path
+        "/games/#{self.gid}" + case self.aasm.current_state
+          when :ready_to_start
+            '/'
+          when :start_of_game
+            '/starting'
+          when :start_of_round
+            "/round/#{self.round}/starting"
+          when :player_turn
+            "/round/#{self.round}/#{self.current_player}"
+          when :end_of_round
+            "/round/#{self.round}/ending"
+          when :end_of_game
+            '/ending'
+          when :empty_box
+            '/final'
+          else
+            '/'
+        end
+      end
     end
+    # rubocop:enable Metrics/BlockLength
   end
 end
+

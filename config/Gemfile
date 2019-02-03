@@ -81,3 +81,5 @@ group :development, :test do
   gem 'faker'
   gem 'graphiql-rails'
 end
+
+gem "foreman", "~> 0.64.0", :group => :development

@@ -6,5 +6,6 @@ module Game
       @game    = game
       @session = game.game_session
     end
+
   end
 end

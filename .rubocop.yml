@@ -6,9 +6,13 @@ Style/SymbolArray:
   Enabled: false
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
+Layout/AlignHash:
+  EnforcedColonStyle: table
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 Style/TrailingCommaInArrayLiteral:
   Enabled: false
 Style/TrailingCommaInHashLiteral:
+  Enabled: false
+Style/WordArray:
   Enabled: false

@@ -4,7 +4,7 @@ module Game
       include ActiveHashGlobalId
       GROUPS         = [:all, :cards, :common, :players, :projects, :workers]
       MAX_CARDS      = 0..Card.count
-      MAX_WORKERS    = 0..Rules::TOTAL_WORKER_COUNT
+      MAX_WORKERS    = 0..Rules::Glossary::TOTAL_WORKER_COUNT
       EXACTLY_ONE    = 1..1
       OPTIONALLY_ONE = 0..1
       NONE           = 0..0
@@ -18,7 +18,7 @@ module Game
       field :summary, default: false
 
       alias_method :slug, :id
-      Rules::PLAYER_COUNT.times do |i|
+      Rules::Glossary::PLAYER_COUNT.times do |i|
         create id:            "player#{i + 1}",
                name:          "player #{i + 1}",
                group:         'players',
@@ -67,7 +67,7 @@ module Game
              summary:       'pending'
 
 
-      Rules::PROJECT_COUNT.times do |i|
+      Rules::Glossary::PROJECT_COUNT.times do |i|
         create id:            "project#{i + 1}",
                name:          "Project #{i + 1}",
                group:         'projects',

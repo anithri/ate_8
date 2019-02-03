@@ -64,7 +64,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spring'
   gem 'libnotify'
-  gem 'rubocop', '~> 0.60.0', require: false
+  gem 'rubocop', require: false
 end
 
 group :test do

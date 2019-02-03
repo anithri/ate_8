@@ -1,4 +1,4 @@
-module Games
+module Steps
   class SeatPlayers < Base
 
     before do

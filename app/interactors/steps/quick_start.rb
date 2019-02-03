@@ -1,4 +1,4 @@
-module Games
+module Steps
   class QuickStart < Base
 
     # before do
@@ -10,7 +10,7 @@ module Games
       if Rails.env.development?
         context.users ||=
           PlayerQueue.players(RULES::PLAYER_COUNT)
-        context.name           ||= Faker::Book.title
+        context.name  ||= Faker::Book.title
       end
     end
   end

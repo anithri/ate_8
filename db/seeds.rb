@@ -16,6 +16,6 @@ end
 puts "Users Created: #{User.count}"
 
 10.times do
-  Games::Create.call
+  Events::SetupTable.call
 end
 puts "Games Created: #{GameSession.count}"

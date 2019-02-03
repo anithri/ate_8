@@ -1,4 +1,4 @@
-module Games
+module Steps
   class DealCards < Base
     before do
       # puts '=' * 30
@@ -10,9 +10,9 @@ module Games
     end
 
     def call
-      board.draw.deck.push(Bits::Card.shuffled)
+      board.draw.deck.push(BITS::Card.shuffled)
 
-      Bits::Tile.projects.each do |tile|
+      BITS::Tile.projects.each do |tile|
         board.deal(1, to: tile.id)
       end
     end

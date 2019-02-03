@@ -1,10 +1,10 @@
 module Game
-  module Bits
-    module Rules
+  module Rules
+    module Glossary
       PER_WORKER_COUNT   = 30
       PLAYER_COUNT       = 4
       PROJECT_COUNT      = 16
-      TOTAL_WORKER_COUNT = Worker.count * PER_WORKER_COUNT
+      TOTAL_WORKER_COUNT = Bits::Worker.count * PER_WORKER_COUNT
 
       BOARD_ORIENTATIONS = %w{north east south west}.freeze
 

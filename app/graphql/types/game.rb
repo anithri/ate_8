@@ -11,5 +11,6 @@ module Types
     field :round, Integer, null: false
     field :turn, Integer, null: false
     field :current_state, String, null: false
+    field :state_path, String, null: false
   end
 end

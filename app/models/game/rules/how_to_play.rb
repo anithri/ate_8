@@ -1,6 +1,16 @@
 module Game
   module Rules
     module HowToPlay
+      PATH_FORMATS = {
+        ready_to_start: '/'.freeze,
+        start_of_game:  '/starting'.freeze,
+        start_of_round: '/round/%s/starting'.freeze,
+        player_turn:    '/round/%s/%s'.freeze,
+        end_of_round:   '/round/%s/ending'.freeze,
+        end_of_game:    '/ending'.freeze,
+        empty_box:      '/final'.freeze,
+      }.freeze
+
       extend ActiveSupport::Concern
 
       # rubocop:disable Metrics/BlockLength
@@ -40,30 +50,13 @@ module Game
           end
         end
 
-      end
-
-      def state_path
-        "/games/#{self.gid}" + case self.aasm.current_state
-          when :ready_to_start
-            '/'
-          when :start_of_game
-            '/starting'
-          when :start_of_round
-            "/round/#{self.round}/starting"
-          when :player_turn
-            "/round/#{self.round}/#{self.current_player}"
-          when :end_of_round
-            "/round/#{self.round}/ending"
-          when :end_of_game
-            '/ending'
-          when :empty_box
-            '/final'
-          else
-            '/'
+        def state_path
+          pathFmt = PATH_FORMATS[self.aasm.current_state] || '/'
+          "/games/#{self.gid}#{pathFmt % [self.round, self.current_player]}"
         end
       end
+      # rubocop:enable Metrics/BlockLength
     end
-    # rubocop:enable Metrics/BlockLength
   end
 end
 

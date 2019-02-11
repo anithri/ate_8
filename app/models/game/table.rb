@@ -1,6 +1,7 @@
 module Game
   class Table
     attr_reader :game_session
+    delegate :state_path, to: :game_session
 
     def initialize(game_session)
       @game_session = game_session

@@ -2,7 +2,7 @@
  * Copyright (c) 2018. CPP, Inc. All rights reserved.
  * Also protected by Patent Pending: 15/916,593
  */
-@import "atmosphere/css/atmoPlus.css";
+@import "atmosphere/css/atmo.css";
 @import "./__palette.css";
 @import "./__variables.css";
 @import "./_grid.css";
@@ -17,4 +17,12 @@ html, body, #ateEight {
 
 body {
   background: var(--body-background);
+}
+
+h2 {
+  font-family: var(--headers-font);
+}
+
+h3 {
+  font-family: var(--headers-font);
 }

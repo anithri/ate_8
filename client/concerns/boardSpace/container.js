@@ -1,27 +1,34 @@
 import { GET_BOARD_SPACE } from './query'
 import { parseBoardSpace } from './utils'
 import PropTypes from 'prop-types'
-import { Query } from 'react-apollo'
 import React from 'react'
+import { useQuery } from 'react-apollo-hooks'
+import DefaultLoading from 'components/Loading'
+import DefaultError from 'components/QueryError'
 
-export const boardSpaceContainer = (Display, displayName) => {
-  const displayContainer = ({ boardSpaceId, ...props }) => {
-    return (
-      <Query query={GET_BOARD_SPACE} variables={{ boardSpaceId }}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>Loading...</div>
-          if (error) return <div>Error!</div>
+export const boardSpaceContainer = args => {
+  const {
+    Display,
+    displayName = 'BoardSpaceContainer',
+    Loading = DefaultLoading,
+    Error = DefaultError,
+  } = args
 
-          const boardSpace = parseBoardSpace(data)
-          return <Display boardSpace={boardSpace} {...props} />
-        }}
-      </Query>
-    )
+  const container = ({ boardSpaceId, ...props }) => {
+    const variables = { boardSpaceId }
+    const { data, error, loading } = useQuery(GET_BOARD_SPACE, { variables })
+
+    if (loading) return <Loading />
+    if (error) return <Error error={error} />
+
+    const boardSpace = parseBoardSpace(data)
+
+    return <Display boardSpace={boardSpace} {...props} />
   }
-  displayContainer.displayName = displayName + 'Container'
-  displayContainer.propTypes = {
+  container.displayName = displayName
+  container.propTypes = {
     boardSpaceId: PropTypes.string.isRequired,
   }
 
-  return displayContainer
+  return container
 }

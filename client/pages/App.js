@@ -5,6 +5,7 @@ import Pages from 'pages'
 import React from 'react'
 import { Helmet as ReactHelmet } from 'react-helmet'
 import setupIcons from 'stylesheets/fontawesome'
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
 
 setupIcons()
 
@@ -26,18 +27,20 @@ const client = new ApolloClient({
 
 class App extends React.Component {
   componentDidMount() {
-    this.setState({a: 1})
+    this.setState({ a: 1 })
   }
 
   render() {
     return (
       <ApolloProvider client={client}>
-        <Pages className="max">
-          <ReactHelmet>
-            <meta charSet="utf-8" />
-            <title>Ate Eight</title>
-          </ReactHelmet>
-        </Pages>
+        <ApolloHooksProvider client={client}>
+          <Pages className="max">
+            <ReactHelmet>
+              <meta charSet="utf-8" />
+              <title>Ate Eight</title>
+            </ReactHelmet>
+          </Pages>
+        </ApolloHooksProvider>
       </ApolloProvider>
     )
   }

@@ -10,8 +10,7 @@ const PlayerCard = ({ className, player }) => {
   return (
     <article className={cx(className, styles.pane)}>
       <header>
-        <span>{player.order}</span>
-        <h2>{player.name}</h2>
+        <h2>{player.order}. {player.name}</h2>
       </header>
       <WorkerBar
         workers={player.requiredWorkers}
@@ -29,4 +28,4 @@ PlayerCard.propTypes = {
   player: playerShape,
 }
 
-export default PlayerContainer(PlayerCard)
+export default PlayerContainer({Display: PlayerCard})

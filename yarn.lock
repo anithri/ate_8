@@ -565,6 +565,7 @@ asynckit@^0.4.0:
     classnames "^2.2.6"
     prop-types "^15.6.2"
     react "^16.7.0"
+    react-apollo-hooks "^0.4.0"
     react-dom "^16.7.0"
     react-helmet "^5.2.0"
     tachyons-custom "^4.9.6"
@@ -3400,6 +3401,7 @@ functional-red-black-tree@^1.0.1:
     classnames "^2.2.6"
     prop-types "^15.6.2"
     react "^16.7.0"
+    react-apollo-hooks "^0.4.0"
     react-dom "^16.7.0"
     react-helmet "^5.2.0"
     tachyons-custom "^4.9.6"
@@ -6787,6 +6789,13 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-apollo-hooks@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-apollo-hooks/-/react-apollo-hooks-0.4.0.tgz#8b7992cf78f19390c530bc8f6a201cb4763c35b4"
+  integrity sha512-dQ7mWptHSQ7rk4YfcAuDN+ct/kP3Qg91r3vR+EX4YHHnIH8eDRAD097K0xE6bOIbeTtcGzBjBU5csRVrTHnnJw==
+  dependencies:
+    lodash "^4.17.11"
+
 react-apollo@^2.3.2:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-2.4.1.tgz#89db63ebacf01c1603553bb476f089492aaeab2c"
@@ -6888,16 +6897,6 @@ react-typography@^0.16.13:
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.18.tgz#89341b63d615f1dfcf5e471797df5acce5bde1f3"
   integrity sha512-BFkw59H2mkYRLLtHOT2UZve/9/RticAvL7o7rheOo/+tlwQyfF61wF2XzGRcA3IWASg+DbXnNViyywHBFlNj6A==
 
-react@^16.6.2:
-  version "16.8.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.8.2.tgz#83064596feaa98d9c2857c4deae1848b542c9c0c"
-  integrity sha512-aB2ctx9uQ9vo09HVknqv3DGRpI7OIGJhCx3Bt0QqoRluEjHSaObJl+nG12GDdYH6sTgE7YiPJ6ZUyMx9kICdXw==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.13.2"
-
 react@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.7.0.tgz#b674ec396b0a5715873b350446f7ea0802ab6381"
@@ -6907,6 +6906,16 @@ react@^16.7.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.12.0"
+
+react@^16.8.2:
+  version "16.8.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.8.2.tgz#83064596feaa98d9c2857c4deae1848b542c9c0c"
+  integrity sha512-aB2ctx9uQ9vo09HVknqv3DGRpI7OIGJhCx3Bt0QqoRluEjHSaObJl+nG12GDdYH6sTgE7YiPJ6ZUyMx9kICdXw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.2"
 
 read-cache@^1.0.0:
   version "1.0.0"

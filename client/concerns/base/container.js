@@ -1,9 +1,7 @@
-import { GET_PLAYER } from './query'
-import { parsePlayer } from './utils'
 import { useQuery } from 'react-apollo-hooks'
 import DefaultLoading from 'components/Loading'
 import DefaultError from 'components/QueryError'
-import { createContainer } from 'concerns/base'
+
 import PropTypes from 'prop-types'
 // import { Query } from 'react-apollo'
 import React from 'react'
@@ -37,24 +35,27 @@ import React from 'react'
 //   return container
 // }
 
-export const PlayerContainer = args => {
+export const createContainer = args => {
   const {
     Display,
-    displayName = 'PlayerContainer',
+    displayName = 'Container',
     Loading = DefaultLoading,
     Error = DefaultError,
+    query,
+    preQuery = props => ({}),
+    postQuery = (props, data) => ({ ...props, ...data }),
   } = args
 
-  const container = ({ playerId, ...props }) => {
-    const variables = { playerId }
-    const { data, error, loading } = useQuery(GET_PLAYER, { variables })
+  const container = props => {
+    const variables = preQuery(props)
+    const { data, error, loading } = useQuery(query, { variables })
 
     if (loading) return <Loading />
     if (error) return <Error error={error} />
 
-    const player = parsePlayer(data.player)
+    const displayProps = postQuery(props, data)
 
-    return <Display player={player} {...props || {}} />
+    return <Display {...displayProps} />
   }
 
   container.displayName = displayName
@@ -63,26 +64,4 @@ export const PlayerContainer = args => {
   }
 
   return container
-}
-
-export const BuggedPlayerContainer = args => {
-  const {
-    Display,
-    displayName = 'PlayerContainer',
-    Loading = DefaultLoading,
-    Error = DefaultError,
-    preQuery = props => props,
-    postQuery = (data, props) => ({ data, ...props }),
-  } = args
-
-  const container = createContainer({
-    Display,
-    displayName,
-    query: GET_PLAYER,
-    preQuery: ({ playerId }) => ({ playerId }),
-    postQuery: (props, { player }) => ({
-      ...props,
-      player: parsePlayer(player),
-    }),
-  })
 }

@@ -1,24 +1,31 @@
 import { GET_CARD } from './query'
 import { parseCard } from './utils'
 import PropTypes from 'prop-types'
-import { Query } from 'react-apollo'
 import React from 'react'
+import { useQuery } from 'react-apollo-hooks'
+import DefaultLoading from 'components/Loading'
+import DefaultError from 'components/QueryError'
 
-export const CardContainer = Display => {
+export const CardContainer = args => {
+  const {
+    Display,
+    displayName = 'CardContainer',
+    Loading = DefaultLoading,
+    Error = DefaultError,
+  } = args
+
   const displayContainer = ({ cardId, ...props }) => {
-    return (
-      <Query query={GET_CARD} variables={{cardId}}>
-        {({ loading, error, data }) => {
-          if (loading) return <div>Loading...</div>
-          if (error) return <div>Error!</div>
+    const variables = { cardId }
+    const { data, error, loading } = useQuery(GET_CARD, { variables })
 
-          const card = parseCard(data.card)
-          return <Display card={card} {...props} />
-        }}
-      </Query>
-    )
+    if (loading) return <Loading />
+    if (error) return <Error error={error} />
+
+    const card = parseCard(data.card)
+
+    return <Display card={card} {...props} />
   }
-  displayContainer.displayName = CardContainer
+  displayContainer.displayName = displayName
   displayContainer.propTypes = {
     cardId: PropTypes.string.isRequired,
   }

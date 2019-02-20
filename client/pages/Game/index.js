@@ -16,6 +16,7 @@ class GamePage extends React.Component {
   }
   render() {
     const { game, className } = this.props
+    console.log('GamePage', this.props)
 
     const players = game.players.map(({ id, slug }) => (
       <PlayerCard
@@ -31,6 +32,7 @@ class GamePage extends React.Component {
         className={styles[slug]}
       />
     ))
+    console.log('GamePage', players.length, projects.length)
 
     return (
       <main className={cx(className, styles.page)}>
@@ -53,4 +55,4 @@ GamePage.propTypes = {
   game: gameShape.isRequired,
 }
 
-export default GameContainer(GamePage)
+export default GameContainer({ Display: GamePage })

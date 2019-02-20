@@ -65,14 +65,7 @@
       }
     ],
     "prettier/prettier": "error",
-    "sort-keys": [
-      2,
-      "asc",
-      {
-        "caseSensitive": false,
-        "natural": true
-      }
-    ],
+    "sort-keys": 0,
     "sort-vars": 2,
     "strict": [
       2,

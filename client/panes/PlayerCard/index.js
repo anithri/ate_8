@@ -30,4 +30,4 @@ PlayerCard.propTypes = {
   player: playerShape,
 }
 
-export default PlayerContainer({ Display: PlayerCard })
+export default PlayerContainer({Display: PlayerCard})

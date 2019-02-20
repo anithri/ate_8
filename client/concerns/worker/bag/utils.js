@@ -1,8 +1,8 @@
 import { parseWorkerList } from '../list/utils'
 
-export const parseWorkerBag = ({ bag }) => {
+export const parseWorkerBag = ({ workerBag }) => {
   return {
-    ...bag,
-    workers: parseWorkerList(bag.workers),
+    ...workerBag,
+    workers: parseWorkerList(workerBag.workers),
   }
 }

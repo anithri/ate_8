@@ -23,7 +23,7 @@ export const createContainer = args => {
 
     if (loading) return <Loading />
     if (error) return <Error error={error} />
-
+    console.log(displayName, data)
     const displayProps = postQuery(props, data)
 
     return <Display {...displayProps} />

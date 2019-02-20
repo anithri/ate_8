@@ -1,10 +1,11 @@
+import { createByIdContainer, extractData } from '../base'
 import { GET_PROJECT } from './query'
 import { parseProject } from './utils'
 import PropTypes from 'prop-types'
 import { Query } from 'react-apollo'
 import React from 'react'
 
-export const ProjectContainer = Display => {
+export const OldProjectContainer = Display => {
   const container = ({ projectId, ...props }) => {
     return (
       <Query query={GET_PROJECT} variables={{ projectId }}>
@@ -25,3 +26,12 @@ export const ProjectContainer = Display => {
 
   return container
 }
+
+export const ProjectContainer = args =>
+  createByIdContainer({
+    concern: 'project',
+    concernResult: 'card',
+    parser: parseProject,
+    query: GET_PROJECT,
+    ...args,
+  })

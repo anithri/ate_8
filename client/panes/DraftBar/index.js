@@ -5,8 +5,8 @@ import React from 'react'
 import styles from './pane.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
-const DraftBarPane = ({ className, bag }) => {
-  console.log('DraftBarPane', bag)
+const DraftBarPane = ({ className, workerBag }) => {
+  console.log('DraftBarPane', workerBag)
   return (
     <React.Fragment>
       <WorkerBar
@@ -14,15 +14,15 @@ const DraftBarPane = ({ className, bag }) => {
         label={'Draft Bar'}
         layout={'spread'}
         size={'lg'}
-        {...bag}
+        {...workerBag}
       />
     </React.Fragment>
   )
 }
 
 DraftBarPane.propTypes = {
-  bag: workerBagShape,
+  workerBag: workerBagShape,
   className: PropTypes.string,
 }
 
-export default WorkerBagContainer(DraftBarPane)
+export default WorkerBagContainer({ Display: DraftBarPane })

@@ -32,7 +32,7 @@ class GamePage extends React.Component {
         className={styles[slug]}
       />
     ))
-    console.log('GamePage', players.length, projects.length)
+    console.log('GamePage - workerBagId', game.draftBar.id )
 
     return (
       <main className={cx(className, styles.page)}>
@@ -41,7 +41,7 @@ class GamePage extends React.Component {
         <Messages className={styles.messages} game={game} />
         <DraftBarPane
           className={styles[game.orientation]}
-          boardSpaceId={game.draftBar.id}
+          workerBagId={game.draftBar.id}
         />
         {players}
         {projects}

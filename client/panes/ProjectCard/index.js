@@ -27,4 +27,4 @@ ProjectCard.propTypes = {
   project: projectShape,
 }
 
-export default ProjectContainer(ProjectCard)
+export default ProjectContainer({Display: ProjectCard})

@@ -6,6 +6,7 @@ import cc from 'change-case'
 export const createByIdContainer = args => {
   const { concern, concernId, parser } = args
   const id = concernId || cc.camel(concern) + 'Id'
+  console.log('createByIdContainer ', concern, id)
   return createContainer({
     displayName: cc.pascal(concern) + 'Container',
     preQuery: queryById(id),

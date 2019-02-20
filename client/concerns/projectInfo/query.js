@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost'
 
 export const GET_PROJECT_INFO = gql`
-  query getProjectInfo($gameId: ID!) {
-    projectInfo: game(gameId: $gameId) {
+  query getProjectInfo($projectInfoId: ID!) {
+    projectInfo: game(gameId: $projectInfoId) {
       id
       board {
         orientation

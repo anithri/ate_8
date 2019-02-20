@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost'
 
 export const GET_CARD_DECK = gql`
   query getCardDeck($cardDeckId: ID!) {
-    deck: boardSpace(boardSpaceId: $cardDeckId) {
+    cardDeck: boardSpace(boardSpaceId: $cardDeckId) {
       cards {
         totalCount
       }

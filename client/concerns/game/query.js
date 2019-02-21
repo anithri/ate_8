@@ -35,6 +35,11 @@ export const GAME_FRAGMENT = gql`
         slug
       }
     }
+    messages {
+      body
+      icon
+      theme
+    }
   }
 `
 

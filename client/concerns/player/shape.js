@@ -7,4 +7,5 @@ export const playerShape = PropTypes.shape({
   order: PropTypes.number.isRequired,
   requiredWorkers: workerListShape,
   slug: PropTypes.string.isRequired,
+  myTurn: PropTypes.bool,
 })

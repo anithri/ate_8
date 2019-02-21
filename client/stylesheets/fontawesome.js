@@ -4,6 +4,9 @@ import {
   faPlay,
   faUser,
   faUserCheck,
+  faSmile,
+  faMeh,
+  faFrown,
 } from '@fortawesome/pro-solid-svg-icons'
 import {
   faCheckCircle,
@@ -18,6 +21,9 @@ const setupIcons = () => {
     faCheckCircle,
     faChevronDoubleRight,
     faChevronDoubleLeft,
+    faSmile,
+    faMeh,
+    faFrown,
     faPlay,
     faHome,
     faUser,

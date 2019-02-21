@@ -61,6 +61,11 @@ const BlankGame = ({ className, game, players }) => (
   </main>
 )
 
+BlankGame.propTypes = {
+  className: PropTypes.string,
+  game: gameShape.isRequired,
+  players: PropTypes.arrayOf(PropTypes.node),
+}
 GamePage.propTypes = {
   className: PropTypes.string,
   game: gameShape.isRequired,

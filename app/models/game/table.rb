@@ -34,6 +34,7 @@ module Game
       Bits::Worker.all
     end
 
-    delegate :gid, :name, :players, :save, :turn, :starting_game, to: :game_session
+
+    delegate :gid, :name, :players, :messages, :save, :turn, :starting_game, to: :game_session
   end
 end

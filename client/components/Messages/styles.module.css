@@ -2,5 +2,45 @@
   background-color: var(--white-50);
   border-radius: var(--border-radius-3);
 
+  & > ul {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding: var(--spacing-extra-extra-small);
 
+    & > * {
+      flex: 1 1 auto;
+      border-radius: var(--border-radius-3);
+      margin-top: var(--spacing-extra-extra-small);
+
+
+      & > svg {
+        padding-right: var(--spacing-extra-small);
+
+      }
+    }
+    & > *:first-child {
+      margin-top: var(--spacing-none);
+
+    }
+  }
+}
+
+.primary {
+  composes: bg-brand-primary near-black from global;
+}
+.info {
+  composes: bg-brand-info near-black from global;
+}
+.success {
+  composes: bg-brand-success near-black from global;
+}
+.warning {
+  composes: bg-brand-warning near-black from global;
+}
+.danger {
+  composes: bg-brand-danger near-black from global;
 }

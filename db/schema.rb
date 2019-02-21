@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_09_033840) do
+ActiveRecord::Schema.define(version: 2019_02_21_051953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2018_12_09_033840) do
     t.index ["finished_at"], name: "index_game_sessions_on_finished_at"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.integer "icon"
+    t.integer "theme"
+    t.bigint "game_session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_session_id"], name: "index_messages_on_game_session_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.bigint "game_session_id"
     t.bigint "user_id"
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 2018_12_09_033840) do
   end
 
   add_foreign_key "board_contents", "game_sessions"
+  add_foreign_key "messages", "game_sessions"
   add_foreign_key "players", "game_sessions"
   add_foreign_key "players", "users"
 end

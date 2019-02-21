@@ -28,10 +28,15 @@ class GameSession < ApplicationRecord
            autosave:  true,
            dependent: :destroy
 
+  has_many :messages,
+           -> { order(updated_at: :desc).limit(5) },
+           autosave:  true,
+           dependent: :destroy
+
   validates :name, presence: true, uniqueness: true
   validates :round, :turn, numericality: {only_integer: true}
 
-  default_scope -> { includes(:players, :board_contents) }
+  default_scope -> { includes(:players, :board_contents, :messages) }
   # scope :active, ->{where(finished_at: nil)}
 
   def gid

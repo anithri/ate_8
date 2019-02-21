@@ -19,4 +19,11 @@ export const gameShape = PropTypes.shape({
   projects: boardSpaceListShape,
   round: PropTypes.number.isRequired,
   turn: PropTypes.number.isRequired,
+  messages: PropTypes.arrayOf(
+    PropTypes.shape({
+      body: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+      theme: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 })

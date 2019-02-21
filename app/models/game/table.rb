@@ -1,7 +1,6 @@
 module Game
   class Table
     attr_reader :game_session
-    delegate :state_path, to: :game_session
 
     def initialize(game_session)
       @game_session = game_session
@@ -35,6 +34,6 @@ module Game
       Bits::Worker.all
     end
 
-    delegate :gid, :name, :players, :save, :turn, to: :game_session
+    delegate :gid, :name, :players, :save, :turn, :starting_game, to: :game_session
   end
 end

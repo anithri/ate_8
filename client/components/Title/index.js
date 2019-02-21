@@ -6,21 +6,18 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
 
-const Title = ({ className, game: { name, round, turn } }) => {
-  console.log(className, name, round, turn)
-  return (
-    <header className={cx(className, styles.title)}>
-      <nav>
-        <Link to="/">
-          <FontAwesomeIcon icon="home" size="lg" />
-        </Link>
-      </nav>
-      <h1>{name}</h1>
-      <figure>Turn: {turn}</figure>
-      <figure>Round: {round}</figure>
-    </header>
-  )
-}
+const Title = ({ className, game: { name, round, turn } }) => (
+  <header className={cx(className, styles.title)}>
+    <nav>
+      <Link to="/">
+        <FontAwesomeIcon icon="home" size="lg" />
+      </Link>
+    </nav>
+    <h1>{name}</h1>
+    <figure>Turn: {turn}</figure>
+    <figure>Round: {round}</figure>
+  </header>
+)
 
 Title.propTypes = {
   className: PropTypes.string,

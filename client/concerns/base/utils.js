@@ -11,7 +11,6 @@ export const queryById = concernId => props => ({
 export const extractData = (concern, parser) => (props, data) => ({
   ...props,
   [concern]: parser(data),
-  woot: console.log('extractData', concern, data)
 })
 
 export const emptyQuery = () => ({})

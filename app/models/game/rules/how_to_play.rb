@@ -21,7 +21,7 @@ module Game
           state :filled_box, initial: true
           state :ready_to_start
           state :start_of_game
-          state :start_of_round
+          state :start_of_round, before_enter: :save
           state :player_turn
           state :end_of_round
           state :end_of_game
@@ -32,7 +32,7 @@ module Game
           end
 
           event :starting_game do
-            transitions from: :ready_to_start, to: :start_of_game
+            transitions from: :ready_to_start, to: :start_of_game, guard: :can_start_game?
           end
 
           event :next_round do
@@ -49,11 +49,10 @@ module Game
             transitions from: [:end_of_game], to: :empty_box
           end
         end
+      end
 
-        def state_path
-          pathFmt = PATH_FORMATS[self.aasm.current_state] || '/'
-          "/games/#{self.gid}#{pathFmt % [self.round, self.current_player]}"
-        end
+      def can_start_game?
+        self.valid?
       end
       # rubocop:enable Metrics/BlockLength
     end

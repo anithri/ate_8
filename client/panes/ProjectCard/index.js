@@ -7,7 +7,7 @@ import WorkerBar from 'components/Worker/Bar'
 
 const ProjectCard = ({ className, project }) => {
   const { card } = project
-  console.log('ProjectCard', project)
+
   return (
     <article
       className={cx(className, styles.pane)}

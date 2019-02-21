@@ -6,7 +6,6 @@ import styles from './pane.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const DraftBarPane = ({ className, workerBag }) => {
-  console.log('DraftBarPane', workerBag)
   return (
     <React.Fragment>
       <WorkerBar

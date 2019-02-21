@@ -4,10 +4,16 @@ import React from 'react'
 import styles from './styles.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Button = ({ className, control, label, iconBefore, iconAfter }) => (
+const Button = ({
+  className,
+  doClick,
+  label,
+  iconBefore,
+  iconAfter,
+}) => (
   <button
     className={cx(className, styles.button)}
-    onClick={() => control && control()}
+    onClick={() => doClick && doClick()}
   >
     {iconBefore && <FontAwesomeIcon icon={iconBefore} />}
     {label}
@@ -23,8 +29,8 @@ Button.propTypes = {
   label: PropTypes.string,
 }
 
-Button.defaultPropTypes = {
-  control: e => e.preventDefault(),
+Button.defaultProps = {
+  doClick: e => e.preventDefault(),
 }
 
 export default Button

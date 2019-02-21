@@ -5,7 +5,7 @@ import GameList from './List'
 import MainHeader from 'components/MainHeader'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { SetupTableControl } from 'controls/SetupTable'
+import { SetupTableControl } from 'controls/setupTable'
 import styles from './styles.module.css'
 
 const CreateTable = SetupTableControl(Button)

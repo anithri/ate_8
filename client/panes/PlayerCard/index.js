@@ -6,7 +6,6 @@ import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const PlayerCard = ({ className, player }) => {
-  // console.log('PlayerCard', player)
   return (
     <article className={cx(className, styles.pane)}>
       <header>
@@ -30,4 +29,4 @@ PlayerCard.propTypes = {
   player: playerShape,
 }
 
-export default PlayerContainer({Display: PlayerCard})
+export default PlayerContainer({ Display: PlayerCard })

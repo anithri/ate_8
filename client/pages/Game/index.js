@@ -16,7 +16,6 @@ class GamePage extends React.Component {
   }
   render() {
     const { game, className } = this.props
-    console.log('GamePage', this.props)
 
     const players = game.players.map(({ id, slug }) => (
       <PlayerCard
@@ -32,7 +31,6 @@ class GamePage extends React.Component {
         className={styles[slug]}
       />
     ))
-    console.log('GamePage - workerBagId', game.draftBar.id )
 
     return (
       <main className={cx(className, styles.page)}>

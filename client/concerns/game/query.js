@@ -6,7 +6,7 @@ export const GAME_FRAGMENT = gql`
     name
     turn
     round
-    currentState
+    gameState
     players {
       all: edges {
         player: node {
@@ -28,6 +28,7 @@ export const GAME_FRAGMENT = gql`
       }
       draftBar: bar {
         id
+        id
         slug
       }
       drawBag: draw {
@@ -36,6 +37,7 @@ export const GAME_FRAGMENT = gql`
       }
     }
     messages {
+      id
       body
       icon
       theme

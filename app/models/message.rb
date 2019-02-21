@@ -20,6 +20,8 @@
 #
 
 class Message < ApplicationRecord
+  include UseGlobalRecord
+
   belongs_to :game_session
   enum icon: [:empty, :smile, :meh, :frown],
        theme: [:primary, :info, :success, :warning, :danger]

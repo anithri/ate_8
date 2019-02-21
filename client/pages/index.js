@@ -14,8 +14,9 @@ const SiteRouter = props => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/games" component={Games} />
-        <Route exact path="/games/:gameId" component={Game} />
+        <Route exact path="/games/:gameId/:gameState?" component={Game} />
+        <Route strict path="/games/:gameId" component={Game} />
+        <Route strict path="/games" component={Games} />
 
         {/* page routes above here - see templates/jg/pages */}
         <Route component={Error404} />

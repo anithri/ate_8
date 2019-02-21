@@ -1,4 +1,5 @@
 import { GameContainer, gameShape } from 'concerns/game'
+import { Redirect } from 'react-router-dom'
 import cx from 'classnames'
 import DraftBarPane from 'panes/DraftBar'
 import GameFrame from './Frame'
@@ -15,7 +16,17 @@ class GamePage extends React.Component {
     this.setState({ check: 1 })
   }
   render() {
-    const { game, className } = this.props
+    console.log('GamePage', this.props)
+    const {
+      game,
+      className,
+      match: {
+        params: { gameId, gameState },
+      },
+    } = this.props
+
+    if (game.gameState !== gameState)
+      return <Redirect to={`/games/${gameId}/${game.gameState}`} />
 
     const players = game.players.map(({ id, slug }) => (
       <PlayerCard
@@ -25,7 +36,7 @@ class GamePage extends React.Component {
       />
     ))
 
-    if (game.currentState === 'ready_to_start')
+    if (game.gameState === 'ready_to_start')
       return <BlankGame className={className} game={game} players={players} />
 
     const projects = game.projects.map(({ id, slug }) => (
@@ -69,6 +80,12 @@ BlankGame.propTypes = {
 GamePage.propTypes = {
   className: PropTypes.string,
   game: gameShape.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      gameId: PropTypes.string.isRequired,
+      gameState: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default GameContainer({ Display: GamePage })

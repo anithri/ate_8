@@ -18,7 +18,7 @@ module Game
       seats[round]
     end
 
-    def current_state
+    def game_state
       game_session.aasm.current_state.to_s
     end
 

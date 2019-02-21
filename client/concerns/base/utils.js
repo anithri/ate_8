@@ -3,6 +3,12 @@ export const queryMatch = paramName => props => {
     [paramName]: props.match.params[paramName],
   }
 }
+export const queryMatchSearch = paramName => props => {
+  return {
+    [paramName]: props.match.params[paramName],
+    search: props.match.location.search || '',
+  }
+}
 
 export const queryById = concernId => props => ({
   [concernId]: props[concernId],

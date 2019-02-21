@@ -20,7 +20,7 @@ const Messages = ({ className, game }) => {
   return (
     <section className={cx(className, styles.messages)}>
       <ul>
-        {game.currentState === 'ready_to_start' && (
+        {game.gameState === 'ready_to_start' && (
           <li>
             <StartGame gameId={game.id} />
           </li>

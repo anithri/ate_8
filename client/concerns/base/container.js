@@ -17,7 +17,8 @@ export const createContainer = args => {
   } = args
 
   const container = props => {
-    const variables = preQuery(props)
+    const containerProps = preQuery(props)
+    const variables = containerProps || {}
 
     const { data, error, loading } = useQuery(query, { variables })
 

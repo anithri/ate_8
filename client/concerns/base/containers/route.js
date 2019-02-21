@@ -12,6 +12,7 @@ export const createRouteContainer = args => {
     propTypes: {
       match: PropTypes.shape({
         params: PropTypes.shape({
+          gameState: PropTypes.string,
           [concernId]: PropTypes.string.isRequired,
         }).isRequired,
       }).isRequired,

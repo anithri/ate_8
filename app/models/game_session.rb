@@ -38,7 +38,7 @@ class GameSession < ApplicationRecord
     self.to_gid_param
   end
 
-  def current_player
-    self.players[turn]
+  def whose_turn
+    round.zero? || players[(turn - 1) % 4]
   end
 end

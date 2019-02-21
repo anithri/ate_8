@@ -26,7 +26,7 @@ class Player < ApplicationRecord
   belongs_to :game_session
   belongs_to :user
 
-  default_scope ->{includes(:user).order(order: :asc)}
+  default_scope -> { includes(:user).order(order: :asc) }
 
   def slug
     "player#{order}"
@@ -35,14 +35,21 @@ class Player < ApplicationRecord
   def worker_ids
     seat_contents['worker_ids']
   end
+
   def worker_ids=(new_workers)
     seat_contents['worker_ids'] = new_workers
   end
+
   def required_workers
     Game::Bits::Worker.locate_many seat_contents['worker_ids']
   end
+
   def required_workers=(new_workers)
-    self.worker_ids = new_workers.map{|w| w.is_a?(String) ? w : w.gid}
+    self.worker_ids = new_workers.map { |w| w.is_a?(String) ? w : w.gid }
+  end
+
+  def my_turn
+    game_session.whose_turn == self
   end
 
   delegate :name, to: :user

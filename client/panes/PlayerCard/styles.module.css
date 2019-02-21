@@ -35,3 +35,16 @@
     padding: var(--spacing-none);
   }
 }
+
+.currentPlayer {
+  & > header {
+    color: var(--dark-purple);
+    background-color: var(--near-white);
+    padding: var(--spacing-small);
+    & > h2 {
+      font-size: var(--font-size-5);
+    }
+  }
+}
+
+

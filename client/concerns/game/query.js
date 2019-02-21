@@ -12,6 +12,7 @@ export const GAME_FRAGMENT = gql`
         player: node {
           id
           slug
+          myTurn
         }
       }
     }

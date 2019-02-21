@@ -1,5 +1,5 @@
 module Events
-  class StartingGame
+  class StartGame
     include Interactor
 
     delegate :game, to: :context
@@ -10,7 +10,7 @@ module Events
     def call
       game.game_session.turn = 1
       game.game_session.round = 1
-      game.game_session.starting_game
+      game.game_session.starting_game! || context.fail!(game.game_session.errors)
     end
   end
 end

@@ -9,5 +9,6 @@ module Types
     field :required_workers, Types::BagConnection, null: false
     field :score, Integer, null: false
     field :slug, String, null: false
+    field :my_turn, Boolean, null: true
   end
 end

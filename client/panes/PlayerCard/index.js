@@ -6,19 +6,22 @@ import styles from './styles.module.css'
 import WorkerBar from 'components/Worker/Bar'
 
 const PlayerCard = ({ className, player }) => {
+  const { myTurn, name, order, requiredWorkers, score } = player
   return (
-    <article className={cx(className, styles.pane)}>
+    <article
+      className={cx(className, styles.pane, myTurn && styles.currentPlayer)}
+    >
       <header>
         <h2>
-          {player.order}. {player.name}
+          {order}. {name}
         </h2>
       </header>
       <WorkerBar
-        workers={player.requiredWorkers}
+        workers={requiredWorkers}
         className={styles.workerBar}
         layout="spread"
       >
-        <figure className={styles.info}>{player.score}</figure>
+        <figure className={styles.info}>{score}</figure>
       </WorkerBar>
     </article>
   )

@@ -7,7 +7,6 @@ import StartGame from 'inputs/StartGame'
 
 const Messages = ({ className, game }) => (
   <div className={cx(className, styles.messages)}>
-    {console.log('Messages', game)}
     {game.currentState === 'ready_to_start' && <StartGame gameId={game.id} />}
   </div>
 )

@@ -21,7 +21,7 @@ module Game
           state :filled_box, initial: true
           state :ready_to_start
           state :start_of_game
-          state :start_of_round, before_enter: :save
+          state :start_of_round
           state :player_turn
           state :end_of_round
           state :end_of_game
@@ -52,7 +52,7 @@ module Game
       end
 
       def can_start_game?
-        self.valid?
+        valid?
       end
       # rubocop:enable Metrics/BlockLength
     end

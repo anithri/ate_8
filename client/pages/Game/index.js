@@ -19,11 +19,15 @@ class GamePage extends React.Component {
 
     const players = game.players.map(({ id, slug }) => (
       <PlayerCard
+        className={styles[slug]}
         key={`${slug}-PlayerCard`}
         playerId={id}
-        className={styles[slug]}
       />
     ))
+
+    if (game.currentState === 'ready_to_start')
+      return <BlankGame className={className} game={game} players={players} />
+
     const projects = game.projects.map(({ id, slug }) => (
       <ProjectCard
         key={`${slug}-ProjectCard}`}
@@ -47,6 +51,15 @@ class GamePage extends React.Component {
     )
   }
 }
+
+const BlankGame = ({ className, game, players }) => (
+  <main className={cx(className, styles.page)}>
+    <GameFrame />
+    <Title className={styles.title} game={game} />
+    <Messages className={styles.messages} game={game} />
+    {players}
+  </main>
+)
 
 GamePage.propTypes = {
   className: PropTypes.string,

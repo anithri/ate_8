@@ -14,7 +14,7 @@ module Game
       @board_space = board[player.slug]
     end
 
-    delegate :id, :gid, :order, :name, :required_workers, :slug, to: :player
+    delegate :id, :my_turn, :gid, :order, :name, :required_workers, :slug, to: :player
     delegate :bag, :deck, to: :board_space
 
     def self.locate(player_id)
@@ -28,6 +28,7 @@ module Game
         .select{|ws| player.required_workers.include?(ws.worker)}
         .sum(&:total)
     end
+
 
 
   end

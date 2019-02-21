@@ -8,6 +8,7 @@ export const GET_PLAYER = gql`
       order
       score
       slug
+      myTurn
       requiredWorkers {
         all: edges {
           worker: node {

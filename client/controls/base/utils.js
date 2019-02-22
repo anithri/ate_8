@@ -2,6 +2,10 @@ export const mutationById = concernId => props => ({
   [concernId]: props[concernId],
 })
 
+export const mutationByMatch = concernId => props => ({
+  [concernId]: props.match.params.gameId,
+})
+
 export const noOp = () => true
 
 export const variablesMutation = ({ variables }) => variables || {}

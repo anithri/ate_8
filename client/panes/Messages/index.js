@@ -3,8 +3,8 @@ import { gameShape } from 'concerns/game'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
-import StartGame from 'inputs/StartGame'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import GameControls from './GameControls'
 
 const Message = ({ body, icon, theme }) => (
   <li className={styles[theme]}>
@@ -20,11 +20,7 @@ const Messages = ({ className, game }) => {
   return (
     <section className={cx(className, styles.messages)}>
       <ul>
-        {game.gameState === 'ready_to_start' && (
-          <li>
-            <StartGame gameId={game.id} />
-          </li>
-        )}
+        <GameControls game={game} />
         {messages}
       </ul>
     </section>

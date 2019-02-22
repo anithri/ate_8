@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { gameShape } from 'concerns/game'
+import { gameShape, messageShape } from 'concerns/game'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './styles.module.css'
@@ -12,6 +12,8 @@ const Message = ({ body, icon, theme }) => (
     {body}
   </li>
 )
+
+Message.propTypes = messageShape
 
 const Messages = ({ className, game }) => {
   const messages = game.messages.map((message, idx) => (

@@ -9,23 +9,15 @@ export const GET_PROJECT_INFO = gql`
         bar {
           name
           workers {
-            all: edges {
-              worker: node {
-                id
-                name
-                slug
-              }
-            }
+            id
+            name
+            slug
           }
         }
         projects {
-          all: edges {
-            boardSpace: node {
-              id
-              name
-              slug
-            }
-          }
+          id
+          name
+          slug
         }
       }
     }

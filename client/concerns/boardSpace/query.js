@@ -11,13 +11,9 @@ export const GET_BOARD_SPACE = gql`
             id
             name
             requiredWorkers {
-              all: edges {
-                worker: node {
-                  id
-                  name
-                  slug
-                }
-              }
+              id
+              name
+              slug
             }
           }
         }

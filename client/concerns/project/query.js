@@ -10,14 +10,10 @@ export const GET_PROJECT = gql`
         id
         name
         requiredWorkers {
-          all: edges {
-            worker: node {
-              id
-              isMet
-              name
-              slug
-            }
-          }
+          id
+          isMet
+          name
+          slug
         }
       }
       workers {

@@ -10,13 +10,9 @@ export const GET_PLAYER = gql`
       slug
       myTurn
       requiredWorkers {
-        all: edges {
-          worker: node {
-            id
-            name
-            slug
-          }
-        }
+        id
+        name
+        slug
       }
     }
   }

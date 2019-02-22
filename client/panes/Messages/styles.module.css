@@ -1,5 +1,5 @@
 .messages {
-  background-color: var(--white-20);
+  background-color: var(--white-10);
   border-radius: var(--border-radius-3);
 
   & > ul {

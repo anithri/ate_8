@@ -7,13 +7,9 @@ export const GET_WORKER_BAG = gql`
       name
       slug
       workers {
-        all: edges {
-          worker: node {
-            id
-            name
-            slug
-          }
-        }
+        id
+        name
+        slug
       }
     }
   }
